@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+        <!--
+
+        //设置圆角度数
+        fresco:roundedCornerRadius="50dp"
+        //设置左下角不进行圆角化
+        fresco:roundBottomLeft="false"
+        //设置右下角不进行圆角化
+        fresco:roundBottomRight="false"
+        //填充颜色（黄色**看下图）
+        fresco:roundWithOverlayColor="#FFFF23"
+        //边界线宽度
+        fresco:roundingBorderWidth="1dp"
+        //边界线颜色（黑色**看下图）
+        fresco:roundingBorderColor="#000000"
+
+        -->
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/image"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+
+
+        fresco:actualImageScaleType="focusCrop"
+        fresco:placeholderImage="@drawable/fruit"
+        fresco:placeholderImageScaleType="fitCenter"
+        fresco:failureImage="@mipmap/icon_failure"
+        fresco:failureImageScaleType="centerInside"
+
+        />
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="文字"
+        android:textColor="@color/black" />
+</LinearLayout>
