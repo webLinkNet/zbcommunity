@@ -5,7 +5,7 @@ package com.weblink.zbcommunity;
  *
  * swq
  *
- * jz
+ * jz01
  */
 public class Constants {
 
