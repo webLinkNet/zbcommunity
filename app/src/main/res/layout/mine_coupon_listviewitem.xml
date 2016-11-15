@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:background="#FFFFFF"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:id="@+id/mine_coupon_yanse"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="90dp">
+
+        <TextView
+            android:textColor="#000000"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:textSize="30dp"
+            android:id="@+id/mine_coupon_num"
+            android:text="5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:textColor="#000000"
+            android:layout_centerVertical="true"
+            android:id="@+id/mine_coupon_yuan"
+            android:textSize="30dp"
+            android:layout_toRightOf="@id/mine_coupon_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="元  "/>
+        <View
+            android:layout_toRightOf="@id/mine_coupon_yuan"
+            android:background="#000000"
+            android:layout_width="5dp"
+            android:layout_height="90dp"/>
+    </RelativeLayout>
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_weight="1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+      <TextView
+          android:textColor="#000000"
+          android:textSize="20dp"
+          android:layout_width="wrap_content"
+          android:layout_height="30dp"
+          android:text="类型"/>
+
+        <TextView
+            android:textColor="#000000"
+            android:textSize="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:text="使用规则"/>
+
+        <TextView
+            android:textColor="#000000"
+            android:id="@+id/mine_coupon_zi"
+            android:textSize="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:text="有效时间"/>
+
+</LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:textColor="#000000"
+            android:id="@+id/mine_coupon_leixing"
+            android:textSize="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:text="类型"/>
+
+        <TextView
+            android:textColor="#000000"
+            android:id="@+id/mine_coupon_guize"
+            android:textSize="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:text="使用规则"/>
+
+        <TextView
+            android:textColor="#000000"
+            android:id="@+id/mine_coupon_last"
+            android:textSize="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:text="有效时间"/>
+
+    </LinearLayout>
+</LinearLayout>

@@ -210,7 +210,7 @@ public class HomeFragment extends BaseFragment {
             Log.i("BaiduLocationApiDem", sb.toString());
 
 
-            tvLoc.setText(location.getCity().replace("市", "") + "  " + list.get(0).getName());
+//            tvLoc.setText(location.getCity().replace("市", "") + "  " + list.get(0).getName());
 
             LocationBean.getInstance().setLocation(location);
         }

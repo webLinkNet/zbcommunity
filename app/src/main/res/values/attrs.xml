@@ -7,6 +7,12 @@
         <attr name="leftButtonIcon" format="reference"/>
         <attr name="isShowSearchView" format="boolean"/>
         <attr name="rightButtonText" format="string"/>
-
+    </declare-styleable>
+    <declare-styleable name="CircleUtils">
+        <attr name="civ_border_width" format="dimension"/>
+        <attr name="civ_border_color" format="color"/>
+        <attr name="civ_border_overlay" format="boolean"/>
+        <attr name="civ_fill_color" format="color"/>
     </declare-styleable>
 </resources>
+

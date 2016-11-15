@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     android:background="#FFFFFF"
+     android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:id="@+id/mine_userinfor_layout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#FF3366"
+        android:gravity="center_vertical" >
+        <ImageView
+            android:layout_centerVertical="true"
+            android:id="@+id/mine_user_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/back"/>
+        <TextView
+            android:id="@+id/mine_user_top_layout_02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="个人信息修改"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+    </RelativeLayout>
+    <LinearLayout
+        android:id="@+id/mine_user_lin"
+        android:layout_below="@id/mine_userinfor_layout"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:id="@+id/mine_user_re_img"
+            android:layout_width="match_parent"
+            android:layout_height="80dp">
+            <TextView
+                android:layout_marginLeft="15dp"
+                android:layout_centerVertical="true"
+                android:textColor="#000000"
+                android:textSize="25sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="头像"/>
+            <com.weblink.zbcommunity.utils.CircleUtils
+                android:id="@+id/mine_userinfor_img"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:contentDescription="@null"
+               android:src="@drawable/daojia"
+                android:layout_width="70dp"
+                android:layout_height="70dp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/mine_user_re_name"
+            android:layout_width="match_parent"
+            android:layout_height="80dp">
+            <TextView
+                android:layout_marginLeft="15dp"
+                android:layout_centerVertical="true"
+                android:textColor="#000000"
+                android:textSize="25sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="昵称"/>
+            <EditText
+                android:textSize="20sp"
+                android:id="@+id/mine_userinfor_name"
+                android:text="请输入您的昵称"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+    </LinearLayout>
+   <Button
+       android:id="@+id/mine_user_set"
+       android:layout_centerHorizontal="true"
+       android:layout_below="@id/mine_user_lin"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="保存修改"/>
+
+</RelativeLayout>

@@ -39,12 +39,8 @@ public class CNiaoToolBar extends Toolbar {
 
     public CNiaoToolBar(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-
-
         initView();
         setContentInsetsRelative(10, 10);
-
-
         if (attrs != null) {
             final TintTypedArray a = TintTypedArray.obtainStyledAttributes(getContext(), attrs,
                     android.support.v7.appcompat.R.styleable.Toolbar, defStyleAttr, 0);
@@ -84,22 +80,13 @@ public class CNiaoToolBar extends Toolbar {
 
             mInflater = LayoutInflater.from(getContext());
             mView = mInflater.inflate(R.layout.toolbar, null);
-
-
             mTextTitle = (TextView) mView.findViewById(R.id.toolbar_title);
             mSearchView = (EditText) mView.findViewById(R.id.toolbar_searchview);
             mRightButton = (Button) mView.findViewById(R.id.toolbar_rightButton);
-
-
             LayoutParams lp = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, Gravity.CENTER_HORIZONTAL);
-
             addView(mView, lp);
         }
-
-
     }
-
-
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     public void setRightButtonIcon(Drawable icon) {
 
