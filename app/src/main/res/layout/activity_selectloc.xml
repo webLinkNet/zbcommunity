@@ -14,7 +14,7 @@
         android:id="@+id/tv_curr_loc"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:background="@drawable/shape_search"
+        android:background="@color/white"
         android:gravity="center"
         android:text="我的位置" />
 
@@ -25,7 +25,7 @@
         android:layout_width="match_parent"
         android:layout_height="120dp"
         android:layout_marginTop="20dp"
-        android:background="@drawable/shape_add_cart">
+        android:background="@color/gray_divide_view">
 
         <LinearLayout
             android:id="@+id/ll_city"
@@ -35,16 +35,18 @@
 
             <Spinner
 
-
                 android:id="@+id/spinner_city"
                 android:layout_width="0dp"
                 android:layout_height="30dp"
+                android:layout_gravity="center"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
                 android:layout_weight="1"
-                android:background="@drawable/shape_search"
+                android:background="@color/white"
                 android:gravity="center"
-                android:layout_gravity="center"
+
+                android:paddingLeft="10dp"
+                android:spinnerMode="dropdown"
                 android:text="淄博市  >" />
 
 
@@ -52,19 +54,22 @@
                 android:id="@+id/spinner_town"
                 android:layout_width="0dp"
                 android:layout_height="30dp"
+                android:layout_gravity="center"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
                 android:layout_toRightOf="@id/spinner_city"
                 android:layout_weight="1"
-                android:background="@drawable/shape_search"
+                android:background="@color/white"
                 android:gravity="center"
+                android:paddingLeft="10dp"
+                android:spinnerMode="dropdown"
                 android:text="张店区  >" />
 
 
         </LinearLayout>
 
 
-        <AutoCompleteTextView
+        <!--<AutoCompleteTextView
             android:id="@+id/tv_search"
             android:layout_width="match_parent"
             android:layout_height="35dp"
@@ -73,10 +78,42 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="15dp"
-            android:background="@drawable/shape_search"
+            android:background="@color/white"
             android:drawableLeft="@mipmap/icon_search"
             android:gravity="center|left"
             android:paddingLeft="10dp"
-            android:text="    搜索附近的商品或门店" />
+            android:text="    输入城市、小区或写字楼"
+            android:textColor="@color/black3" />-->
+
+
+        <AutoCompleteTextView
+            android:id="@+id/tv_search"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_below="@id/ll_city"
+            android:layout_margin="@dimen/space_margin"
+            android:background="@drawable/loc_search_top"
+            android:completionThreshold="1"
+            android:drawableLeft="@drawable/loc_search_icon"
+            android:drawablePadding="5dp"
+            android:dropDownVerticalOffset="1.0dip"
+            android:hint=" 请输入城市、小区或写字楼"
+            android:imeOptions="actionDone"
+            android:inputType="text|textAutoComplete"
+            android:maxLength="20"
+            android:padding="8dp"
+            android:singleLine="true"
+            android:textColor="@color/black3"
+            android:textColorHint="@color/black4"
+            android:textSize="14sp" />
+
+
     </RelativeLayout>
+    <ListView
+        android:id="@+id/locts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/space_margin"
+        android:layout_marginRight="@dimen/space_margin"
+        android:scrollbars="none"></ListView>
 </LinearLayout>

@@ -3,7 +3,6 @@ package com.weblink.zbcommunity;
 import android.app.Application;
 import android.content.Context;
 
-import com.baidu.mapapi.SDKInitializer;
 import com.facebook.drawee.backends.pipeline.Fresco;
 
 /**
@@ -21,7 +20,6 @@ public class ZBApplication extends Application {
         mContext = getApplicationContext();
 
         Fresco.initialize(this);
-        SDKInitializer.initialize(this.getApplicationContext());
 
 
     }

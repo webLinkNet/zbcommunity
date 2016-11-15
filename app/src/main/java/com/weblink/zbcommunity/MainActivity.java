@@ -98,7 +98,7 @@ public class MainActivity extends FragmentActivity {
 
 
     /**
-     * 创建indicator
+     * 创建indicator指示器
      *
      * @param tab
      * @return

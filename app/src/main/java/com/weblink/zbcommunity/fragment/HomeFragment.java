@@ -11,11 +11,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.baidu.location.BDLocation;
-import com.baidu.location.BDLocationListener;
-import com.baidu.location.LocationClient;
-import com.baidu.location.LocationClientOption;
-import com.baidu.location.Poi;
+import com.amap.api.location.AMapLocation;
+import com.amap.api.location.AMapLocationClient;
+import com.amap.api.location.AMapLocationClientOption;
+import com.amap.api.location.AMapLocationListener;
 import com.cjj.MaterialRefreshLayout;
 import com.cjj.MaterialRefreshListener;
 import com.daimajia.slider.library.Animations.DescriptionAnimation;
@@ -24,19 +23,19 @@ import com.daimajia.slider.library.SliderTypes.BaseSliderView;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
 import com.weblink.zbcommunity.Constants;
 import com.weblink.zbcommunity.R;
-import com.weblink.zbcommunity.activity.SelectLocActivity;
 import com.weblink.zbcommunity.adapter.RvHomeAdapter;
 import com.weblink.zbcommunity.adapter.RvHomeTopAdapter;
 import com.weblink.zbcommunity.bean.BannerBean;
 import com.weblink.zbcommunity.bean.CommunityBean;
 import com.weblink.zbcommunity.bean.HomeGVBean;
-import com.weblink.zbcommunity.bean.LocationBean;
 import com.weblink.zbcommunity.utils.ToastUtils;
 import com.weblink.zbcommunity.views.MyGridLayoutManager;
 import com.weblink.zbcommunity.views.MyLinearLayoutManager;
 import com.weblink.zbcommunity.widget.DividerItemDecoration;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import butterknife.BindView;
@@ -46,7 +45,7 @@ import butterknife.ButterKnife;
 /**
  * Created by swq on 2016/10/31.
  */
-public class HomeFragment extends BaseFragment {
+public class HomeFragment extends BaseFragment implements AMapLocationListener {
 
     @BindView(R.id.iv_loc)
     ImageView ivLoc;
@@ -74,10 +73,13 @@ public class HomeFragment extends BaseFragment {
 
     private TextSliderView textSliderView;
 
-    private LocationClient mLocationClient;
-    public BDLocationListener myListener = new MyLocationListener();
 
     private List<CommunityBean.DetailInfoBean> deatilBeanList = new ArrayList<>();
+
+
+    //声明mLocationOption对象
+    public AMapLocationClientOption mLocationOption = null;
+    private AMapLocationClient mlocationClient;
 
 
     @Override
@@ -145,114 +147,119 @@ public class HomeFragment extends BaseFragment {
     }
 
 
-    public class MyLocationListener implements BDLocationListener {
-
-        @Override
-        public void onReceiveLocation(BDLocation location) {
-            StringBuffer sb = new StringBuffer(256);
-            sb.append("time : ");
-            sb.append(location.getTime());
-            sb.append("\nerror code : ");
-            sb.append(location.getLocType());
-            sb.append("\nlatitude : ");
-            sb.append(location.getLatitude());
-            sb.append("\nlontitude : ");
-            sb.append(location.getLongitude());
-            sb.append("\nradius : ");
-            sb.append(location.getRadius());
-            sb.append(location.getCity() + location.getLocationDescribe());
-            if (location.getLocType() == BDLocation.TypeGpsLocation) {// GPS定位结果
-                sb.append("\nspeed : ");
-                sb.append(location.getSpeed());// 单位：公里每小时
-                sb.append("\nsatellite : ");
-                sb.append(location.getSatelliteNumber());
-                sb.append("\nheight : ");
-                sb.append(location.getAltitude());// 单位：米
-                sb.append("\ndirection : ");
-                sb.append(location.getDirection());// 单位度
-                sb.append("\naddr : ");
-                sb.append(location.getAddrStr());
-                sb.append("\ndescribe : ");
-                sb.append("gps定位成功");
-
-            } else if (location.getLocType() == BDLocation.TypeNetWorkLocation) {// 网络定位结果
-                sb.append("\naddr : ");
-                sb.append(location.getAddrStr());
-                //运营商信息
-                sb.append("\noperationers : ");
-                sb.append(location.getOperators());
-                sb.append("\ndescribe : ");
-                sb.append("网络定位成功");
-            } else if (location.getLocType() == BDLocation.TypeOffLineLocation) {// 离线定位结果
-                sb.append("\ndescribe : ");
-                sb.append("离线定位成功，离线定位结果也是有效的");
-            } else if (location.getLocType() == BDLocation.TypeServerError) {
-                sb.append("\ndescribe : ");
-                sb.append("服务端网络定位失败，可以反馈IMEI号和大体定位时间到loc-bugs@baidu.com，会有人追查原因");
-            } else if (location.getLocType() == BDLocation.TypeNetWorkException) {
-                sb.append("\ndescribe : ");
-                sb.append("网络不同导致定位失败，请检查网络是否通畅");
-            } else if (location.getLocType() == BDLocation.TypeCriteriaException) {
-                sb.append("\ndescribe : ");
-                sb.append("无法获取有效定位依据导致定位失败，一般是由于手机的原因，处于飞行模式下一般会造成这种结果，可以试着重启手机");
-            }
-            sb.append("\nlocationdescribe : ");
-            sb.append(location.getLocationDescribe());// 位置语义化信息
-            List<Poi> list = location.getPoiList();// POI数据
-            if (list != null) {
-                sb.append("\npoilist size = : ");
-                sb.append(list.size());
-                for (Poi p : list) {
-                    sb.append("\npoi= : ");
-                    sb.append(p.getId() + " " + p.getName() + " " + p.getRank());
-                }
-            }
-            Log.i("BaiduLocationApiDem", sb.toString());
-
-
-//            tvLoc.setText(location.getCity().replace("市", "") + "  " + list.get(0).getName());
-
-            LocationBean.getInstance().setLocation(location);
-        }
-
-    }
+//    public class MyLocationListener implements BDLocationListener {
+//
+//        @Override
+//        public void onReceiveLocation(BDLocation location) {
+//            StringBuffer sb = new StringBuffer(256);
+//            sb.append("time : ");
+//            sb.append(location.getTime());
+//            sb.append("\nerror code : ");
+//            sb.append(location.getLocType());
+//            sb.append("\nlatitude : ");
+//            sb.append(location.getLatitude());
+//            sb.append("\nlontitude : ");
+//            sb.append(location.getLongitude());
+//            sb.append("\nradius : ");
+//            sb.append(location.getRadius());
+//            sb.append(location.getCity() + location.getLocationDescribe());
+//            if (location.getLocType() == BDLocation.TypeGpsLocation) {// GPS定位结果
+//                sb.append("\nspeed : ");
+//                sb.append(location.getSpeed());// 单位：公里每小时
+//                sb.append("\nsatellite : ");
+//                sb.append(location.getSatelliteNumber());
+//                sb.append("\nheight : ");
+//                sb.append(location.getAltitude());// 单位：米
+//                sb.append("\ndirection : ");
+//                sb.append(location.getDirection());// 单位度
+//                sb.append("\naddr : ");
+//                sb.append(location.getAddrStr());
+//                sb.append("\ndescribe : ");
+//                sb.append("gps定位成功");
+//
+//            } else if (location.getLocType() == BDLocation.TypeNetWorkLocation) {// 网络定位结果
+//                sb.append("\naddr : ");
+//                sb.append(location.getAddrStr());
+//                //运营商信息
+//                sb.append("\noperationers : ");
+//                sb.append(location.getOperators());
+//                sb.append("\ndescribe : ");
+//                sb.append("网络定位成功");
+//            } else if (location.getLocType() == BDLocation.TypeOffLineLocation) {// 离线定位结果
+//                sb.append("\ndescribe : ");
+//                sb.append("离线定位成功，离线定位结果也是有效的");
+//            } else if (location.getLocType() == BDLocation.TypeServerError) {
+//                sb.append("\ndescribe : ");
+//                sb.append("服务端网络定位失败，可以反馈IMEI号和大体定位时间到loc-bugs@baidu.com，会有人追查原因");
+//            } else if (location.getLocType() == BDLocation.TypeNetWorkException) {
+//                sb.append("\ndescribe : ");
+//                sb.append("网络不同导致定位失败，请检查网络是否通畅");
+//            } else if (location.getLocType() == BDLocation.TypeCriteriaException) {
+//                sb.append("\ndescribe : ");
+//                sb.append("无法获取有效定位依据导致定位失败，一般是由于手机的原因，处于飞行模式下一般会造成这种结果，可以试着重启手机");
+//            }
+//            sb.append("\nlocationdescribe : ");
+//            sb.append(location.getLocationDescribe());// 位置语义化信息
+//            List<Poi> list = location.getPoiList();// POI数据
+//            if (list != null) {
+//                sb.append("\npoilist size = : ");
+//                sb.append(list.size());
+//                for (Poi p : list) {
+//                    sb.append("\npoi= : ");
+//                    sb.append(p.getId() + " " + p.getName() + " " + p.getRank());
+//                }
+//            }
+//            Log.i("BaiduLocationApiDem", sb.toString());
+//
+//
+//            if (null != location.getCity() && null != list.get(0)) {
+//                tvLoc.setText(location.getCity().replace("市", "") + "  " + list.get(0).getName());
+//
+//                LocationBean.getInstance().setLocation(location);
+//            }else{
+//
+//                tvLoc.setText("定位失败");
+//            }
+//        }
+//
+//    }
 
 
     private void initLocation() {
 
 
-        // 定位初始化
-        mLocationClient = new LocationClient(getActivity());
-        mLocationClient.registerLocationListener(myListener);
+        mlocationClient = new AMapLocationClient(getActivity());
 
-        LocationClientOption option = new LocationClientOption();
-        option.setLocationMode(LocationClientOption.LocationMode.Hight_Accuracy
-        );//可选，默认高精度，设置定位模式，高精度，低功耗，仅设备
-        option.setCoorType("bd09ll");//可选，默认gcj02，设置返回的定位结果坐标系
-        int span = 0;
-        option.setScanSpan(span);//可选，默认0，即仅定位一次，设置发起定位请求的间隔需要大于等于1000ms才是有效的
-        option.setIsNeedAddress(true);//可选，设置是否需要地址信息，默认不需要
-        option.setOpenGps(true);//可选，默认false,设置是否使用gps
-        option.setLocationNotify(true);//可选，默认false，设置是否当GPS有效时按照1S/1次频率输出GPS结果
-        option.setIsNeedLocationDescribe(true);//可选，默认false，设置是否需要位置语义化结果，可以在BDLocation.getLocationDescribe里得到，结果类似于“在北京天安门附近”
-        option.setIsNeedLocationPoiList(true);//可选，默认false，设置是否需要POI结果，可以在BDLocation.getPoiList里得到
-        option.setIgnoreKillProcess(false);//可选，默认true，定位SDK内部是一个SERVICE，并放到了独立进程，设置是否在stop的时候杀死这个进程，默认不杀死
-        option.SetIgnoreCacheException(false);//可选，默认false，设置是否收集CRASH信息，默认收集
-        option.setEnableSimulateGps(false);//可选，默认false，设置是否需要过滤GPS仿真结果，默认需要
-        mLocationClient.setLocOption(option);
+        //初始化定位参数
+        mLocationOption = new AMapLocationClientOption();
 
-        mLocationClient.start();
+        //设置定位监听
+        mlocationClient.setLocationListener(this);
+
+        //设置定位模式为高精度模式，Battery_Saving为低功耗模式，Device_Sensors是仅设备模式
+        mLocationOption.setLocationMode(AMapLocationClientOption.AMapLocationMode.Hight_Accuracy);
+
+        //设置定位间隔,单位毫秒,默认为2000ms
+//        mLocationOption.setInterval(2000);
+
+        //设置单次定位
+        mLocationOption.setOnceLocation(true);
+
+        //获取最近3s内精度最高的一次定位结果：
+        //设置setOnceLocationLatest(boolean b)接口为true，启动定位时SDK会返回最近3s内精度最高的一次定位结果。如果设置其为true，setOnceLocation(boolean b)接口也会被设置为true，反之不会，默认为false。
+        mLocationOption.setOnceLocationLatest(true);
 
 
-        llLoc.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        //设置定位参数
+        mlocationClient.setLocationOption(mLocationOption);
 
-                Intent intent = new Intent(getActivity(), SelectLocActivity.class);
-                startActivityForResult(intent, Constants.REQUEST);
-            }
-        });
 
+        // 此方法为每隔固定时间会发起一次定位请求，为了减少电量消耗或网络流量消耗，
+        // 注意设置合适的定位时间的间隔（最小间隔支持为2000ms），并且在合适时间调用stopLocation()方法来取消定位请求
+        // 在定位结束后，在合适的生命周期调用onDestroy()方法
+        // 在单次定位情况下，定位无论成功与否，都无需调用stopLocation()方法移除请求，定位sdk内部会移除
+        //启动定位
+        mlocationClient.startLocation();
     }
 
 
@@ -507,6 +514,29 @@ public class HomeFragment extends BaseFragment {
     public void onDestroy() {
 
         super.onDestroy();
-        mLocationClient.stop();
+    }
+
+    @Override
+    public void onLocationChanged(AMapLocation amapLocation) {
+
+        if (amapLocation != null) {
+            if (amapLocation.getErrorCode() == 0) {
+                //定位成功回调信息，设置相关消息
+                amapLocation.getLocationType();//获取当前定位结果来源，如网络定位结果，详见定位类型表
+                amapLocation.getLatitude();//获取纬度
+                amapLocation.getLongitude();//获取经度
+                amapLocation.getAccuracy();//获取精度信息
+                SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                Date date = new Date(amapLocation.getTime());
+                df.format(date);//定位时间
+            } else {
+                //显示错误信息ErrCode是错误码，errInfo是错误信息，详见错误码表。
+                Log.e("AmapError","location Error, ErrCode:"
+                        + amapLocation.getErrorCode() + ", errInfo:"
+                        + amapLocation.getErrorInfo());
+            }
+        }
+
+
     }
 }

@@ -1,8 +1,6 @@
 package com.weblink.zbcommunity.activity;
 
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -12,10 +10,6 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.baidu.mapapi.search.sug.OnGetSuggestionResultListener;
-import com.baidu.mapapi.search.sug.SuggestionResult;
-import com.baidu.mapapi.search.sug.SuggestionSearch;
-import com.baidu.mapapi.search.sug.SuggestionSearchOption;
 import com.weblink.zbcommunity.BaseActivity;
 import com.weblink.zbcommunity.R;
 import com.weblink.zbcommunity.utils.ToastUtils;
@@ -30,7 +24,7 @@ import butterknife.ButterKnife;
 /**
  * Created by swq on 2016/11/11.
  */
-public class SelectLocActivity extends BaseActivity implements OnGetSuggestionResultListener {
+public class SelectLocActivity extends BaseActivity  {
     @BindView(R.id.tv_left)
     TextView tvLeft;
     @BindView(R.id.tv_title)
@@ -61,7 +55,6 @@ public class SelectLocActivity extends BaseActivity implements OnGetSuggestionRe
 
     private ArrayAdapter<String> sugAdapter = null;
 
-    private SuggestionSearch mSuggestionSearch = null;
     private List<String> suggest;
 
 
@@ -78,13 +71,15 @@ public class SelectLocActivity extends BaseActivity implements OnGetSuggestionRe
 //        ButterKnife.bind(this);
         tvTitle.setText("定位选择");
         tvTitle.setVisibility(View.VISIBLE);
-        tvLeft.setVisibility(View.VISIBLE);
-        tvLeft.setBackgroundResource(R.drawable.back_normal);
+        ivLeft.setVisibility(View.VISIBLE);
+        ivLeft.setImageResource(R.drawable.back_normal);
 
 
         initSpinner();
 
         initAutoSearch();
+
+        initPoiSearch();
 
         tvCurrLoc.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,51 +90,19 @@ public class SelectLocActivity extends BaseActivity implements OnGetSuggestionRe
 
     }
 
+    private void initPoiSearch() {
+
+
+    }
+
+
 
     private void initAutoSearch() {
 
-
-        // 初始化建议搜索模块，注册建议搜索事件监听
-        mSuggestionSearch = SuggestionSearch.newInstance();
-        mSuggestionSearch.setOnGetSuggestionResultListener(this);
-
-
-        sugAdapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_dropdown_item_1line);
-        keyWorldsView.setAdapter(sugAdapter);
+        String [] arr={"aa","aab","aac","aac","aac","aac","aac","aac","aac","aac","aac","aac","aac"};
+        ArrayAdapter arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,arr);
         keyWorldsView.setThreshold(1);
-        /**
-         * 当输入关键字变化时，动态更新建议列表
-         */
-        keyWorldsView.addTextChangedListener(new TextWatcher() {
-
-            @Override
-            public void afterTextChanged(Editable arg0) {
-
-            }
-
-            @Override
-            public void beforeTextChanged(CharSequence arg0, int arg1,
-                                          int arg2, int arg3) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence cs, int arg1, int arg2,
-                                      int arg3) {
-                if (cs.length() <= 0) {
-                    return;
-                }
-
-                /**
-                 * 使用建议搜索服务获取建议列表，结果在onSuggestionResult()中更新
-                 */
-                mSuggestionSearch
-                        .requestSuggestion((new SuggestionSearchOption())
-                                .keyword(cs.toString()).city("淄博"));
-            }
-        });
-
+        keyWorldsView.setAdapter(arrayAdapter);
     }
 
     private void initSpinner() {
@@ -201,22 +164,6 @@ public class SelectLocActivity extends BaseActivity implements OnGetSuggestionRe
 
     }
 
-    @Override
-    public void onGetSuggestionResult(SuggestionResult res) {
-
-        if (res == null || res.getAllSuggestions() == null) {
-            return;
-        }
-        suggest = new ArrayList<String>();
-        for (SuggestionResult.SuggestionInfo info : res.getAllSuggestions()) {
-            if (info.key != null) {
-                suggest.add(info.key);
-            }
-        }
-        sugAdapter = new ArrayAdapter<String>(SelectLocActivity.this, android.R.layout.simple_dropdown_item_1line, suggest);
-        keyWorldsView.setAdapter(sugAdapter);
-        sugAdapter.notifyDataSetChanged();
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
