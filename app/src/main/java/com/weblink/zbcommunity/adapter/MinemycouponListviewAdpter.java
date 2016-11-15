@@ -62,7 +62,6 @@ public class MinemycouponListviewAdpter extends BaseAdapter {
             zi.setText("作废原因");
             lin.setBackgroundColor(Color.parseColor("#CCCCCC"));
         }
-
         jiage.setText(m.getJiage());
         leixing.setText(m.getLeixing());
         guize.setText(m.getGuize());
