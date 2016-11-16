@@ -19,6 +19,7 @@ public class LocationBean {
             instance = new LocationBean();
         }
 
+
         return instance;
     }
 
