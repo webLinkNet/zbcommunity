@@ -71,7 +71,7 @@
         <activity android:name=".activity.Login" />
         <activity android:name=".activity.Change" />
         <activity android:name=".activity.Mine_userinfor" />
-        <activity android:name=".activity.Mine_coupon" />
+        <activity android:name=".activity.MinecoActivity" />
         <activity android:name=".activity.Mine_help" />
         <activity android:name=".activity.Mine_myorder" />
         <activity android:name=".activity.Setnewid" />

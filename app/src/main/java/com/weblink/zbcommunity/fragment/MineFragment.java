@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 import com.weblink.zbcommunity.R;
 import com.weblink.zbcommunity.activity.Login;
-import com.weblink.zbcommunity.activity.Mine_coupon;
+import com.weblink.zbcommunity.activity.MinecoActivity;
 import com.weblink.zbcommunity.activity.Mine_help;
 import com.weblink.zbcommunity.activity.Mine_myorder;
 import com.weblink.zbcommunity.activity.Mine_userinfor;
@@ -67,7 +67,7 @@ public class MineFragment extends Fragment implements OnClickListener {
 		//我的购物券
 		if(v==mine_mycoupon)
 		{
-			Intent intentcoupon = new Intent(getActivity(),Mine_coupon.class);
+			Intent intentcoupon = new Intent(getActivity(),MinecoActivity.class);
 			startActivity(intentcoupon);
 		}
 		//退出

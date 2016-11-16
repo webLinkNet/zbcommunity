@@ -19,7 +19,7 @@ import java.util.List;
 /**
  * Created by ambitionjz on 2016/11/11.
  */
-public class Mine_coupon extends Activity implements View.OnClickListener {
+public class MinecoActivity extends Activity implements View.OnClickListener {
     List<Mineyouhuiquan> dataaaa=new ArrayList<Mineyouhuiquan>();
     List<Mineyouhuiquan> dataaa=new ArrayList<Mineyouhuiquan>();
     Mineyouhuiquan data1= new Mineyouhuiquan();
