@@ -13,10 +13,10 @@ import com.weblink.zbcommunity.R;
 /**
  * Created by Administrator on 2016/11/14.
  */
-public class Minemyhelp_ListviewAdpter extends BaseAdapter {
+public class MyhelpLvAdpter extends BaseAdapter {
     private Context context;
     String[] datas;
-    public Minemyhelp_ListviewAdpter(Context context, String[] datas){
+    public MyhelpLvAdpter(Context context, String[] datas){
         this.context =context;
         this.datas=datas;
     }

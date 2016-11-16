@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 import com.weblink.zbcommunity.R;
 
-public class Change extends Activity implements OnClickListener {
+public class ChangeActivity extends Activity implements OnClickListener {
 
 ImageView change_back;
 Button change_authcode;
@@ -52,7 +52,7 @@ public void onClick(View v) {
 //返回登录界面
 	if(v==change_back){
 		
-		Intent intent =new Intent(Change.this,Login.class);
+		Intent intent =new Intent(ChangeActivity.this,LoginActivity.class);
 		startActivity(intent);	
 	}
 //发送验证码
@@ -60,11 +60,11 @@ public void onClick(View v) {
 		phone=change_phone.getText().toString();
 		if(phone == null || "".equals(phone.trim()))
 		{ 
-			Toast.makeText(Change.this, "手机号不能为空", Toast.LENGTH_SHORT).show();
+			Toast.makeText(ChangeActivity.this, "手机号不能为空", Toast.LENGTH_SHORT).show();
 			return;
 			}
 		if(phone.length()!=11){
-			Toast.makeText(Change.this, "手机号格式不正确", Toast.LENGTH_SHORT).show();
+			Toast.makeText(ChangeActivity.this, "手机号格式不正确", Toast.LENGTH_SHORT).show();
 			return;
 		}
 		}
@@ -77,35 +77,35 @@ public void onClick(View v) {
 		phone=change_phone.getText().toString();	
 		if(phone == null || "".equals(phone.trim()))
 		{ 
-			Toast.makeText(Change.this, "手机号不能为空", Toast.LENGTH_SHORT).show();
+			Toast.makeText(ChangeActivity.this, "手机号不能为空", Toast.LENGTH_SHORT).show();
 			return;
 			}
 		if(phone.length()!=11){
-			Toast.makeText(Change.this, "手机号格式不正确", Toast.LENGTH_SHORT).show();
+			Toast.makeText(ChangeActivity.this, "手机号格式不正确", Toast.LENGTH_SHORT).show();
 			return;
 		}
 		if(yanzheng == null || "".equals(yanzheng.trim())){
 			
-			Toast.makeText(Change.this, "验证码不能为空", Toast.LENGTH_SHORT).show();
+			Toast.makeText(ChangeActivity.this, "验证码不能为空", Toast.LENGTH_SHORT).show();
 			return;
 		}
         if(passw == null || "".equals(passw.trim())){
 			
-			Toast.makeText(Change.this, "密码不能为空", Toast.LENGTH_SHORT).show();
+			Toast.makeText(ChangeActivity.this, "密码不能为空", Toast.LENGTH_SHORT).show();
 			return;
 		}
         if(passwagain == null || "".equals(passwagain.trim())){
 			
-			Toast.makeText(Change.this, "请再次输入密码", Toast.LENGTH_SHORT).show();
+			Toast.makeText(ChangeActivity.this, "请再次输入密码", Toast.LENGTH_SHORT).show();
 			return;
 		}
         if(!passw.equals(passwagain)){
         	
-        	Toast.makeText(Change.this, "两次密码输入不一致", Toast.LENGTH_SHORT).show();
+        	Toast.makeText(ChangeActivity.this, "两次密码输入不一致", Toast.LENGTH_SHORT).show();
 			return;
         }
         //加判断验证码的地方
-        Intent intentzhuce = new Intent(Change.this,Login.class);
+        Intent intentzhuce = new Intent(ChangeActivity.this,LoginActivity.class);
         startActivity(intentzhuce);
         
 		

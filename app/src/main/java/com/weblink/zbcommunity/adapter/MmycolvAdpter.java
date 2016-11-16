@@ -10,16 +10,16 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.weblink.zbcommunity.R;
-import com.weblink.zbcommunity.bean.Mineyouhuiquan;
+import com.weblink.zbcommunity.bean.MineyouhuiBean;
 
 import java.util.List;
 
 
-public class MinemycouponListviewAdpter extends BaseAdapter {
+public class MmycolvAdpter extends BaseAdapter {
     //author??ambitionjz
     private Context context;
-    List<Mineyouhuiquan> datas;
-    public MinemycouponListviewAdpter(Context context, List<Mineyouhuiquan> datas){
+    List<MineyouhuiBean> datas;
+    public MmycolvAdpter(Context context, List<MineyouhuiBean> datas){
         this.context =context;
         this.datas=datas;
     }
@@ -45,7 +45,7 @@ public class MinemycouponListviewAdpter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        final Mineyouhuiquan m = datas.get(position);
+        final MineyouhuiBean m = datas.get(position);
 
         convertView = LayoutInflater.from(context).inflate(R.layout.mine_coupon_listviewitem, null);
        TextView zi =(TextView) convertView.findViewById(R.id.mine_coupon_zi);

@@ -68,13 +68,13 @@
 
 
         <activity android:name=".MainActivity" />
-        <activity android:name=".activity.Login" />
-        <activity android:name=".activity.Change" />
-        <activity android:name=".activity.Mine_userinfor" />
+        <activity android:name=".activity.LoginActivity" />
+        <activity android:name=".activity.ChangeActivity" />
+        <activity android:name=".activity.MuserinforActivity" />
         <activity android:name=".activity.MinecoActivity" />
-        <activity android:name=".activity.Mine_help" />
-        <activity android:name=".activity.Mine_myorder" />
-        <activity android:name=".activity.Setnewid" />
+        <activity android:name=".activity.MinehelpActivity" />
+        <activity android:name=".activity.MyorderActivity" />
+        <activity android:name=".activity.SetnewActivity" />
         <activity android:name=".activity.GuideActivity" />
         <activity android:name=".activity.SelectLocActivity" />
     </application>

@@ -13,7 +13,7 @@ import android.widget.Toast;
 import com.weblink.zbcommunity.MainActivity;
 import com.weblink.zbcommunity.R;
 
-public class Login extends Activity implements OnClickListener {
+public class LoginActivity extends Activity implements OnClickListener {
 	
 	TextView login_regNewId;
 	Button login_Btn_login;
@@ -55,14 +55,14 @@ public class Login extends Activity implements OnClickListener {
 		
 		if(v==login_regNewId){
 			
-			Intent intent=new Intent(Login.this,Setnewid.class);
+			Intent intent=new Intent(LoginActivity.this,SetnewActivity.class);
 			startActivity(intent);
 			}
 		
 		//忘记密码
 		if(v==login_link_FindPwd){
 			
-			Intent intentchange=new Intent(Login.this,Change.class);
+			Intent intentchange=new Intent(LoginActivity.this,ChangeActivity.class);
 			startActivity(intentchange);
 			
 		}
@@ -75,20 +75,20 @@ public class Login extends Activity implements OnClickListener {
 			pass=login_Edt_Pwd.getText().toString();
 			if(phone == null || "".equals(phone.trim()))
 			{ 
-				Toast.makeText(Login.this, "手机号不能为空",Toast.LENGTH_SHORT).show();
+				Toast.makeText(LoginActivity.this, "手机号不能为空",Toast.LENGTH_SHORT).show();
 				return;
 				}
 			if(phone.length()!=11){
-				Toast.makeText(Login.this, "手机号格式不正确", Toast.LENGTH_SHORT).show();
+				Toast.makeText(LoginActivity.this, "手机号格式不正确", Toast.LENGTH_SHORT).show();
 				return;
 			}
 			if(pass == null || "".equals(pass.trim()))
 			{ 
-				Toast.makeText(Login.this, "密码不能为空", Toast.LENGTH_SHORT).show();
+				Toast.makeText(LoginActivity.this, "密码不能为空", Toast.LENGTH_SHORT).show();
 				return;
 					}
 			
-			Intent intentmine =new Intent(Login.this,MainActivity.class);
+			Intent intentmine =new Intent(LoginActivity.this,MainActivity.class);
 			startActivity(intentmine);
 			
 			

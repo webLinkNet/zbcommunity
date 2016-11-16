@@ -13,11 +13,11 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.weblink.zbcommunity.R;
-import com.weblink.zbcommunity.activity.Login;
+import com.weblink.zbcommunity.activity.LoginActivity;
 import com.weblink.zbcommunity.activity.MinecoActivity;
-import com.weblink.zbcommunity.activity.Mine_help;
-import com.weblink.zbcommunity.activity.Mine_myorder;
-import com.weblink.zbcommunity.activity.Mine_userinfor;
+import com.weblink.zbcommunity.activity.MinehelpActivity;
+import com.weblink.zbcommunity.activity.MyorderActivity;
+import com.weblink.zbcommunity.activity.MuserinforActivity;
 
 public class MineFragment extends Fragment implements OnClickListener {
 	RelativeLayout mine_myorder;
@@ -51,7 +51,7 @@ public class MineFragment extends Fragment implements OnClickListener {
 	public void onClick(View v) {
 		//帮助反馈
 		if(v==mine_kefu){
-			Intent intenthelp = new Intent(getActivity(),Mine_help.class);
+			Intent intenthelp = new Intent(getActivity(),MinehelpActivity.class);
 			startActivity(intenthelp);
 		}
 		//电话号码暂时设定10086
@@ -61,7 +61,7 @@ public class MineFragment extends Fragment implements OnClickListener {
 		}
 		//我的订单
 		if(v==mine_myorder){
-			Intent intentorder=new Intent(getActivity(),Mine_myorder.class);
+			Intent intentorder=new Intent(getActivity(),MyorderActivity.class);
 			startActivity(intentorder);		
 		}
 		//我的购物券
@@ -72,13 +72,13 @@ public class MineFragment extends Fragment implements OnClickListener {
 		}
 		//退出
 		if(v==mine_exit){
-			Intent intenteqit =new Intent(getActivity(),Login.class);
+			Intent intenteqit =new Intent(getActivity(),LoginActivity.class);
 			startActivity(intenteqit);
 		}
 		//个人信息修改
 		if(v==mine_Relay_Top){
 
-           Intent intentuserinfor = new Intent(getActivity(),Mine_userinfor.class);
+           Intent intentuserinfor = new Intent(getActivity(),MuserinforActivity.class);
 			startActivity(intentuserinfor);
 		}
 		

@@ -32,7 +32,7 @@ import java.io.File;
 /**
  * Created by jz on 2016/11/14.
  */
-public class Mine_userinfor extends Activity implements View.OnClickListener {
+public class MuserinforActivity extends Activity implements View.OnClickListener {
     ImageView mine_user_back;
     RelativeLayout mine_user_re_img;
     Button mine_user_set;

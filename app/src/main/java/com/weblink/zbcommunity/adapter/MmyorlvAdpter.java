@@ -5,24 +5,23 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.weblink.zbcommunity.R;
-import com.weblink.zbcommunity.bean.Minedingdan;
+import com.weblink.zbcommunity.bean.MinedingdanBean;
 import com.weblink.zbcommunity.utils.CircleUtils;
 
 import java.util.List;
 
 
-public class MinemyorderListViewAdpter extends BaseAdapter {
+public class MmyorlvAdpter extends BaseAdapter {
 	//author��ambitionjz
 	private Context context;
-	List<Minedingdan> datas;
+	List<MinedingdanBean> datas;
 	public static int mPosition;
 	
-	public MinemyorderListViewAdpter(Context context, List<Minedingdan> datas){
+	public MmyorlvAdpter(Context context, List<MinedingdanBean> datas){
 		this.context =context;
 		this.datas=datas;
 	}
@@ -49,7 +48,7 @@ public class MinemyorderListViewAdpter extends BaseAdapter {
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		
-		final Minedingdan m = datas.get(position);
+		final MinedingdanBean m = datas.get(position);
 		
 		convertView = LayoutInflater.from(context).inflate(R.layout.mine_myorder_listviewitem, null);
 		TextView storename = (TextView) convertView.findViewById(R.id.mine_myorder_storename);

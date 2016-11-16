@@ -2,7 +2,7 @@ package com.weblink.zbcommunity.bean;
 
 import java.io.Serializable;
 
-public class Minedingdan implements Serializable
+public class MinedingdanBean implements Serializable
  {
 	private String storename;
 	private String imgurlone;

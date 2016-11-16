@@ -9,8 +9,8 @@ import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.weblink.zbcommunity.R;
-import com.weblink.zbcommunity.adapter.MinemycouponListviewAdpter;
-import com.weblink.zbcommunity.bean.Mineyouhuiquan;
+import com.weblink.zbcommunity.adapter.MmycolvAdpter;
+import com.weblink.zbcommunity.bean.MineyouhuiBean;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,13 +20,13 @@ import java.util.List;
  * Created by ambitionjz on 2016/11/11.
  */
 public class MinecoActivity extends Activity implements View.OnClickListener {
-    List<Mineyouhuiquan> dataaaa=new ArrayList<Mineyouhuiquan>();
-    List<Mineyouhuiquan> dataaa=new ArrayList<Mineyouhuiquan>();
-    Mineyouhuiquan data1= new Mineyouhuiquan();
-    Mineyouhuiquan data2= new Mineyouhuiquan();
-    Mineyouhuiquan data3= new Mineyouhuiquan();
-    Mineyouhuiquan data4= new Mineyouhuiquan();
-    Mineyouhuiquan data5= new Mineyouhuiquan();
+    List<MineyouhuiBean> dataaaa=new ArrayList<MineyouhuiBean>();
+    List<MineyouhuiBean> dataaa=new ArrayList<MineyouhuiBean>();
+    MineyouhuiBean data1= new MineyouhuiBean();
+    MineyouhuiBean data2= new MineyouhuiBean();
+    MineyouhuiBean data3= new MineyouhuiBean();
+    MineyouhuiBean data4= new MineyouhuiBean();
+    MineyouhuiBean data5= new MineyouhuiBean();
     Button keyong;
     Button shixiao;
     ImageView back;
@@ -46,8 +46,8 @@ public class MinecoActivity extends Activity implements View.OnClickListener {
         indate();
         add(dataaaa);
     }
-    void add(List<Mineyouhuiquan> dada){
-        MinemycouponListviewAdpter ad= new MinemycouponListviewAdpter(this, dada);
+    void add(List<MineyouhuiBean> dada){
+        MmycolvAdpter ad= new MmycolvAdpter(this, dada);
         mine_couponlist.setAdapter(ad);
     }
 void indate(){

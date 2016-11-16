@@ -11,34 +11,34 @@ import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.weblink.zbcommunity.R;
-import com.weblink.zbcommunity.adapter.MinemyorderListViewAdpter;
-import com.weblink.zbcommunity.bean.Minedingdan;
+import com.weblink.zbcommunity.adapter.MmyorlvAdpter;
+import com.weblink.zbcommunity.bean.MinedingdanBean;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class Mine_myorder extends Activity implements OnClickListener
+public class MyorderActivity extends Activity implements OnClickListener
 {    ImageView mine_myorder_back;
 	Button btn_daizhi;
 	Button btn_daiping;
 	Button btn_yiping;
 	Button btn_yiqu;
 	ListView mine_myroder_list;
-	List<Minedingdan> data=new ArrayList<Minedingdan>();
-	List<Minedingdan> dataa=new ArrayList<Minedingdan>();
-	List<Minedingdan> dataaa=new ArrayList<Minedingdan>();
-	List<Minedingdan> dataaaa=new ArrayList<Minedingdan>();
-	Minedingdan data1= new Minedingdan();
-	Minedingdan data2= new Minedingdan();
-	Minedingdan data3= new Minedingdan();
-	Minedingdan data4= new Minedingdan();
-	Minedingdan data5= new Minedingdan();
-	Minedingdan data6= new Minedingdan();
-	Minedingdan data7= new Minedingdan();
-	Minedingdan data8= new Minedingdan();
-	Minedingdan data9= new Minedingdan();
-	Minedingdan data12= new Minedingdan();
+	List<MinedingdanBean> data=new ArrayList<MinedingdanBean>();
+	List<MinedingdanBean> dataa=new ArrayList<MinedingdanBean>();
+	List<MinedingdanBean> dataaa=new ArrayList<MinedingdanBean>();
+	List<MinedingdanBean> dataaaa=new ArrayList<MinedingdanBean>();
+	MinedingdanBean data1= new MinedingdanBean();
+	MinedingdanBean data2= new MinedingdanBean();
+	MinedingdanBean data3= new MinedingdanBean();
+	MinedingdanBean data4= new MinedingdanBean();
+	MinedingdanBean data5= new MinedingdanBean();
+	MinedingdanBean data6= new MinedingdanBean();
+	MinedingdanBean data7= new MinedingdanBean();
+	MinedingdanBean data8= new MinedingdanBean();
+	MinedingdanBean data9= new MinedingdanBean();
+	MinedingdanBean data12= new MinedingdanBean();
 	
 	
 	
@@ -56,8 +56,8 @@ public class Mine_myorder extends Activity implements OnClickListener
 		
 		
 	}
-	void add(List<Minedingdan> dada){
-		MinemyorderListViewAdpter ad= new MinemyorderListViewAdpter(this,dada);
+	void add(List<MinedingdanBean> dada){
+		MmyorlvAdpter ad= new MmyorlvAdpter(this,dada);
 		mine_myroder_list.setAdapter(ad);
 	}
 	void intdata(){

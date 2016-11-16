@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * Created by jz on 2016/11/11.
  */
-public class Mineyouhuiquan implements Serializable {
+public class MineyouhuiBean implements Serializable {
     private String jiage;
     private String leixing;
     private String guize;

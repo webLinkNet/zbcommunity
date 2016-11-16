@@ -13,7 +13,7 @@ import android.widget.Toast;
 import com.weblink.zbcommunity.R;
 
 
-public class Setnewid extends Activity implements OnClickListener {
+public class SetnewActivity extends Activity implements OnClickListener {
 
 
 	ImageView registe_back;
@@ -56,18 +56,18 @@ public class Setnewid extends Activity implements OnClickListener {
 		//返回登录界面
 		if (v == registe_back) {
 
-			Intent intent = new Intent(Setnewid.this, Login.class);
+			Intent intent = new Intent(SetnewActivity.this, LoginActivity.class);
 			startActivity(intent);
 		}
 		//发送验证码
 		if (v == authcode) {
 			phone = registe_phone.getText().toString();
 			if (phone == null || "".equals(phone.trim())) {
-				Toast.makeText(Setnewid.this, "手机号不能为空", Toast.LENGTH_SHORT).show();
+				Toast.makeText(SetnewActivity.this, "手机号不能为空", Toast.LENGTH_SHORT).show();
 				return;
 			}
 			if (phone.length() != 11) {
-				Toast.makeText(Setnewid.this, "手机号格式不正确", Toast.LENGTH_SHORT).show();
+				Toast.makeText(SetnewActivity.this, "手机号格式不正确", Toast.LENGTH_SHORT).show();
 				return;
 			}
 		}
@@ -78,40 +78,40 @@ public class Setnewid extends Activity implements OnClickListener {
 			yanzheng = registe_authcode.getText().toString();
 			phone = registe_phone.getText().toString();
 			if (phone == null || "".equals(phone.trim())) {
-				Toast.makeText(Setnewid.this, "手机号不能为空", Toast.LENGTH_SHORT).show();
+				Toast.makeText(SetnewActivity.this, "手机号不能为空", Toast.LENGTH_SHORT).show();
 				return;
 			}
 			if (phone.length() != 11) {
-				Toast.makeText(Setnewid.this, "手机号格式不正确", Toast.LENGTH_SHORT).show();
+				Toast.makeText(SetnewActivity.this, "手机号格式不正确", Toast.LENGTH_SHORT).show();
 				return;
 			}
 			if (yanzheng == null || "".equals(yanzheng.trim())) {
 
-				Toast.makeText(Setnewid.this, "验证码不能为空", Toast.LENGTH_SHORT).show();
+				Toast.makeText(SetnewActivity.this, "验证码不能为空", Toast.LENGTH_SHORT).show();
 				return;
 			}
 			if (passw == null || "".equals(passw.trim())) {
 
-				Toast.makeText(Setnewid.this, "密码不能为空", Toast.LENGTH_SHORT).show();
+				Toast.makeText(SetnewActivity.this, "密码不能为空", Toast.LENGTH_SHORT).show();
 				return;
 			}
 			if (passw.length() < 6 || passw.length() > 16) {
 
-				Toast.makeText(Setnewid.this, "密码长度请控制在6-16位", Toast.LENGTH_SHORT).show();
+				Toast.makeText(SetnewActivity.this, "密码长度请控制在6-16位", Toast.LENGTH_SHORT).show();
 				return;
 			}
 			if (passwagain == null || "".equals(passwagain.trim())) {
 
-				Toast.makeText(Setnewid.this, "请再次输入密码", Toast.LENGTH_SHORT).show();
+				Toast.makeText(SetnewActivity.this, "请再次输入密码", Toast.LENGTH_SHORT).show();
 				return;
 			}
 			if (!passw.equals(passwagain)) {
 
-				Toast.makeText(Setnewid.this, "两次密码输入不一致", Toast.LENGTH_SHORT).show();
+				Toast.makeText(SetnewActivity.this, "两次密码输入不一致", Toast.LENGTH_SHORT).show();
 				return;
 			}
 			//加判断验证码的地方
-			Intent intentzhuce = new Intent(Setnewid.this, Login.class);
+			Intent intentzhuce = new Intent(SetnewActivity.this, LoginActivity.class);
 			startActivity(intentzhuce);
 
 
