@@ -8,6 +8,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.weblink.zbcommunity.R;
@@ -15,8 +16,8 @@ import com.weblink.zbcommunity.R;
 
 public class SetnewActivity extends Activity implements OnClickListener {
 
-
-	ImageView registe_back;
+    TextView title;
+	TextView registe_back;
 	Button authcode;
 	EditText registe_authcode;
 	EditText registe_phone;
@@ -36,7 +37,10 @@ public class SetnewActivity extends Activity implements OnClickListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.setnewid);
 
-		registe_back = (ImageView) findViewById(R.id.registe_back);//返回
+		title=(TextView)findViewById(R.id.tv_title);
+		title.setText("注册");
+		registe_back = (TextView) findViewById(R.id.tv_left);//返回
+		registe_back.setVisibility(View.VISIBLE);
 		registe_back.setOnClickListener(this);
 		authcode = (Button) findViewById(R.id.authcode);//验证
 		authcode.setOnClickListener(this);

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <include
+        android:id="@+id/orderxq_top"
+        layout="@layout/top_bar"></include>
+  <View
+      android:id="@+id/xq_two"
+      android:layout_width="match_parent"
+      android:layout_height="10dp"
+      android:layout_below="@id/orderxq_top"
+      android:background="@color/gray_cc"></View>
+    <RelativeLayout
+        android:id="@+id/xq_three"
+        android:layout_below="@id/xq_two"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <TextView
+            android:id="@+id/xq_dingdantext"
+            android:layout_marginLeft="15dp"
+            android:textSize="18sp"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="订单号："/>
+        <TextView
+            android:id="@+id/xq_dingdannum"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1215612631561625154"
+            android:layout_toRightOf="@id/xq_dingdantext"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:background="@drawable/ic_launcher"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+    <View
+        android:id="@+id/xq_four"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_below="@id/xq_three"
+        android:background="@color/gray_cc"></View>
+    <RelativeLayout
+        android:id="@+id/xq_five"
+        android:layout_below="@id/xq_four"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/xq_xingmingtext"
+            android:layout_marginLeft="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="姓名："/>
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

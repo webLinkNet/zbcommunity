@@ -77,6 +77,8 @@
         <activity android:name=".activity.SetnewActivity" />
         <activity android:name=".activity.GuideActivity" />
         <activity android:name=".activity.SelectLocActivity" />
+        <activity android:name=".activity.CommkindActivity" />
+        <activity android:name=".activity.MinehelpxxActivity" />
     </application>
 
 

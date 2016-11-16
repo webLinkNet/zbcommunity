@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.weblink.zbcommunity.R;
 import com.weblink.zbcommunity.adapter.MmycolvAdpter;
@@ -29,7 +30,8 @@ public class MinecoActivity extends Activity implements View.OnClickListener {
     MineyouhuiBean data5= new MineyouhuiBean();
     Button keyong;
     Button shixiao;
-    ImageView back;
+    TextView back;
+    TextView title;
     ListView mine_couponlist;
 
     @Override
@@ -40,8 +42,11 @@ public class MinecoActivity extends Activity implements View.OnClickListener {
         keyong.setOnClickListener(this);
         shixiao = (Button) findViewById(R.id.mine_zuofei);
         shixiao.setOnClickListener(this);
-        back=(ImageView)findViewById(R.id.mine_coupon_back);
+        back=(TextView) findViewById(R.id.tv_left);
+        back.setVisibility(View.VISIBLE);
         back.setOnClickListener(this);
+        title=(TextView)findViewById(R.id.tv_title);
+        title.setText("我的优惠券");
         mine_couponlist=(ListView)findViewById(R.id.mine_coupon_list);
         indate();
         add(dataaaa);
@@ -84,8 +89,8 @@ void indate(){
 
 }
     void colorz(){
-        keyong.setBackgroundColor(Color.parseColor("#33CC33"));
-        shixiao.setBackgroundColor(Color.parseColor("#33CC33"));
+        keyong.setBackgroundColor(Color.parseColor("#FFFFFF"));
+        shixiao.setBackgroundColor(Color.parseColor("#FFFFFF"));
     }
     @Override
     public void onClick(View v) {
@@ -95,12 +100,12 @@ void indate(){
         }
         if (v == keyong) {
             colorz();
-            keyong.setBackgroundColor(Color.parseColor("#FF6600"));
+            keyong.setBackgroundColor(Color.parseColor("#cccccc"));
             add(dataaaa);
         }
         if (v == shixiao) {
             colorz();
-            shixiao.setBackgroundColor(Color.parseColor("#FF6600"));
+            shixiao.setBackgroundColor(Color.parseColor("#cccccc"));
             add(dataaa);
         }
     }

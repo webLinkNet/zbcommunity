@@ -3,30 +3,8 @@
     android:background="#FFFFFF"
     android:layout_height="fill_parent" >
 
-    <RelativeLayout
-        android:id="@+id/mine_myorder_top_layout"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="#FF3366"
-        android:gravity="center_vertical" >
-
-        <ImageView
-            android:id="@+id/mine_myorder_back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:background="@drawable/back" />
-
-        <TextView
-            android:id="@+id/jzfw_top_layout_02"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:text="我的订单"
-            android:textColor="#ffffff"
-            android:textSize="20sp" />
-    </RelativeLayout>
+ <include layout="@layout/top_bar"
+     android:id="@+id/mine_myorder_top_layout"></include>
 
    <LinearLayout
        android:id="@+id/mine_myorder_linear"
@@ -36,27 +14,27 @@
        >
         <Button
             android:id="@+id/mine_daizhi" 
-            android:background="#FF6600"
+            android:background="@color/gray_cc"
             android:text="待支付"
             android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="40dp"/>
          <Button 
-             android:background="#33CC33"
+             android:background="#FFFFFF"
              android:id="@+id/mine_daiping"
              android:text="待评价"
              android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="40dp"/>
-          <Button 
-              android:background="#33CC33"
+          <Button
+              android:background="#FFFFFF"
               android:id="@+id/mine_yiping"
               android:text="已评价"
               android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="40dp"/>
-           <Button 
-            android:background="#33CC33"
+           <Button
+               android:background="#FFFFFF"
             android:id="@+id/mine_yiqu"
             android:text="已取消"
             android:layout_weight="1"
@@ -65,7 +43,7 @@
   
    </LinearLayout>
    <View 
-       android:background="#FF6600"
+       android:background="@color/gray_cc"
        android:layout_below="@id/mine_myorder_linear"
        android:id="@+id/mine_myorder_xian"
        android:layout_width="match_parent"

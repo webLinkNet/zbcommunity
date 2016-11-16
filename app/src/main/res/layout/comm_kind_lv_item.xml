@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<RelativeLayout
+    android:id="@+id/kingre1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+   <ImageView
+       android:id="@+id/kind_shopimg"
+       android:layout_marginLeft="20dp"
+       android:layout_width="60dp"
+       android:layout_height="60dp" />
+   <TextView
+       android:id="@+id/kind_shopname"
+       android:textSize="22sp"
+      android:layout_centerHorizontal="true"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="谭梦石超市"/>
+</RelativeLayout>
+   <RelativeLayout
+       android:layout_below="@id/kingre1"
+       android:id="@+id/kingre2"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+      <ImageView
+          android:id="@+id/kind_thingimg1"
+          android:layout_marginLeft="20dp"
+          android:layout_width="40dp"
+          android:layout_height="40dp" />
+      <TextView
+          android:layout_centerVertical="true"
+          android:id="@+id/kind_thingname1"
+          android:layout_toRightOf="@id/kind_thingimg1"
+          android:textSize="16sp"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="优质大白菜"/>
+      <TextView
+          android:textColor="@color/red"
+          android:id="@+id/kind_money1"
+          android:layout_centerVertical="true"
+          android:text="1.25"
+          android:textSize="20sp"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignParentRight="true"/>
+   </RelativeLayout>
+   <RelativeLayout
+       android:layout_below="@id/kingre2"
+       android:id="@+id/kingre3"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+      <ImageView
+          android:id="@+id/kind_thingimg2"
+          android:layout_marginLeft="20dp"
+          android:layout_width="40dp"
+          android:layout_height="40dp" />
+      <TextView
+          android:layout_centerVertical="true"
+          android:id="@+id/kind_thingname2"
+          android:textSize="16sp"
+          android:layout_toRightOf="@id/kind_thingimg2"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="白菜"/>
+      <TextView
+          android:textColor="@color/red"
+          android:id="@+id/kind_money2"
+          android:layout_centerVertical="true"
+          android:text="1.25"
+          android:textSize="20sp"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignParentRight="true"/>
+   </RelativeLayout>
+   <RelativeLayout
+       android:layout_below="@id/kingre3"
+       android:id="@+id/kingre4"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+      <ImageView
+          android:id="@+id/kind_thingimg3"
+          android:layout_marginLeft="20dp"
+          android:layout_width="40dp"
+          android:layout_height="40dp"  />
+      <TextView
+          android:id="@+id/kind_thingname3"
+          android:textSize="16sp"
+          android:layout_centerVertical="true"
+          android:layout_toRightOf="@id/kind_thingimg3"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="小包菜"/>
+      <TextView
+          android:textColor="@color/red"
+          android:id="@+id/kind_money3"
+          android:layout_centerVertical="true"
+          android:text="1.25"
+          android:textSize="20sp"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignParentRight="true"/>
+   </RelativeLayout>
+
+
+   <View
+       android:layout_below="@id/kingre4"
+       style="@style/divide_view"/>
+</RelativeLayout>

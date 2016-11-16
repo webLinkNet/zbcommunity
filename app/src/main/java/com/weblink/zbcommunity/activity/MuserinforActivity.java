@@ -33,7 +33,8 @@ import java.io.File;
  * Created by jz on 2016/11/14.
  */
 public class MuserinforActivity extends Activity implements View.OnClickListener {
-    ImageView mine_user_back;
+    TextView mine_user_back;
+    TextView tilte;
     RelativeLayout mine_user_re_img;
     Button mine_user_set;
     CircleUtils mine_userinfor_img;
@@ -62,8 +63,11 @@ public class MuserinforActivity extends Activity implements View.OnClickListener
         mine_user_set=(Button) findViewById(R.id.mine_user_set);
         mine_user_set.setOnClickListener(this);
         mine_userinfor_name=(EditText)findViewById(R.id.mine_userinfor_name);
-        mine_user_back=(ImageView)findViewById(R.id.mine_user_back);
+        mine_user_back=(TextView) findViewById(R.id.tv_left);
+        mine_user_back.setVisibility(View.VISIBLE);
         mine_user_back.setOnClickListener(this);
+        tilte=(TextView)findViewById(R.id.tv_title);
+        tilte.setText("修改用户信息");
         mine_userinfor_img = (CircleUtils) findViewById(R.id.mine_userinfor_img);
         view_pop = LayoutInflater.from(this).inflate(
                 R.layout.mine_change_head, null);

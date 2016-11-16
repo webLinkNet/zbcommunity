@@ -26,6 +26,7 @@ public class MineFragment extends Fragment implements OnClickListener {
 	RelativeLayout mine_kefu;
 	RelativeLayout mine_dianhua;
 	TextView mine_exit;
+	private TextView tv_title;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -39,11 +40,12 @@ public class MineFragment extends Fragment implements OnClickListener {
 	    mine_kefu.setOnClickListener(this);
 	    mine_exit=(TextView) contentView.findViewById(R.id.mine_exit);//退出
 	    mine_exit.setOnClickListener(this);
+		tv_title=(TextView) contentView.findViewById(R.id.tv_title);
+		tv_title.setText("我的");
 	    mine_myorder=(RelativeLayout) contentView.findViewById(R.id.mine_Relay_first);//订单
 	    mine_myorder.setOnClickListener(this);
 		mine_Relay_Top=(RelativeLayout) contentView.findViewById(R.id.mine_Relay_Top);
 		mine_Relay_Top.setOnClickListener(this);
-		
 		return contentView;		
 	}
 

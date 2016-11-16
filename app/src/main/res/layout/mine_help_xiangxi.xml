@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/top_bar"
+        android:id="@+id/help_xx_top"></include>
+    <TextView
+        android:layout_below="@id/help_xx_top"
+        android:id="@+id/mine_help_xx_text"
+        android:textSize="25sp"
+        android:text="  测试数据可编辑测试数据可编辑测试数据可编辑"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</RelativeLayout>

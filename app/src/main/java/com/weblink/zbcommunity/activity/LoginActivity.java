@@ -14,7 +14,7 @@ import com.weblink.zbcommunity.MainActivity;
 import com.weblink.zbcommunity.R;
 
 public class LoginActivity extends Activity implements OnClickListener {
-	
+	TextView title;
 	TextView login_regNewId;
 	Button login_Btn_login;
 	EditText login_Edt_Name;
@@ -43,6 +43,9 @@ public class LoginActivity extends Activity implements OnClickListener {
 		
 		login_link_FindPwd=(TextView) findViewById(R.id.login_link_FindPwd);
 		login_link_FindPwd.setOnClickListener(this);
+
+		title = (TextView)findViewById(R.id.tv_title);
+		title.setText("登录");
 		
 		
 	}

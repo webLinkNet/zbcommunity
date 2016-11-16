@@ -9,6 +9,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.weblink.zbcommunity.R;
 import com.weblink.zbcommunity.adapter.MmyorlvAdpter;
@@ -19,7 +20,8 @@ import java.util.List;
 
 
 public class MyorderActivity extends Activity implements OnClickListener
-{    ImageView mine_myorder_back;
+{   TextView mine_myorder_back;
+	TextView title;
 	Button btn_daizhi;
 	Button btn_daiping;
 	Button btn_yiping;
@@ -179,7 +181,10 @@ public class MyorderActivity extends Activity implements OnClickListener
 
 	
 	void initdate(){
-		mine_myorder_back=(ImageView) findViewById(R.id.mine_myorder_back);
+		mine_myorder_back=(TextView) findViewById(R.id.tv_left);
+		mine_myorder_back.setVisibility(View.VISIBLE);
+		title=(TextView)findViewById(R.id.tv_title);
+		title.setText("我的订单");
 		btn_daizhi=(Button) findViewById(R.id.mine_daizhi);
 		btn_daiping=(Button) findViewById(R.id.mine_daiping);
 		btn_yiping=(Button) findViewById(R.id.mine_yiping);
@@ -193,10 +198,10 @@ public class MyorderActivity extends Activity implements OnClickListener
 		mine_myorder_back.setOnClickListener(this);
 	}
 	void colorz(){
-		btn_daizhi.setBackgroundColor(Color.parseColor("#33CC33"));
-		btn_daiping.setBackgroundColor(Color.parseColor("#33CC33"));
-		btn_yiping.setBackgroundColor(Color.parseColor("#33CC33"));
-		btn_yiqu.setBackgroundColor(Color.parseColor("#33CC33"));
+		btn_daizhi.setBackgroundColor(Color.parseColor("#FFFFFF"));
+		btn_daiping.setBackgroundColor(Color.parseColor("#FFFFFF"));
+		btn_yiping.setBackgroundColor(Color.parseColor("#FFFFFF"));
+		btn_yiqu.setBackgroundColor(Color.parseColor("#FFFFFF"));
 		
 	}
 	@Override
@@ -208,25 +213,25 @@ public class MyorderActivity extends Activity implements OnClickListener
 	//待支付
 		if(v==btn_daizhi){
 			colorz();
-			btn_daizhi.setBackgroundColor(Color.parseColor("#FF6600"));
+			btn_daizhi.setBackgroundColor(Color.parseColor("#cccccc"));
 			add(data);
 			
 		}
 		//待评价
         if(v==btn_daiping){
         	colorz();
-			btn_daiping.setBackgroundColor(Color.parseColor("#FF6600"));
+			btn_daiping.setBackgroundColor(Color.parseColor("#cccccc"));
 			add(dataa);
 		}
         //已取消
         if(v==btn_yiping){
         	colorz();
-			btn_yiping.setBackgroundColor(Color.parseColor("#FF6600"));
+			btn_yiping.setBackgroundColor(Color.parseColor("#cccccc"));
 			add(dataaa);
 }
         if(v==btn_yiqu){
         	colorz();
-			btn_yiqu.setBackgroundColor(Color.parseColor("#FF6600"));
+			btn_yiqu.setBackgroundColor(Color.parseColor("#cccccc"));
 			add(dataaaa);
 } 
 	}

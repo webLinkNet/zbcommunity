@@ -1,61 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:background="#FFFFFF"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <RelativeLayout
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical">
+
+    <include
         android:id="@+id/mine_coupon_top_layout"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="#FF3366"
-        android:gravity="center_vertical" >
+        layout="@layout/top_bar"></include>
 
-        <ImageView
-            android:id="@+id/mine_coupon_back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:background="@drawable/back" />
-
-        <TextView
-            android:id="@+id/jzfw_top_layout_02"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:text="优惠券"
-            android:textColor="#ffffff"
-            android:textSize="20sp" />
-    </RelativeLayout>
     <LinearLayout
         android:id="@+id/mine_couponlinear"
-        android:layout_below="@id/mine_coupon_top_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        >
+        android:layout_below="@id/mine_coupon_top_layout">
+
         <Button
             android:id="@+id/mine_keyong"
-            android:background="#FF6600"
-            android:text="可使用"
-            android:layout_weight="1"
             android:layout_width="wrap_content"
-            android:layout_height="40dp"/>
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:background="#cccccc"
+            android:text="可使用" />
+
         <Button
-            android:background="#33CC33"
             android:id="@+id/mine_zuofei"
-            android:text="已作废"
-            android:layout_weight="1"
             android:layout_width="wrap_content"
-            android:layout_height="40dp"/>
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:background="#FFFFFF"
+            android:text="已作废" />
     </LinearLayout>
+
     <ListView
-        android:background="#FFFFFF"
-        android:layout_below="@id/mine_couponlinear"
         android:id="@+id/mine_coupon_list"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"></ListView>
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mine_couponlinear"
+        android:background="#FFFFFF"></ListView>
 
 
 </RelativeLayout>

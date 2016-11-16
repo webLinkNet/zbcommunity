@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Created by Administrator on 2016/11/15.
  */
-public class Commodgv  implements Serializable {
+public class CommodgvBean implements Serializable {
     private String kinurl;
     private String kintext;
 
