@@ -1,7 +1,7 @@
 package com.weblink.zbcommunity.bean;
 
 /**
- * Created by swq on 2016/11/11.
+ * Created by swq on 2016/11/11...
  */
 public class LocationBean {
 
