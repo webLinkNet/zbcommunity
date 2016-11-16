@@ -47,7 +47,7 @@ public class CommodtityFragment extends Fragment implements OnItemClickListener 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 							 Bundle savedInstanceState) {
-		View contentView = inflater.inflate(R.layout.commodtityfragment,container, false);
+		View contentView = inflater.inflate(R.layout.commodtity_fragment,container, false);
 		listView = (ListView)contentView.findViewById(R.id.listview);
 		adapter = new CommListAdapter(getActivity(), strs);
 		listView.setAdapter(adapter);
