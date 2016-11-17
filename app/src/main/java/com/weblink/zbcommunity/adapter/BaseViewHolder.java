@@ -7,36 +7,22 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.facebook.drawee.view.SimpleDraweeView;
+
 /**
  * Created by swq on 2016/11/17.
  */
-public class BaseViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+public class BaseViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
     private SparseArray<View> views;
 
-    private BaseAdapter.OnItemClickListener mOnItemClickListener ;
+    private BaseAdapter.OnItemClickListener mOnItemClickListener;
 
-    public BaseViewHolder(View itemView,BaseAdapter.OnItemClickListener onItemClickListener){
+    public BaseViewHolder(View itemView, BaseAdapter.OnItemClickListener onItemClickListener) {
         super(itemView);
         itemView.setOnClickListener(this);
 
-        this.mOnItemClickListener =onItemClickListener;
+        this.mOnItemClickListener = onItemClickListener;
         this.views = new SparseArray<View>();
-    }
-
-    public TextView getTextView(int viewId) {
-        return retrieveView(viewId);
-    }
-
-    public Button getButton(int viewId) {
-        return retrieveView(viewId);
-    }
-
-    public ImageView getImageView(int viewId) {
-        return retrieveView(viewId);
-    }
-
-    public View getView(int viewId) {
-        return retrieveView(viewId);
     }
 
 
@@ -52,7 +38,31 @@ public class BaseViewHolder extends RecyclerView.ViewHolder implements View.OnCl
     @Override
     public void onClick(View v) {
         if (mOnItemClickListener != null) {
-            mOnItemClickListener.onItemClick(v,getLayoutPosition());
+            mOnItemClickListener.onItemClick(v, getLayoutPosition());
         }
     }
+
+
+    public View getView(int viewId) {
+        return retrieveView(viewId);
+    }
+
+
+    public TextView getTextView(int viewId) {
+        return retrieveView(viewId);
+    }
+
+    public Button getButton(int viewId) {
+        return retrieveView(viewId);
+    }
+
+    public ImageView getImageView(int viewId) {
+        return retrieveView(viewId);
+    }
+
+    public SimpleDraweeView getSimpleDraweeView(int viewId) {
+        return retrieveView(viewId);
+    }
+
+
 }

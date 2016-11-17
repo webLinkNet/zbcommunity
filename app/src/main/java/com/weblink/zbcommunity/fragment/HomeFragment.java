@@ -23,8 +23,9 @@ import com.daimajia.slider.library.SliderTypes.BaseSliderView;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
 import com.weblink.zbcommunity.Constants;
 import com.weblink.zbcommunity.R;
+import com.weblink.zbcommunity.adapter.BaseAdapter;
 import com.weblink.zbcommunity.adapter.RvHomeAdapter;
-import com.weblink.zbcommunity.adapter.RvHomeTopAdapter;
+import com.weblink.zbcommunity.adapter.RvHomeTopSimAdapter;
 import com.weblink.zbcommunity.bean.BannerBean;
 import com.weblink.zbcommunity.bean.CommunityBean;
 import com.weblink.zbcommunity.bean.HomeGVBean;
@@ -403,16 +404,26 @@ public class HomeFragment extends BaseFragment implements AMapLocationListener {
         rvTop.setLayoutManager(gridLayoutManager);
         rvTop.setNestedScrollingEnabled(false);
 
-        RvHomeTopAdapter adapter = new RvHomeTopAdapter(getActivity(), topList);
+//        RvHomeTopAdapter adapter = new RvHomeTopAdapter(getActivity(), topList);
+//
+//        adapter.setOnItemClickListener(new RvHomeTopAdapter.OnItemClickListener() {
+//            @Override
+//            public void onClick(View v, HomeGVBean bean) {
+//
+//                ToastUtils.showToast(getActivity(), bean.getName());
+//            }
+//        });
 
-        adapter.setOnItemClickListener(new RvHomeTopAdapter.OnItemClickListener() {
+
+        final RvHomeTopSimAdapter adapter = new RvHomeTopSimAdapter(getActivity(), topList);
+
+        adapter.setOnItemClickListener(new BaseAdapter.OnItemClickListener() {
             @Override
-            public void onClick(View v, HomeGVBean bean) {
+            public void onItemClick(View view, int position) {
 
-                ToastUtils.showToast(getActivity(), bean.getName());
+                ToastUtils.showToast(getActivity(), adapter.getItem(position).getName());
             }
         });
-
         rvTop.setAdapter(adapter);
     }
 
@@ -531,7 +542,7 @@ public class HomeFragment extends BaseFragment implements AMapLocationListener {
                 df.format(date);//定位时间
             } else {
                 //显示错误信息ErrCode是错误码，errInfo是错误信息，详见错误码表。
-                Log.e("AmapError","location Error, ErrCode:"
+                Log.e("AmapError", "location Error, ErrCode:"
                         + amapLocation.getErrorCode() + ", errInfo:"
                         + amapLocation.getErrorInfo());
             }
