@@ -7,7 +7,6 @@ public class LocationBean {
 
     private static LocationBean instance = null;
 
-
     private LocationBean(){}
 
     public static LocationBean getInstance(){
