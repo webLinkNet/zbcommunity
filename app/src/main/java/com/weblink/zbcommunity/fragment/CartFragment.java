@@ -152,22 +152,22 @@ public class CartFragment extends Fragment implements View.OnClickListener
         c.setShopName("梦石头超市");
         result.add(c);
 
-        b.setId(1);
+        b.setId(2);
         b.setCarNum(3);
-        b.setContent("超级无敌大白菜");
+        b.setContent("土豆");
         b.setImg_shop("http://p0.55tuanimg.com/p1/M01/12/00/rBAZIlTwHxWAaaHtAAATScyUY7A173.png");
         b.setImg_thing("http://www.52ij.com/uploads/allimg/160317/0055064531-0.jpg?");
-        b.setPrice(301f);
-        b.setShopName("梦石头超市");
+        b.setPrice(30.7f);
+        b.setShopName("刘璇超市");
         result.add(b);
 
-        d.setId(1);
+        d.setId(3);
         d.setCarNum(2);
-        d.setContent("超级无敌大白菜");
+        d.setContent("地瓜");
         d.setImg_shop("http://p0.55tuanimg.com/p1/M01/12/00/rBAZIlTwHxWAaaHtAAATScyUY7A173.png");
         d.setImg_thing("http://www.52ij.com/uploads/allimg/160317/0055064531-0.jpg?");
-        d.setPrice(301f);
-        d.setShopName("梦石头超市");
+        d.setPrice(2.05f);
+        d.setShopName("隔壁老于超市");
         result.add(d);
 
         return  result;
