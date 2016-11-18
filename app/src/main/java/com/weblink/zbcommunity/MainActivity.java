@@ -1,5 +1,7 @@
 package com.weblink.zbcommunity;
 
+import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,7 +10,6 @@ import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.TextView;
 
-import com.weblink.zbcommunity.activity.BaseActivity;
 import com.weblink.zbcommunity.bean.Tab;
 import com.weblink.zbcommunity.fragment.CartFragment;
 import com.weblink.zbcommunity.fragment.CommodtityFragment;
@@ -21,9 +22,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends FragmentActivity {
 
     @BindView(R.id.fl_tab_content)
     FrameLayout flTabContent;
@@ -41,20 +43,13 @@ public class MainActivity extends BaseActivity {
     private long PRESS_BACK_INTERVAL = 2000;
 
     @Override
-    public void setContent() {
-
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-    }
+        ButterKnife.bind(this);
 
-    @Override
-    public void initView() {
         initTab();
-    }
-
-    @Override
-    public void initNet() {
-
     }
 
     private void initTab() {
@@ -133,6 +128,7 @@ public class MainActivity extends BaseActivity {
 
             finish();
         }
-    }
 
+
+    }
 }

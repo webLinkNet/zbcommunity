@@ -40,6 +40,10 @@
     </style>
 
 
+    <style name="customCheckbox" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/selector_checkbox</item>
+    </style>
+
     <style name="select_city">
 
         <item name="android:width">0dp</item>
@@ -52,4 +56,5 @@
 
 
     </style>
+
 </resources>

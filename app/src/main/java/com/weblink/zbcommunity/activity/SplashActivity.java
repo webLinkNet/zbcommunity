@@ -8,6 +8,7 @@ import android.view.WindowManager;
 import android.view.animation.AlphaAnimation;
 import android.widget.LinearLayout;
 
+import com.weblink.zbcommunity.BaseActivity;
 import com.weblink.zbcommunity.Constants;
 import com.weblink.zbcommunity.MainActivity;
 import com.weblink.zbcommunity.R;
