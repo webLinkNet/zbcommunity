@@ -29,7 +29,6 @@
           android:layout_marginLeft="20dp"
           android:layout_width="40dp"
           android:layout_height="40dp" />
-
       <TextView
           android:layout_centerVertical="true"
           android:id="@+id/kind_thingname1"
@@ -38,7 +37,6 @@
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:text="优质大白菜"/>
-
       <TextView
           android:textColor="@color/red"
           android:id="@+id/kind_money1"
@@ -67,7 +65,6 @@
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:text="白菜"/>
-
       <TextView
           android:textColor="@color/red"
           android:id="@+id/kind_money2"
@@ -96,7 +93,6 @@
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:text="小包菜"/>
-
       <TextView
           android:textColor="@color/red"
           android:id="@+id/kind_money3"

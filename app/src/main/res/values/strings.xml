@@ -4,8 +4,4 @@
     <string name="commodity">商品</string>
     <string name="cart">购物车</string>
     <string name="mine">我的</string>
-    <string name="menu_edit">编辑</string>
-    <string name="menu_enter">完成</string>
-    <string name="menu_del">删除</string>
-    <string name="menu_sett">结算</string>
 </resources>
