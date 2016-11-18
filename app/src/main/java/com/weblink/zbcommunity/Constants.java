@@ -13,7 +13,8 @@ public class Constants {
     public static final String IS_FIRST_START = "isFirstStart";
 
     //使用startactivityforresult的时候的请求值
-    public static final int REQUEST = 1;
-
+    public static final int REQUEST_CODE = 1;
+    //使用startactivityforresult的时候的请求值
+    public static final int RESULT_CODE = 2;
 
 }

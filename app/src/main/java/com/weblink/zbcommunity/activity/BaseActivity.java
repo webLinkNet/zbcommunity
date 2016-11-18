@@ -1,15 +1,15 @@
-package com.weblink.zbcommunity;
+package com.weblink.zbcommunity.activity;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentActivity;
 
 import butterknife.ButterKnife;
 
 /**
  * Created by swq on 2016/10/31.
  */
-public abstract class BaseActivity extends Activity {
+public abstract class BaseActivity extends FragmentActivity {
 
 
     @Override

@@ -109,11 +109,11 @@
 
 
     </RelativeLayout>
-    <ListView
+    <android.support.v7.widget.RecyclerView
         android:id="@+id/locts"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/space_margin"
         android:layout_marginRight="@dimen/space_margin"
-        android:scrollbars="none"></ListView>
+        android:scrollbars="none"></android.support.v7.widget.RecyclerView>
 </LinearLayout>

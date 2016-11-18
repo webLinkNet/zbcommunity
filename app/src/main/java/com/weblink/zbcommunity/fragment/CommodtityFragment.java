@@ -33,13 +33,6 @@ public class CommodtityFragment extends Fragment implements OnItemClickListener 
     List<CommodgvBean> dadas = new ArrayList<>();
     private CommodgvBean commodgvBean = new CommodgvBean();
     private CommodgvBean commodgvBean1 = new CommodgvBean();
-    private CommodgvBean commodgvBean2 = new CommodgvBean();
-    private CommodgvBean commodgvBean3 = new CommodgvBean();
-    private CommodgvBean commodgvBean4 = new CommodgvBean();
-    private CommodgvBean commodgvBean5 = new CommodgvBean();
-    private CommodgvBean commodgvBean6= new CommodgvBean();
-
-
     private ListView listView;
     private GridView grid;
     private CommListAdapter adapter;
@@ -67,28 +60,12 @@ public class CommodtityFragment extends Fragment implements OnItemClickListener 
 
     public void intdata() {
 
-        commodgvBean.setKintext("茄子");
-        commodgvBean.setKinurl("http://pic31.nipic.com/20130711/9490444_115207012303_2.jpg");
+        commodgvBean.setKintext("测试");
+        commodgvBean.setKinurl("http://desk.fd.zol-img.com.cn/t_s960x600c5/g5/M00/02/03/ChMkJ1bKxpWIIp3vAAimMffVdTgAALHnQMKJY0ACKZJ164.jpg");
         datas.add(commodgvBean);
         commodgvBean1.setKintext("数据");
         commodgvBean1.setKinurl( "http://desk.fd.zol-img.com.cn/t_s960x600c5/g4/M00/0D/01/Cg-4y1ULoXCII6fEAAeQFx3fsKgAAXCmAPjugYAB5Av166.jpg");
         dadas.add(commodgvBean1);
-
-        commodgvBean2.setKintext("西红柿");
-        commodgvBean2.setKinurl("http://homemade.keliren.cn/tuku/a/20160405/5703c56a43842.jpg_600.jpg");
-        datas.add(commodgvBean2);
-        commodgvBean3.setKintext("菜椒");
-        commodgvBean3.setKinurl("http://pic3.nipic.com/20090713/2343681_131215028_2.jpg");
-        datas.add(commodgvBean3);
-        commodgvBean4.setKintext("白菜");
-        commodgvBean4.setKinurl("http://pic.58pic.com/58pic/15/40/30/63D58PICdSQ_1024.jpg");
-        datas.add(commodgvBean4);
-        commodgvBean5.setKintext("搭配");
-        commodgvBean5.setKinurl("http://img.taopic.com/uploads/allimg/120323/2257-12032323245797.jpg");
-        datas.add(commodgvBean5);
-        commodgvBean6.setKintext("大葱");
-        commodgvBean6.setKinurl("http://pic71.nipic.com/file/20150627/2692994_134418584000_2.jpg");
-        datas.add(commodgvBean6);
     }
 
     public void adptergrid(List<CommodgvBean> datass) {
@@ -113,6 +90,7 @@ public class CommodtityFragment extends Fragment implements OnItemClickListener 
                 adptergrid(dadas);
             }
         }
+
         //单个条目的点击事件
         if (arg0 == grid) {
             //Toast.makeText(getActivity(),"点击了",Toast.LENGTH_SHORT).show();

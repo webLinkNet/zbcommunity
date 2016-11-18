@@ -42,7 +42,7 @@ public class CommkindActivity extends Activity  {
 
     }
     public void intdata(){
-        ccc.setPrice1("1.20");ccc.setPrice2("2.60");ccc.setPrice3("0.50");
+        ccc.setPrice1("￥1.20");ccc.setPrice2("￥2.60");ccc.setPrice3("￥0.50");
         ccc.setThingname1("大白菜");ccc.setThingname2("小白菜");ccc.setThingname3("优质白菜");
         ccc.setUrl1("http://i2.s2.dpfile.com/pc/fb7ea132e22ec7efa592a60f03a04205%28700x700%29/thumb.jpg");
         ccc.setUrl2("http://img.web07.cn/uploads/Photo/c101115/12YN19531F-54937.jpg");
@@ -50,7 +50,7 @@ public class CommkindActivity extends Activity  {
         ccc.setUrl4("http://i1.dpfile.com/2010-06-03/4432486_b.jpg%28700x700%29/thumb.jpg");
         ccc.setShopname("谭梦石超市");
 
-        bbb.setPrice1("4.20");bbb.setPrice2("4.20");bbb.setPrice3("55.00");
+        bbb.setPrice1("￥4.20");bbb.setPrice2("￥4.20");bbb.setPrice3("￥55.00");
         bbb.setThingname1("优质大白菜");bbb.setThingname2("大白菜");bbb.setThingname3("白菜");
         bbb.setUrl1("http://p0.55tuanimg.com/p1/M01/12/00/rBAZIlTwHxWAaaHtAAATScyUY7A173.png");
         bbb.setUrl2("http://img.web07.cn/uploads/Photo/c101115/12YN19531F-54937.jpg");
