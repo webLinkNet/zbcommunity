@@ -58,7 +58,7 @@ public class LoginActivity extends Activity implements OnClickListener {
 
         if (v == login_regNewId) {
 
-            Intent intent = new Intent(LoginActivity.this, SetnewActivity.class);
+            Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
             startActivity(intent);
         }
 
