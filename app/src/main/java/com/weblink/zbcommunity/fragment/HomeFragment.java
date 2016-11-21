@@ -1,7 +1,11 @@
 package com.weblink.zbcommunity.fragment;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -95,6 +99,16 @@ public class HomeFragment extends BaseFragment implements AMapLocationListener {
 
     @Override
     public void initView() {
+
+
+        //android6.0动态添加定位权限
+        if (ContextCompat.checkSelfPermission(getActivity(),
+                Manifest.permission.ACCESS_COARSE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(getActivity(), new
+                    String[]{Manifest.permission.ACCESS_COARSE_LOCATION}, 1);
+        }
+
 
         EventBus.getDefault().register(this);
 
