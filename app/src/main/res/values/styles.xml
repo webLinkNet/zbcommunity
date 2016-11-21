@@ -44,6 +44,8 @@
         <item name="android:button">@drawable/selector_checkbox</item>
     </style>
 
+
+    <!-- 选择定位位置 -->
     <style name="select_city">
 
         <item name="android:width">0dp</item>
@@ -54,7 +56,34 @@
         <item name="android:background">@drawable/shape_search</item>
         <item name="android:gravity">center</item>
 
+    </style>
+
+
+    <!-- 顶部搜索栏 -->
+    <style name="srarch_top">
+
+        <item name="android:background">@drawable/shape_search</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:drawableLeft">@drawable/loc_search_icon</item>
+        <item name="android:hint">搜索附近的商品或门店</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:textColorHint">@color/black3</item>
+        <item name="android:textSize">14sp</item>
 
     </style>
 
+    <style name="icon_back_normal">
+
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:background">#00000000</item>
+        <item name="android:padding">15dp</item>
+        <item name="android:src">@drawable/back_normal</item>
+
+    </style>
 </resources>

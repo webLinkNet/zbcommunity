@@ -6,14 +6,19 @@
     android:orientation="vertical">
 
 
-    <ImageView
+    <!--<ImageView
         android:id="@+id/iv_left"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_centerVertical="true"
         android:layout_marginLeft="15dp"
         android:src="@mipmap/ic_launcher"
-        android:visibility="gone" />
+        android:visibility="gone" />-->
+
+    <ImageButton
+        android:id="@+id/iv_left"
+        android:visibility="visible"
+        style="@style/icon_back_normal" />
 
     <TextView
         android:id="@+id/tv_left"

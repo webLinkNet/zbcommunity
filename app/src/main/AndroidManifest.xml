@@ -37,8 +37,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.hardware.camera"></uses-permission>
     <uses-permission android:name="android.hardware.autofocus"></uses-permission>
-    <uses-permission android:name="android.permission.CALL_PHONE"/>
-
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
 
     <application
@@ -66,19 +65,32 @@
 
         <service android:name="com.amap.api.location.APSService"></service>
 
-
+        <!-- 主界面-->
         <activity android:name=".MainActivity" />
+        <!-- 登录-->
         <activity android:name=".activity.LoginActivity" />
+        <!-- 修改密码-->
         <activity android:name=".activity.ChangeActivity" />
+        <!-- 用户信息-->
         <activity android:name=".activity.MuserinforActivity" />
+        <!-- 我的优惠券-->
         <activity android:name=".activity.MinecoActivity" />
+        <!-- 帮助与反馈-->
         <activity android:name=".activity.MinehelpActivity" />
+        <!-- 订单-->
         <activity android:name=".activity.MyorderActivity" />
-        <activity android:name=".activity.SetnewActivity" />
+        <!-- 注册-->
+        <activity android:name=".activity.RegisterActivity" />
+        <!-- 引导页-->
         <activity android:name=".activity.GuideActivity" />
+        <!-- 选择位置-->
         <activity android:name=".activity.SelectLocActivity" />
+        <!-- 商品超市-->
         <activity android:name=".activity.CommkindActivity" />
+        <!-- 常见问题-->
         <activity android:name=".activity.MinehelpxxActivity" />
+        <!-- 搜索商品-->
+        <activity android:name=".activity.SearchActivity" />
     </application>
 
 

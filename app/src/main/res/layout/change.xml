@@ -2,126 +2,128 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-	android:background="#FFFFFF">
-    
-<include layout="@layout/top_bar"
-	android:id="@+id/change_top_layout"></include>
+    android:background="#FFFFFF">
+
+    <include
+        android:id="@+id/change_top_layout"
+        layout="@layout/top_bar"></include>
 
     <RelativeLayout
-        android:layout_below="@id/change_top_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:layout_below="@id/change_top_layout">
 
-      <ImageView
-        android:id="@+id/change_logo"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/ic_launcher" />
-    ]<ImageView
-        android:id="@+id/change_tupian"
-        android:layout_below="@id/change_logo"
-        android:background="@drawable/daojia"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:textSize="30dp"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        />
-    <View
-        android:layout_below="@id/change_tupian"
-        android:id="@+id/blank"
-         android:layout_width="match_parent"
-        android:layout_height="25dp"
-        android:background="#FFFFFF"/>
-      <RelativeLayout 
-            android:id="@+id/change_Relay_Name" 
+        <ImageView
+            android:id="@+id/change_logo"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/ic_launcher" />
+        ]
+
+        <ImageView
+            android:id="@+id/change_tupian"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/change_logo"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/daojia"
+            android:textSize="30dp" />
+
+        <View
+            android:id="@+id/blank"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:layout_below="@id/change_tupian"
+            android:background="#FFFFFF" />
+
+        <RelativeLayout
+            android:id="@+id/change_Relay_Name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/blank"
-            >
-            	
-            	<EditText 
-            	    android:id="@+id/change_phone" 
-            	    android:layout_width="wrap_content"
-            	    android:layout_height="wrap_content"
-            	    android:layout_alignParentLeft="true"
-            	    android:layout_alignParentTop="true"
-            	    android:background="@null"
-            	    android:cursorVisible="@null"
-            	    android:ems="10"
-            	    android:hint="请输入手机号"
-            	    android:paddingLeft="40sp"
-            	    android:textColor="@android:color/black"
-            	    android:textSize="16sp"
-            	    android:inputType="phone"
-            	    />
-            	<Button
-            	
-            	    android:id="@+id/change_authcode"
-            	    android:background="#9966CC"
-            	    android:textSize="16sp"
-            	    android:layout_alignParentRight="true"
-            	    android:text="发送验证码" 
-            	    android:layout_width="wrap_content"
-            	    android:layout_height="wrap_content"
-            	    />
+            android:layout_below="@+id/blank">
+
+            <EditText
+                android:id="@+id/change_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:background="@null"
+                android:cursorVisible="@null"
+                android:ems="10"
+                android:hint="请输入手机号"
+                android:inputType="phone"
+                android:paddingLeft="40sp"
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
+
+            <Button
+
+                android:id="@+id/change_authcode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:background="#9966CC"
+                android:text="发送验证码"
+                android:textSize="16sp" />
         </RelativeLayout>
+
         <EditText
-			        android:layout_marginTop="20sp"
-                    android:layout_below="@id/change_Relay_Name"
-            	    android:id="@+id/change_authcodeedtext" 
-            	    android:layout_width="wrap_content"
-            	    android:layout_height="wrap_content"
-            	    android:layout_alignParentLeft="true"
-            	    android:background="@null"
-            	    android:cursorVisible="@null"
-            	    android:ems="10"
-            	    android:hint="请输入验证码"
-            	    android:paddingLeft="40sp"
-            	    android:textColor="@android:color/black"
-            	    android:textSize="16sp"  
-            	    />
-         <EditText 
-                    android:layout_marginTop="20sp"
-                    android:layout_below="@id/change_authcodeedtext"
-            	    android:id="@+id/change_passw" 
-            	    android:layout_width="wrap_content"
-            	    android:layout_height="wrap_content"
-            	    android:layout_alignParentLeft="true"
-            	    android:background="@null"
-            	    android:cursorVisible="@null"
-            	    android:ems="10"
-            	    android:hint="请输入密码"
-            	    android:paddingLeft="40sp"
-            	    android:textColor="@android:color/black"
-            	    android:textSize="16sp"  
-            	    />
-           <EditText 
-                    android:layout_marginTop="20sp"
-                    android:layout_below="@id/change_passw"
-            	    android:id="@+id/change_passwagain" 
-            	    android:layout_width="wrap_content"
-            	    android:layout_height="wrap_content"
-            	    android:layout_alignParentLeft="true"
-            	    android:background="@null"
-            	    android:cursorVisible="@null"
-            	    android:ems="10"
-            	    android:hint="请再次输入密码"
-            	    android:paddingLeft="40sp"
-            	    android:textColor="@android:color/black"
-            	    android:textSize="16sp"  
-            	    />
-           <Button
-               android:id="@+id/change" 
-               android:background="#339999"
-               android:layout_marginTop="20sp"
-               android:layout_below="@id/change_passwagain"
-               android:layout_width="match_parent"
-               android:layout_height="50dp"
-               android:text="修改"
-               />
-           </RelativeLayout>
+            android:id="@+id/change_authcodeedtext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/change_Relay_Name"
+            android:layout_marginTop="20sp"
+            android:background="@null"
+            android:cursorVisible="@null"
+            android:ems="10"
+            android:hint="请输入验证码"
+            android:paddingLeft="40sp"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/change_passw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/change_authcodeedtext"
+            android:layout_marginTop="20sp"
+            android:background="@null"
+            android:cursorVisible="@null"
+            android:ems="10"
+            android:hint="请输入密码"
+            android:paddingLeft="40sp"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/change_passwagain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/change_passw"
+            android:layout_marginTop="20sp"
+            android:background="@null"
+            android:cursorVisible="@null"
+            android:ems="10"
+            android:hint="请再次输入密码"
+            android:paddingLeft="40sp"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/change"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/change_passwagain"
+            android:layout_marginTop="20sp"
+            android:background="#339999"
+            android:text="修改" />
+    </RelativeLayout>
 
 </RelativeLayout>

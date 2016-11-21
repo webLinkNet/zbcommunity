@@ -167,7 +167,7 @@
     <color name="black2">#666666</color>
     <color name="black3">#868686</color>
     <color name="black4">#cccccc</color>
-    <color name="main_red">#ff0066</color> <!--app主色调-->
+    <color name="main_red">#f74461</color> <!--app主色调-->
     <color name="gray_divide_view">#f3f3f3</color><!--间隔背景色 -->
     <color name="gray_divide_line">#cccccc</color><!--间隔线颜色 -->
 

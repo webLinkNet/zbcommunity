@@ -40,6 +40,7 @@
 
                     <!--顶部top栏-->
                     <RelativeLayout
+                        android:id="@+id/rl_top"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:background="@color/main_red">
@@ -47,18 +48,9 @@
 
                         <TextView
                             android:id="@+id/tv_search"
+                            style="@style/srarch_top"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginBottom="8dp"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
-                            android:layout_marginTop="8dp"
-                            android:background="@drawable/shape_search"
-                            android:drawableLeft="@mipmap/icon_search"
-                            android:gravity="center|left"
-                            android:paddingLeft="10dp"
-                            android:textColor="@color/black2"
-                            android:text="    搜索附近的商品或门店" />
+                            android:layout_height="match_parent" />
                     </RelativeLayout>
 
                     <!--轮播图-->
@@ -89,10 +81,10 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="3dp"
-                            android:text="定位中..."
-                            android:singleLine="true"
                             android:ellipsize="end"
                             android:maxEms="10"
+                            android:singleLine="true"
+                            android:text="定位中..."
                             android:textColor="@color/black1" />
 
                     </LinearLayout>
@@ -112,7 +104,7 @@
 
 
                     <!--附近的商店-->
-                    <include layout="@layout/near_shop"/>
+                    <include layout="@layout/near_shop" />
 
 
                     <!--商店的recycleview-->

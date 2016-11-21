@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.amap.api.location.AMapLocation;
@@ -26,6 +27,7 @@ import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.BaseSliderView;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
 import com.weblink.zbcommunity.R;
+import com.weblink.zbcommunity.activity.SearchActivity;
 import com.weblink.zbcommunity.activity.SelectLocActivity;
 import com.weblink.zbcommunity.adapter.BaseAdapter;
 import com.weblink.zbcommunity.adapter.RvHomeAdapter;
@@ -70,6 +72,8 @@ public class HomeFragment extends BaseFragment implements AMapLocationListener {
     MaterialRefreshLayout refreshLayout;
     @BindView(R.id.ll_loc)
     LinearLayout llLoc;
+    @BindView(R.id.rl_top)
+    RelativeLayout rlTop;
 
     //轮播图数据
     private List<BannerBean> bannerBeanList = new ArrayList<>();
@@ -100,6 +104,25 @@ public class HomeFragment extends BaseFragment implements AMapLocationListener {
     @Override
     public void initView() {
 
+        //初始化事件
+        initEvent();
+
+        //初始化轮播图view
+        initSlideView();
+
+        //初始化下面列表展示
+        initRecycleView();
+
+        //初始化定位
+        initLocation();
+
+        //初始化刷新，加载
+        initRefresh();
+    }
+
+
+
+    private void initEvent() {
 
         //android6.0动态添加定位权限
         if (ContextCompat.checkSelfPermission(getActivity(),
@@ -110,20 +133,20 @@ public class HomeFragment extends BaseFragment implements AMapLocationListener {
         }
 
 
+        rlTop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(getActivity(),SearchActivity.class);
+
+                startActivity(intent);
+            }
+        });
+
+
+        //eventBus用于接收定位回传值
         EventBus.getDefault().register(this);
 
-        //初始化轮播图view
-        initSlideView();
-
-
-        //初始化下面列表展示
-        initRecycleView();
-
-        //初始化定位
-        initLocation();
-
-        //初始化刷新，加载
-        initRefresh();
     }
 
 
