@@ -17,4 +17,5 @@
     <dimen name="txt_24">24sp</dimen>
     <dimen name="txt_26">26sp</dimen>
     <dimen name="txt_28">28sp</dimen>
+    <dimen name="top_height">42dp</dimen>
 </resources>

@@ -90,7 +90,11 @@
         <!-- 常见问题-->
         <activity android:name=".activity.MinehelpxxActivity" />
         <!-- 搜索商品-->
-        <activity android:name=".activity.SearchActivity" />
+        <activity
+            android:name=".activity.SearchActivity"
+            android:launchMode="singleTask" />
+        <!-- 搜索结果-->
+        <activity android:name=".activity.SearchResultActivity" />
     </application>
 
 
