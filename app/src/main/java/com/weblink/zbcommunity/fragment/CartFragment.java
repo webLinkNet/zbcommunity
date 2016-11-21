@@ -21,6 +21,7 @@ import com.bumptech.glide.Glide;
 import com.weblink.zbcommunity.R;
 import com.weblink.zbcommunity.bean.CartBean;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,6 +32,8 @@ import java.util.List;
 public class CartFragment extends Fragment implements View.OnClickListener
 
 {
+    DecimalFormat df=new DecimalFormat(".##");
+
     private static final int INITIALIZE = 0;
 
     private ListView mListView;// 列表
@@ -42,6 +45,7 @@ public class CartFragment extends Fragment implements View.OnClickListener
     private boolean isBatchModel;// 是否可删除模式
 
     private RelativeLayout mBottonLayout;
+
     private CheckBox mCheckAll; // 全选 全不选
 
 
@@ -55,12 +59,12 @@ public class CartFragment extends Fragment implements View.OnClickListener
 
     private TextView mDelete; // 删除 结算
 
-    private int totalPrice = 0; // 商品总价
+    private double totalPrice = 0; // 商品总价
+
     /**
      * 批量模式下，用来记录当前选中状态
      */
     private SparseArray<Boolean> mSelectState = new SparseArray<Boolean>();
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -139,16 +143,17 @@ public class CartFragment extends Fragment implements View.OnClickListener
     }
 
     private List<CartBean> getData() {
-       CartBean c= new CartBean();
-        CartBean b= new CartBean();
-        CartBean d= new CartBean();
+        CartBean c = new CartBean();
+        CartBean b = new CartBean();
+        CartBean d = new CartBean();
+        CartBean d1 = new CartBean();
         List<CartBean> result = new ArrayList<CartBean>();
         c.setId(1);
         c.setCarNum(2);
         c.setContent("超级无敌大白菜");
         c.setImg_shop("http://p0.55tuanimg.com/p1/M01/12/00/rBAZIlTwHxWAaaHtAAATScyUY7A173.png");
         c.setImg_thing("http://www.52ij.com/uploads/allimg/160317/0055064531-0.jpg?");
-        c.setPrice(301f);
+        c.setPrice(1.11);
         c.setShopName("梦石头超市");
         result.add(c);
 
@@ -156,8 +161,8 @@ public class CartFragment extends Fragment implements View.OnClickListener
         b.setCarNum(3);
         b.setContent("土豆");
         b.setImg_shop("http://p0.55tuanimg.com/p1/M01/12/00/rBAZIlTwHxWAaaHtAAATScyUY7A173.png");
-        b.setImg_thing("http://www.52ij.com/uploads/allimg/160317/0055064531-0.jpg?");
-        b.setPrice(30.7f);
+        b.setImg_thing("http://pic.58pic.com/58pic/15/42/64/49K58PICZNx_1024.jpg");
+        b.setPrice(2.2);
         b.setShopName("刘璇超市");
         result.add(b);
 
@@ -165,12 +170,21 @@ public class CartFragment extends Fragment implements View.OnClickListener
         d.setCarNum(2);
         d.setContent("地瓜");
         d.setImg_shop("http://p0.55tuanimg.com/p1/M01/12/00/rBAZIlTwHxWAaaHtAAATScyUY7A173.png");
-        d.setImg_thing("http://www.52ij.com/uploads/allimg/160317/0055064531-0.jpg?");
-        d.setPrice(2.05f);
+        d.setImg_thing("http://www.k618.cn/ygmp/dzrmp/zwtd/201206/W020120605506019775905.jpg");
+        d.setPrice(3);
         d.setShopName("隔壁老于超市");
         result.add(d);
 
-        return  result;
+        d1.setId(4);
+        d1.setCarNum(3);
+        d1.setContent("海参");
+        d1.setImg_shop("http://p0.55tuanimg.com/p1/M01/12/00/rBAZIlTwHxWAaaHtAAATScyUY7A173.png");
+        d1.setImg_thing("http://www.renhe.cn/profile/product_img/1291994_1354952755.jpg");
+        d1.setPrice(888);
+        d1.setShopName("老宋超市");
+        result.add(d1);
+
+        return result;
 
     }
 
@@ -194,7 +208,8 @@ public class CartFragment extends Fragment implements View.OnClickListener
             Params p = params[0];
             Result result = new Result();
             result.op = p.op;
-            try {// 模拟耗时
+            try {
+                // 模拟耗时
                 Thread.sleep(500L);
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -265,7 +280,7 @@ public class CartFragment extends Fragment implements View.OnClickListener
 
                     if (selected) {
                         totalPrice += mListData.get(position).getPrice();
-                        mPriceAll.setText("￥" + totalPrice + "");
+                        mPriceAll.setText("￥" + df.format(totalPrice) + "");
 
                     }
 
@@ -289,7 +304,7 @@ public class CartFragment extends Fragment implements View.OnClickListener
 
                     if (selected) {
                         totalPrice -= mListData.get(position).getPrice();
-                        mPriceAll.setText("￥" + totalPrice + "");
+                        mPriceAll.setText("￥" + df.format(totalPrice) + "");
 
                     }
 
@@ -300,8 +315,8 @@ public class CartFragment extends Fragment implements View.OnClickListener
 
         private void bindListItem(ViewHolder holder, CartBean data) {
 
-            Glide.with(getActivity()) .load(data.getImg_shop()) .into(holder.img_shop);
-            Glide.with(getActivity()) .load(data.getImg_thing()) .into(holder.img_thing);
+            Glide.with(getActivity()).load(data.getImg_shop()).into(holder.img_shop);
+            Glide.with(getActivity()).load(data.getImg_thing()).into(holder.img_thing);
             holder.shopName.setText(data.getShopName());
             holder.content.setText(data.getContent());
             holder.price.setText("￥" + data.getPrice());
@@ -332,7 +347,7 @@ public class CartFragment extends Fragment implements View.OnClickListener
                 totalPrice -= bean.getCarNum() * bean.getPrice();
             }
             mSelectNum.setText("已选" + mSelectState.size() + "件商品");
-            mPriceAll.setText("￥" + totalPrice + "");
+            mPriceAll.setText("￥" + df.format(totalPrice) + "");
             if (mSelectState.size() == mListData.size()) {
                 mCheckAll.setChecked(true);
             } else {
@@ -408,11 +423,12 @@ public class CartFragment extends Fragment implements View.OnClickListener
                             totalPrice += mListData.get(i).getCarNum() * mListData.get(i).getPrice();
                         }
                         refreshListView();
-                        mPriceAll.setText("￥" + totalPrice + "");
+                        mPriceAll.setText("￥" + df.format(totalPrice) + "");
                         mSelectNum.setText("已选" + mSelectState.size() + "件商品");
 
                     }
                 } else {
+
                     if (mListAdapter != null) {
                         totalPrice = 0;
                         mSelectState.clear();
@@ -422,14 +438,17 @@ public class CartFragment extends Fragment implements View.OnClickListener
 
                     }
                 }
+
                 break;
 
             case R.id.tv_cart_buy_or_del:
+
                 if (isBatchModel) {
                     List<Integer> ids = getSelectedIds();
                     doDelete(ids);
                 } else {
-                    Toast.makeText(getActivity(), "结算", Toast.LENGTH_SHORT).show();
+                    //跳转到订单界面
+                    Toast.makeText(getActivity(), "跳转结算结算", Toast.LENGTH_SHORT).show();
                 }
 
                 break;

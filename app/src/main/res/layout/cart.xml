@@ -4,26 +4,18 @@
     android:background="#ffffff"
     android:orientation="vertical" >
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/top_bar"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:background="@drawable/topbar_background"
-        android:orientation="vertical" >
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:background="@color/main_red"
-            android:orientation="vertical" >
-
-
+        android:layout_height="42dp"
+        android:background="@color/main_red"
+        >
             <TextView
                 android:id="@+id/title"
+                android:layout_centerVertical="true"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:minHeight="48dp"
                 android:text="购物车"
                 android:textColor="#1a1a1a"
                 android:textSize="20sp" />
@@ -34,14 +26,13 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="12dp"
-                android:gravity="center"
-                android:minHeight="48dp"
+                android:layout_centerVertical="true"
                 android:text="编辑"
                 android:textColor="#1a1a1a"
                 android:textSize="14sp"
                 android:visibility="visible" />
-        </RelativeLayout>
-    </LinearLayout>
+
+    </RelativeLayout>
 
     <LinearLayout
         android:id="@+id/bottom_bar"
@@ -117,11 +108,10 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_weight="1"
-            android:background="#EDEDED"
+            android:background="#ffffff"
             android:clickable="true"
             android:gravity="center"
             android:padding="10dp"
-            android:text="移人收藏夹"
             android:textColor="@color/grey_color2"
             android:textSize="@dimen/txt_16"
             android:visibility="gone" />

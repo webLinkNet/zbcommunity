@@ -57,9 +57,7 @@
             	    android:inputType="phone"
             	    />
             	<Button
-            	
             	    android:id="@+id/authcode"
-            	    android:background="#9966CC"
             	    android:textSize="16sp"
             	    android:layout_alignParentRight="true"
             	    android:text="发送验证码" 
@@ -113,14 +111,14 @@
             	    android:textSize="16sp"  
             	    />
            <Button
-               android:id="@+id/setnew" 
-               android:background="#339999"
+               android:id="@+id/setnew"
                android:layout_marginTop="20sp"
                android:layout_below="@id/registe_passwagain"
                android:layout_width="match_parent"
                android:layout_height="50dp"
                android:text="注册"
-               />
+
+			   />
            </RelativeLayout>
 
 </RelativeLayout>

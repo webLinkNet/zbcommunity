@@ -122,8 +122,8 @@
 
                     <TextView
                         android:id="@+id/tv_reduce"
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
                         android:background="@drawable/text_angle_gray"
                         android:gravity="center"
                         android:text="一"
@@ -132,8 +132,8 @@
 
                     <TextView
                         android:id="@+id/tv_num"
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
                         android:background="@drawable/text_angle"
                         android:gravity="center"
                         android:singleLine="true"
@@ -143,8 +143,8 @@
 
                     <TextView
                         android:id="@+id/tv_add"
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
                         android:background="@drawable/text_angle_right"
                         android:gravity="center"
                         android:text="+"

@@ -31,7 +31,7 @@ public class CartBean
 
 	public  String content;
 
-	public  float price;
+	public  double price;
 
 	public int getId()
 	{
@@ -73,12 +73,12 @@ public class CartBean
 		this.content = content;
 	}
 
-	public float getPrice()
+	public double getPrice()
 	{
 		return price;
 	}
 
-	public void setPrice(float price)
+	public void setPrice(double price)
 	{
 		this.price = price;
 	}

@@ -1,5 +1,9 @@
 package com.weblink.zbcommunity;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -44,6 +48,15 @@ public class MainActivity extends BaseActivity {
     public void setContent() {
 
         setContentView(R.layout.activity_main);
+
+        //动态添加定位权限for6.0
+        if (ContextCompat.checkSelfPermission(this,
+                Manifest.permission.ACCESS_COARSE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new
+                            String[]{Manifest.permission.ACCESS_COARSE_LOCATION}, 1);
+        }
+
 
     }
 

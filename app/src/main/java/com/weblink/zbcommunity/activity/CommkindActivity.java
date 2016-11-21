@@ -1,6 +1,7 @@
 package com.weblink.zbcommunity.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
@@ -19,6 +20,7 @@ import java.util.List;
 public class CommkindActivity extends Activity  {
     List<CommkindlvBean> datas=new ArrayList<>();
     TextView kind_back;
+    TextView kind_title;
     CommkindlvBean ccc=new CommkindlvBean();
     CommkindlvBean bbb=new CommkindlvBean();
     ListView lv;
@@ -28,6 +30,14 @@ public class CommkindActivity extends Activity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.comm_kind);
         intdata();
+
+        //上次界面传来的信息
+        Intent intent=getIntent();
+        String sousuo=intent.getStringExtra("sousuo");
+
+
+        kind_title=(TextView)findViewById(R.id.kind_title);
+        kind_title.setText(sousuo);
         lv=(ListView)findViewById(R.id.kind_lv);
         kind_back=(TextView)findViewById(R.id.kind_back);
         kind_back.setOnClickListener(new View.OnClickListener() {
@@ -48,7 +58,7 @@ public class CommkindActivity extends Activity  {
         ccc.setUrl2("http://img.web07.cn/uploads/Photo/c101115/12YN19531F-54937.jpg");
         ccc.setUrl3("http://pic16.nipic.com/20110925/4666865_173608655000_2.jpg");
         ccc.setUrl4("http://i1.dpfile.com/2010-06-03/4432486_b.jpg%28700x700%29/thumb.jpg");
-        ccc.setShopname("谭梦石超市");
+        ccc.setShopname("梦石超市");
 
         bbb.setPrice1("4.20");bbb.setPrice2("4.20");bbb.setPrice3("55.00");
         bbb.setThingname1("优质大白菜");bbb.setThingname2("大白菜");bbb.setThingname3("白菜");
