@@ -65,9 +65,9 @@ public class CommkindlvAdapter extends BaseAdapter {
         thingname1.setText(c.getThingname1());
         thingname2.setText(c.getThingname2());
         thingname3.setText(c.getThingname3());
-        money1.setText(c.getPrice1());
-        money2.setText(c.getPrice2());
-        money3.setText(c.getPrice3());
+        money1.setText("¥"+c.getPrice1());
+        money2.setText("¥"+c.getPrice2());
+        money3.setText("¥"+c.getPrice3());
         Glide.with(context) .load(c.getUrl1()) .into(shopimg);
         Glide.with(context) .load(c.getUrl2()) .into(thingimg1);
         Glide.with(context) .load(c.getUrl3()) .into(thingimg2);

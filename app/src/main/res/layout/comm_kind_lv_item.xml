@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
+    android:background="@color/white"
     android:layout_height="match_parent">
 <RelativeLayout
     android:id="@+id/kingre1"
@@ -12,25 +13,33 @@
        android:layout_width="60dp"
        android:layout_height="60dp" />
    <TextView
+       android:layout_centerVertical="true"
+       android:layout_marginLeft="100dp"
        android:id="@+id/kind_shopname"
        android:textSize="22sp"
-      android:layout_centerHorizontal="true"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
        android:text="谭梦石超市"/>
+
+
 </RelativeLayout>
-   <RelativeLayout
+   <View
+       android:id="@+id/kind_qqq"
        android:layout_below="@id/kingre1"
+       style="@style/divide_view"/>
+   <RelativeLayout
+       android:layout_below="@id/kind_qqq"
        android:id="@+id/kingre2"
        android:layout_width="match_parent"
        android:layout_height="wrap_content">
       <ImageView
           android:id="@+id/kind_thingimg1"
-          android:layout_marginLeft="20dp"
+          android:layout_marginLeft="25dp"
           android:layout_width="40dp"
           android:layout_height="40dp" />
 
       <TextView
+          android:layout_marginLeft="50dp"
           android:layout_centerVertical="true"
           android:id="@+id/kind_thingname1"
           android:layout_toRightOf="@id/kind_thingimg1"
@@ -56,10 +65,11 @@
        android:layout_height="wrap_content">
       <ImageView
           android:id="@+id/kind_thingimg2"
-          android:layout_marginLeft="20dp"
+          android:layout_marginLeft="25dp"
           android:layout_width="40dp"
           android:layout_height="40dp" />
       <TextView
+          android:layout_marginLeft="50dp"
           android:layout_centerVertical="true"
           android:id="@+id/kind_thingname2"
           android:textSize="16sp"
@@ -85,10 +95,11 @@
        android:layout_height="wrap_content">
       <ImageView
           android:id="@+id/kind_thingimg3"
-          android:layout_marginLeft="20dp"
+          android:layout_marginLeft="25dp"
           android:layout_width="40dp"
           android:layout_height="40dp"  />
       <TextView
+          android:layout_marginLeft="50dp"
           android:id="@+id/kind_thingname3"
           android:textSize="16sp"
           android:layout_centerVertical="true"

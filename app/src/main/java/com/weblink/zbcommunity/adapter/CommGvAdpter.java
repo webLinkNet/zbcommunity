@@ -1,6 +1,7 @@
 package com.weblink.zbcommunity.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.weblink.zbcommunity.R;
+import com.weblink.zbcommunity.activity.CommkindActivity;
 import com.weblink.zbcommunity.bean.CommodgvBean;
 
 import java.util.List;

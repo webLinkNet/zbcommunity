@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -20,7 +19,9 @@ import java.util.List;
 
 
 public class MyorderActivity extends Activity implements OnClickListener
-{   TextView mine_myorder_back;
+{
+	MmyorlvAdpter ad;
+	TextView mine_myorder_back;
 	TextView title;
 	Button btn_daizhi;
 	Button btn_daiping;
@@ -54,111 +55,101 @@ public class MyorderActivity extends Activity implements OnClickListener
 		intdata();
 		add(data);
 
+
+
+
 		
 		
 		
 	}
 	void add(List<MinedingdanBean> dada){
-		MmyorlvAdpter ad= new MmyorlvAdpter(this,dada);
+		ad= new MmyorlvAdpter(this,dada);
 		mine_myroder_list.setAdapter(ad);
 	}
 	void intdata(){
 		
-		data1.setButton1("查看订单详情");
-		data1.setButton2("去支付");
+		data1.setId(1);
 		data1.setImgurlone("http://hgyj.studioartiz.com/uploads/allimg/161021/1-161021161524.jpg");
 		data1.setImgurltwo("http://hgyj.studioartiz.com/uploads/allimg/161021/1-161021161524-50.jpg");
 		data1.setImgurlthree("http://hgyj.studioartiz.com/uploads/allimg/161021/1-161021161525.jpg");
 		data1.setStorename("谭梦石超市");
 		data1.setMoneynum("12100");
 		data1.setThingnum("9");
-		
-		
-		
-		data2.setButton1("查看订单详情");
-		data2.setButton2("去支付");
+
+		data2.setId(1);
 		data2.setImgurlone("http://pic67.nipic.com/file/20150512/18138004_183531555000_2.jpg");
 		data2.setImgurltwo("http://pic60.nipic.com/file/20150208/9885883_102238823000_2.jpg");
-		data2.setImgurlthree("http://pic31.nipic.com/20130719/9422601_112816909000_2.jpg");
+		data2.setImgurlthree("");
 		data2.setStorename("宋文强超市");
 		data2.setMoneynum("500");
 		data2.setThingnum("2");
-		
-		
-		data3.setButton1("查看订单详情");
-		data3.setButton2("去评价");
+
+
+		data3.setId(1);
 		data3.setImgurlone("http://hgyj.studioartiz.com/uploads/allimg/161021/1-161021161524.jpg");
 		data3.setImgurltwo("http://hgyj.studioartiz.com/uploads/allimg/161021/1-161021161524-50.jpg");
 		data3.setImgurlthree("http://hgyj.studioartiz.com/uploads/allimg/161021/1-161021161525.jpg");
 		data3.setStorename("刘璇超市");
 		data3.setMoneynum("32332100");
 		data3.setThingnum("110");
-		
-		
-		data4.setButton1("查看订单详情");
-		data4.setButton2("去评价");
+
+
+		data4.setId(1);
 		data4.setImgurlone("http://pic67.nipic.com/file/20150512/18138004_183531555000_2.jpg");
 		data4.setImgurltwo("http://pic60.nipic.com/file/20150208/9885883_102238823000_2.jpg");
 		data4.setImgurlthree("http://pic31.nipic.com/20130719/9422601_112816909000_2.jpg");
 		data4.setStorename("焦泽超市");
 		data4.setMoneynum("1433500");
 		data4.setThingnum("121");
-		
-		data5.setButton1("查看订单详情");
-		data5.setButton2("再次购买");
+
+		data5.setId(2);
 		data5.setImgurlone("http://hgyj.studioartiz.com/uploads/allimg/161021/1-161021161524.jpg");
 		data5.setImgurltwo("http://hgyj.studioartiz.com/uploads/allimg/161021/1-161021161524-50.jpg");
 		data5.setImgurlthree("http://hgyj.studioartiz.com/uploads/allimg/161021/1-161021161525.jpg");
 		data5.setStorename("尉超超市");
 		data5.setMoneynum("2100");
 		data5.setThingnum("10");
-		
-		
-		
-		data6.setButton1("查看订单详情");
-		data6.setButton2("再次购买");
+
+		data6.setId(2);
 		data6.setImgurlone("http://pic67.nipic.com/file/20150512/18138004_183531555000_2.jpg");
 		data6.setImgurltwo("http://pic60.nipic.com/file/20150208/9885883_102238823000_2.jpg");
 		data6.setImgurlthree("http://pic31.nipic.com/20130719/9422601_112816909000_2.jpg");
 		data6.setStorename("淄博网汇网络科技");
 		data6.setMoneynum("14500");
 		data6.setThingnum("12");
-		
-		data7.setButton1("查看订单详情");
-		data7.setButton2("去支付");
+
+		data7.setId(2);
 		data7.setImgurlone("http://hgyj.studioartiz.com/uploads/allimg/161021/1-161021161524.jpg");
 		data7.setImgurltwo("http://hgyj.studioartiz.com/uploads/allimg/161021/1-161021161524-50.jpg");
 		data7.setImgurlthree("http://hgyj.studioartiz.com/uploads/allimg/161021/1-161021161525.jpg");
 		data7.setStorename("谭梦石超市");
 		data7.setMoneynum("12100");
 		data7.setThingnum("9");
-		
-		
-		
-		data8.setButton1("查看订单详情");
-		data8.setButton2("去支付");
+
+
+
+		data8.setId(3);
 		data8.setImgurlone("http://pic67.nipic.com/file/20150512/18138004_183531555000_2.jpg");
 		data8.setImgurltwo("http://pic60.nipic.com/file/20150208/9885883_102238823000_2.jpg");
-		data8.setImgurlthree("http://pic31.nipic.com/20130719/9422601_112816909000_2.jpg");
+		data8.setImgurlthree("");
 		data8.setStorename("宋文强超市");
 		data8.setMoneynum("500");
 		data8.setThingnum("2");
-		data9.setButton1("查看订单详情");
-		data9.setButton2("去支付");
+
+		data9.setId(3);
 		data9.setImgurlone("http://hgyj.studioartiz.com/uploads/allimg/161021/1-161021161524.jpg");
 		data9.setImgurltwo("http://hgyj.studioartiz.com/uploads/allimg/161021/1-161021161524-50.jpg");
 		data9.setImgurlthree("http://hgyj.studioartiz.com/uploads/allimg/161021/1-161021161525.jpg");
 		data9.setStorename("谭梦石超市");
 		data9.setMoneynum("12100");
 		data9.setThingnum("9");
-		
-		
-		
-		data12.setButton1("查看订单详情");
-		data12.setButton2("去支付");
+
+
+
+		data12.setId(4);
 		data12.setImgurlone("http://pic67.nipic.com/file/20150512/18138004_183531555000_2.jpg");
 		data12.setImgurltwo("http://pic60.nipic.com/file/20150208/9885883_102238823000_2.jpg");
-		data12.setImgurlthree("http://pic31.nipic.com/20130719/9422601_112816909000_2.jpg");
+		data12.setImgurlthree("");
 		data12.setStorename("宋文强超市");
 		data12.setMoneynum("500");
 		data12.setThingnum("2");
@@ -167,14 +158,14 @@ public class MyorderActivity extends Activity implements OnClickListener
 		
 		data.add(data1);
 		data.add(data2);
-		dataa.add(data3);
-		dataa.add(data4);
-		dataaa.add(data5);
-		dataaaa.add(data6);
-		data.add(data7);
-		data.add(data8);
-		data.add(data9);
-		dataa.add(data12);
+		data.add(data3);
+		data.add(data4);
+		dataa.add(data5);
+		dataa.add(data6);
+		dataa.add(data7);
+		dataaa.add(data8);
+		dataaa.add(data9);
+		dataaaa.add(data12);
 		
 		
 	}
@@ -198,10 +189,12 @@ public class MyorderActivity extends Activity implements OnClickListener
 		mine_myorder_back.setOnClickListener(this);
 	}
 	void colorz(){
-		btn_daizhi.setBackgroundColor(Color.parseColor("#FFFFFF"));
-		btn_daiping.setBackgroundColor(Color.parseColor("#FFFFFF"));
-		btn_yiping.setBackgroundColor(Color.parseColor("#FFFFFF"));
-		btn_yiqu.setBackgroundColor(Color.parseColor("#FFFFFF"));
+
+		btn_daizhi.setTextColor(Color.parseColor("#000000"));
+		btn_daiping.setTextColor(Color.parseColor("#000000"));
+		btn_yiping.setTextColor(Color.parseColor("#000000"));
+		btn_yiqu.setTextColor(Color.parseColor("#000000"));
+
 		
 	}
 	@Override
@@ -213,25 +206,26 @@ public class MyorderActivity extends Activity implements OnClickListener
 	//待支付
 		if(v==btn_daizhi){
 			colorz();
-			btn_daizhi.setBackgroundColor(Color.parseColor("#cccccc"));
+			btn_daizhi.setTextColor(Color.parseColor("#FF0066"));
 			add(data);
 			
 		}
 		//待评价
         if(v==btn_daiping){
         	colorz();
-			btn_daiping.setBackgroundColor(Color.parseColor("#cccccc"));
+			btn_daiping.setTextColor(Color.parseColor("#FF0066"));
 			add(dataa);
 		}
-        //已取消
+        //已完成
         if(v==btn_yiping){
         	colorz();
-			btn_yiping.setBackgroundColor(Color.parseColor("#cccccc"));
+			btn_yiping.setTextColor(Color.parseColor("#FF0066"));
 			add(dataaa);
 }
+		//已取消
         if(v==btn_yiqu){
         	colorz();
-			btn_yiqu.setBackgroundColor(Color.parseColor("#cccccc"));
+			btn_yiqu.setTextColor(Color.parseColor("#FF0066"));
 			add(dataaaa);
 } 
 	}

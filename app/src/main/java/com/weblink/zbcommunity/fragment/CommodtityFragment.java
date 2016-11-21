@@ -12,7 +12,6 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.weblink.zbcommunity.R;
 import com.weblink.zbcommunity.activity.CommkindActivity;
@@ -37,7 +36,16 @@ public class CommodtityFragment extends Fragment implements OnItemClickListener 
     private CommodgvBean commodgvBean3 = new CommodgvBean();
     private CommodgvBean commodgvBean4 = new CommodgvBean();
     private CommodgvBean commodgvBean5 = new CommodgvBean();
-    private CommodgvBean commodgvBean6= new CommodgvBean();
+    private CommodgvBean commodgvBean6 = new CommodgvBean();
+    private CommodgvBean commodgvBean7 = new CommodgvBean();
+    private CommodgvBean commodgvBean8 = new CommodgvBean();
+    private CommodgvBean commodgvBean9 = new CommodgvBean();
+    private CommodgvBean commodgvBean10 = new CommodgvBean();
+    private CommodgvBean commodgvBean11 = new CommodgvBean();
+    private CommodgvBean commodgvBean12 = new CommodgvBean();
+    private CommodgvBean commodgvBean13 = new CommodgvBean();
+    private CommodgvBean commodgvBean14 = new CommodgvBean();
+    private CommodgvBean commodgvBean15 = new CommodgvBean();
 
 
     private ListView listView;
@@ -53,7 +61,7 @@ public class CommodtityFragment extends Fragment implements OnItemClickListener 
                              Bundle savedInstanceState) {
         View contentView = inflater.inflate(R.layout.commodtity_fragment, container, false);
         listView = (ListView) contentView.findViewById(R.id.listview);
-        tv_total=(TextView)contentView.findViewById(R.id.tv_title);
+        tv_total = (TextView) contentView.findViewById(R.id.tv_title);
         tv_total.setText("商品");
         adapter = new CommListAdapter(getActivity(), strs);
         listView.setAdapter(adapter);
@@ -71,7 +79,7 @@ public class CommodtityFragment extends Fragment implements OnItemClickListener 
         commodgvBean.setKinurl("http://pic31.nipic.com/20130711/9490444_115207012303_2.jpg");
         datas.add(commodgvBean);
         commodgvBean1.setKintext("数据");
-        commodgvBean1.setKinurl( "http://desk.fd.zol-img.com.cn/t_s960x600c5/g4/M00/0D/01/Cg-4y1ULoXCII6fEAAeQFx3fsKgAAXCmAPjugYAB5Av166.jpg");
+        commodgvBean1.setKinurl("http://desk.fd.zol-img.com.cn/t_s960x600c5/g4/M00/0D/01/Cg-4y1ULoXCII6fEAAeQFx3fsKgAAXCmAPjugYAB5Av166.jpg");
         dadas.add(commodgvBean1);
 
         commodgvBean2.setKintext("西红柿");
@@ -89,6 +97,26 @@ public class CommodtityFragment extends Fragment implements OnItemClickListener 
         commodgvBean6.setKintext("大葱");
         commodgvBean6.setKinurl("http://pic71.nipic.com/file/20150627/2692994_134418584000_2.jpg");
         datas.add(commodgvBean6);
+        commodgvBean7 = commodgvBean;
+        datas.add(commodgvBean7);
+        commodgvBean8 = commodgvBean1;
+        datas.add(commodgvBean8);
+        commodgvBean9 = commodgvBean2;
+        datas.add(commodgvBean9);
+        commodgvBean10 = commodgvBean3;
+        datas.add(commodgvBean10);
+        commodgvBean11 = commodgvBean4;
+        datas.add(commodgvBean11);
+        commodgvBean12 = commodgvBean1;
+        datas.add(commodgvBean12);
+        commodgvBean13 = commodgvBean2;
+        datas.add(commodgvBean13);
+        commodgvBean14 = commodgvBean3;
+        datas.add(commodgvBean14);
+        commodgvBean15 = commodgvBean4;
+        datas.add(commodgvBean15);
+
+
     }
 
     public void adptergrid(List<CommodgvBean> datass) {
@@ -105,25 +133,22 @@ public class CommodtityFragment extends Fragment implements OnItemClickListener 
             mPosition = position;
             adapter.notifyDataSetChanged();
 
-            if (position % 2 == 0) {
-                adapter.notifyDataSetChanged();
-                adapterr.notifyDataSetChanged();
-                adptergrid(datas);
-            } else {
-                adptergrid(dadas);
-            }
         }
         //单个条目的点击事件
         if (arg0 == grid) {
             //Toast.makeText(getActivity(),"点击了",Toast.LENGTH_SHORT).show();
-            Intent intentkind =new Intent(getActivity(), CommkindActivity.class);
+
+            CommodgvBean c = datas.get(position);
+            String cc = c.getKintext();
+            Intent intentkind = new Intent(getActivity(), CommkindActivity.class);
+            intentkind.putExtra("sousuo", cc);
             startActivity(intentkind);
 
         }
     }
 
 /*	@Override
-	public void onItemClick(AdapterView<?> parent, View view, int position,
+    public void onItemClick(AdapterView<?> parent, View view, int position,
 			long id) {
 
 		mPosition = position;

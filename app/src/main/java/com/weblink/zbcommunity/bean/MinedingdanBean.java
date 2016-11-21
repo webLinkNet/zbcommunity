@@ -9,8 +9,15 @@ public class MinedingdanBean implements Serializable {
     private String imgurlthree;
     private String thingnum;
     private String moneynum;
-    private String button1;
-    private String button2;
+    private int id;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getStorename() {
         return storename;
@@ -60,20 +67,5 @@ public class MinedingdanBean implements Serializable {
         this.moneynum = moneynum;
     }
 
-    public String getButton1() {
-        return button1;
-    }
-
-    public void setButton1(String button1) {
-        this.button1 = button1;
-    }
-
-    public String getButton2() {
-        return button2;
-    }
-
-    public void setButton2(String button2) {
-        this.button2 = button2;
-    }
 
 }
