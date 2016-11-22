@@ -13,46 +13,41 @@
        android:layout_height="wrap_content"
        >
         <Button
-            android:background="#FFFFFF"
+            android:background="@drawable/shape_dingdan_si"
             android:textColor="@color/main_red"
             android:id="@+id/mine_daizhi"
             android:text="待支付"
             android:layout_weight="1"
             android:layout_width="wrap_content"
-            android:layout_height="40dp"/>
-         <Button 
-             android:background="#FFFFFF"
+            android:layout_height="44dp"/>
+         <Button
+             android:background="@drawable/shape_dingdan_si"
              android:id="@+id/mine_daiping"
              android:text="待评价"
              android:layout_weight="1"
             android:layout_width="wrap_content"
-            android:layout_height="40dp"/>
+            android:layout_height="44dp"/>
           <Button
-              android:background="#FFFFFF"
+              android:background="@drawable/shape_dingdan_si"
               android:id="@+id/mine_yiping"
               android:text="已完成"
               android:layout_weight="1"
             android:layout_width="wrap_content"
-            android:layout_height="40dp"/>
+            android:layout_height="44dp"/>
            <Button
-               android:background="#FFFFFF"
+               android:background="@drawable/shape_dingdan_si"
             android:id="@+id/mine_yiqu"
             android:text="已取消"
             android:layout_weight="1"
             android:layout_width="wrap_content"
-            android:layout_height="40dp"/>
-  
+            android:layout_height="44dp"/>
+
    </LinearLayout>
-   <View 
-       android:background="@color/white"
-       android:layout_below="@id/mine_myorder_linear"
-       android:id="@+id/mine_myorder_xian"
-       android:layout_width="match_parent"
-       android:layout_height="20dp"/>
+
    <ListView
-       android:layout_below="@id/mine_myorder_xian"
+       android:layout_below="@id/mine_myorder_linear"
        android:id="@+id/mine_myroder_list"
        android:layout_width="match_parent"
        android:layout_height="wrap_content"></ListView>
-  
+
 </RelativeLayout>

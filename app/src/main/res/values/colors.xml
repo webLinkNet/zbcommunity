@@ -14,6 +14,8 @@
     <color name="grey_color1">#333333</color>
     <color name="grey_color2">#666666</color>
     <color name="grey_color3">#999999</color>
+    <color name="grey_color4">#efefef</color>
+
     <!-- 橙色 -->
     <color name="orange_color">#de6838</color>
 

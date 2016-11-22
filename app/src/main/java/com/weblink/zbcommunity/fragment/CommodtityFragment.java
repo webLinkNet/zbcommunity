@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -54,6 +55,7 @@ public class CommodtityFragment extends Fragment implements OnItemClickListener 
     private CommGvAdpter adapterr;
     public static int mPosition;
     private TextView tv_total;
+    private ImageButton left;
 
 
     @Override
@@ -62,6 +64,8 @@ public class CommodtityFragment extends Fragment implements OnItemClickListener 
         View contentView = inflater.inflate(R.layout.commodtity_fragment, container, false);
         listView = (ListView) contentView.findViewById(R.id.listview);
         tv_total = (TextView) contentView.findViewById(R.id.tv_title);
+        left = (ImageButton) contentView.findViewById(R.id.iv_left);
+        left.setVisibility(View.GONE);
         tv_total.setText("商品");
         adapter = new CommListAdapter(getActivity(), strs);
         listView.setAdapter(adapter);
