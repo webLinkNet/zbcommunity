@@ -88,6 +88,8 @@
         <activity android:name=".activity.MinehelpActivity" />
         <!-- 订单-->
         <activity android:name=".activity.MyorderActivity" />
+        <!-- 评价-->
+        <activity android:name=".activity.EvaluateActivity" />
         <!-- 注册-->
         <activity android:name=".activity.RegisterActivity" />
         <!-- 引导页-->

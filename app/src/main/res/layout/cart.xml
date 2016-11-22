@@ -17,7 +17,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="购物车"
-                android:textColor="#1a1a1a"
+                android:textColor="@color/white"
                 android:textSize="20sp" />
 
             <TextView
@@ -28,7 +28,7 @@
                 android:layout_marginRight="12dp"
                 android:layout_centerVertical="true"
                 android:text="编辑"
-                android:textColor="#1a1a1a"
+                android:textColor="@color/white"
                 android:textSize="14sp"
                 android:visibility="visible" />
 

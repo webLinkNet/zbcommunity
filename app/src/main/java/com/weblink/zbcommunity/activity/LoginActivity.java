@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,6 +21,7 @@ public class LoginActivity extends Activity implements OnClickListener {
     EditText login_Edt_Name;
     EditText login_Edt_Pwd;
     TextView login_link_FindPwd;
+    ImageButton left;
 
 
     String phone;
@@ -32,6 +34,8 @@ public class LoginActivity extends Activity implements OnClickListener {
         setContentView(R.layout.login);
 
 
+        left=(ImageButton)findViewById(R.id.iv_left);
+        left.setVisibility(View.GONE);
         login_regNewId = (TextView) findViewById(R.id.login_regNewId);
         login_regNewId.setOnClickListener(this);
 

@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -19,7 +20,7 @@ import com.weblink.zbcommunity.activity.MinehelpActivity;
 import com.weblink.zbcommunity.activity.MyorderActivity;
 import com.weblink.zbcommunity.activity.MuserinforActivity;
 
-public class MineFragment extends Fragment implements OnClickListener{
+public class MineFragment extends Fragment implements OnClickListener {
 
     RelativeLayout mine_myorder;
     RelativeLayout mine_Relay_Top;
@@ -27,12 +28,15 @@ public class MineFragment extends Fragment implements OnClickListener{
     RelativeLayout mine_kefu;
     RelativeLayout mine_dianhua;
     TextView mine_exit;
+    ImageButton left;
     private TextView tv_title;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View contentView = inflater.inflate(R.layout.mine, container, false);
+        left = (ImageButton) contentView.findViewById(R.id.iv_left);
+        left.setVisibility(View.GONE);
         mine_mycoupon = (RelativeLayout) contentView.findViewById(R.id.mine_Relay_second);
         mine_mycoupon.setOnClickListener(this);
         mine_dianhua = (RelativeLayout) contentView.findViewById(R.id.mine_Relay_four);

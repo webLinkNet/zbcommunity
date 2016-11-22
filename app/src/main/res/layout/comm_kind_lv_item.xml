@@ -17,9 +17,12 @@
        android:layout_marginLeft="100dp"
        android:id="@+id/kind_shopname"
        android:textSize="22sp"
+       android:drawableRight="@drawable/mine_arrow"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
        android:text="谭梦石超市"/>
+
+
 
 
 </RelativeLayout>
