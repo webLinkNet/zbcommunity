@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-
     android:background="@color/white">
 
 
@@ -36,24 +35,45 @@
             android:textColor="@color/black1"
             android:textSize="15sp" />
 
-        <TextView
-            android:id="@+id/tv_sales_num"
+        <LinearLayout
+            android:id="@+id/ll_eval"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="15dp"
             android:layout_below="@id/tv_name"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="3dp"
             android:layout_toRightOf="@id/sd_img"
-            android:text="月售36笔"
-            android:textColor="@color/black2"
-            android:textSize="12sp" />
+            android:orientation="horizontal">
 
+
+            <com.weblink.zbcommunity.views.MyRatingBar
+                android:id="@+id/my_rating_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                app:space_width="1dp"
+                app:star_height="15dp"
+                app:star_hollow="@drawable/ic_rating_bar_hollow"
+                app:star_max="5"
+                app:star_rating="4.5"
+                app:star_solid="@drawable/ic_rating_bar_solid"
+                app:star_width="15dp" />
+
+            <TextView
+                android:id="@+id/tv_sales_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="月售36笔"
+                android:textColor="@color/black2"
+                android:textSize="12sp" />
+
+        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/ll_full_reduction"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tv_sales_num"
+            android:layout_below="@id/ll_eval"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="3dp"
             android:layout_toRightOf="@id/sd_img"
@@ -124,17 +144,17 @@
         android:paddingTop="5dp"
         android:text="品质鲜果，下单即达" />
 
-     <android.support.v7.widget.RecyclerView
-         android:id="@+id/recycle_info"
-         android:layout_width="match_parent"
-         android:layout_height="wrap_content"
-         android:layout_below="@id/tv_noti"
-         android:layout_marginBottom="10dp"
-         android:layout_marginLeft="20dp"
-         android:layout_marginRight="20dp"
-         android:layout_marginTop="10dp">
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycle_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_noti"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp">
 
-     </android.support.v7.widget.RecyclerView>
+    </android.support.v7.widget.RecyclerView>
 
     <View
         style="@style/divide_view"

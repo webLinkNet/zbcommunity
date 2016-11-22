@@ -7,10 +7,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import cn.pedant.SweetAlert.SweetAlertDialog;
+
 /**
  * Created by swq on 2016/11/7.
  */
 public abstract class BaseFragment extends Fragment {
+
+    private SweetAlertDialog dialog;
 
 
     @Nullable
@@ -32,5 +36,19 @@ public abstract class BaseFragment extends Fragment {
 
     public abstract void initNet();
 
+
+    public void showLoading() {
+
+        dialog = new SweetAlertDialog(getActivity(), SweetAlertDialog.PROGRESS_TYPE)
+                .setTitleText("玩命加载中");
+        dialog.show();
+        dialog.setCancelable(false);
+
+    }
+
+    public void cancelLoading() {
+
+        dialog.dismiss();
+    }
 
 }

@@ -16,18 +16,17 @@
         android:layout_height="40dp"
         android:background="@color/white"
         android:gravity="center"
-        android:text="我的位置" />
+        android:text="定位到我的位置" />
 
-    <View style="@style/divide_view" />
+    <!--<View style="@style/divide_view" />-->
 
     <RelativeLayout
 
         android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content"
         android:background="@color/gray_divide_view">
 
-        <LinearLayout
+        <!--<LinearLayout
             android:id="@+id/ll_city"
             android:layout_width="match_parent"
             android:layout_height="30dp"
@@ -66,7 +65,7 @@
                 android:text="张店区  >" />
 
 
-        </LinearLayout>
+        </LinearLayout>-->
 
 
         <!--<AutoCompleteTextView
@@ -90,7 +89,6 @@
             android:id="@+id/tv_search"
             android:layout_width="match_parent"
             android:layout_height="45dp"
-            android:layout_below="@id/ll_city"
             android:layout_margin="@dimen/space_margin"
             android:background="@drawable/loc_search_top"
             android:completionThreshold="1"

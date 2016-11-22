@@ -1,15 +1,15 @@
 package com.weblink.zbcommunity.activity;
+
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.Spinner;
 import android.widget.TextView;
+
+import com.amap.api.location.AMapLocation;
 import com.amap.api.services.core.PoiItem;
 import com.amap.api.services.poisearch.PoiResult;
 import com.amap.api.services.poisearch.PoiSearch;
@@ -17,6 +17,7 @@ import com.weblink.zbcommunity.BaseActivity;
 import com.weblink.zbcommunity.R;
 import com.weblink.zbcommunity.adapter.BaseAdapter;
 import com.weblink.zbcommunity.adapter.PoiItemAdapter;
+import com.weblink.zbcommunity.bean.LocationBean;
 import com.weblink.zbcommunity.utils.ToastUtils;
 import com.weblink.zbcommunity.views.MyLinearLayoutManager;
 import com.weblink.zbcommunity.widget.DividerItemDecoration;
@@ -47,12 +48,12 @@ public class SelectLocActivity extends BaseActivity implements TextWatcher, PoiS
     TextView tvRight;
     @BindView(R.id.tv_curr_loc)
     TextView tvCurrLoc;
-    @BindView(R.id.spinner_city)
-    Spinner spinnerCity;
-    @BindView(R.id.spinner_town)
-    Spinner spinnerTown;
-    @BindView(R.id.ll_city)
-    LinearLayout llCity;
+//    @BindView(R.id.spinner_city)
+//    Spinner spinnerCity;
+//    @BindView(R.id.spinner_town)
+//    Spinner spinnerTown;
+//    @BindView(R.id.ll_city)
+//    LinearLayout llCity;
     @BindView(R.id.tv_search)
     AutoCompleteTextView keyWorldsView;
     @BindView(R.id.locts)
@@ -82,12 +83,17 @@ public class SelectLocActivity extends BaseActivity implements TextWatcher, PoiS
         tvCurrLoc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
+                AMapLocation aMapLocation = LocationBean.getInstance().getAmapLocation();
+                EventBus.getDefault().post(new LocationEvent(aMapLocation.getCity(), aMapLocation.getPoiName()));
+
                 finish();
             }
         });
 
 
-        initSpinner();
+//        initSpinner();
 
         initAutoSearch();
 
@@ -135,59 +141,59 @@ public class SelectLocActivity extends BaseActivity implements TextWatcher, PoiS
         keyWorldsView.addTextChangedListener(this);// 添加文本输入框监听事件
     }
 
-    private void initSpinner() {
-        cityList = new ArrayList<>();
-        cityList.add("淄博");
-        cityList.add("济南");
-        cityList.add("青岛");
-
-        townList = new ArrayList<>();
-        townList.add("张店区");
-
-
-        //适配器
-        cityAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, cityList);
-        //设置样式
-        cityAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        //加载适配器
-        spinnerCity.setAdapter(cityAdapter);
-
-
-        //适配器
-        townAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, townList);
-        //设置样式
-        townAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        //加载适配器
-        spinnerTown.setAdapter(townAdapter);
-
-        spinnerCity.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-                ToastUtils.showToast(SelectLocActivity.this, parent.getItemAtPosition(position).toString());
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-
-
-        spinnerTown.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-                ToastUtils.showToast(SelectLocActivity.this, parent.getItemAtPosition(position).toString());
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-    }
+//    private void initSpinner() {
+//        cityList = new ArrayList<>();
+//        cityList.add("淄博");
+//        cityList.add("济南");
+//        cityList.add("青岛");
+//
+//        townList = new ArrayList<>();
+//        townList.add("张店区");
+//
+//
+//        //适配器
+//        cityAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, cityList);
+//        //设置样式
+//        cityAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        //加载适配器
+//        spinnerCity.setAdapter(cityAdapter);
+//
+//
+//        //适配器
+//        townAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, townList);
+//        //设置样式
+//        townAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        //加载适配器
+//        spinnerTown.setAdapter(townAdapter);
+//
+//        spinnerCity.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//
+//                ToastUtils.showToast(SelectLocActivity.this, parent.getItemAtPosition(position).toString());
+//
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> parent) {
+//
+//            }
+//        });
+//
+//
+//        spinnerTown.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//
+//                ToastUtils.showToast(SelectLocActivity.this, parent.getItemAtPosition(position).toString());
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> parent) {
+//
+//            }
+//        });
+//    }
 
     @Override
     public void initNet() {

@@ -1,7 +1,6 @@
 package com.weblink.zbcommunity.activity;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.os.Handler;
 import android.view.KeyEvent;
 import android.view.WindowManager;
@@ -12,10 +11,10 @@ import com.weblink.zbcommunity.BaseActivity;
 import com.weblink.zbcommunity.Constants;
 import com.weblink.zbcommunity.MainActivity;
 import com.weblink.zbcommunity.R;
+import com.weblink.zbcommunity.utils.LocationService;
 import com.weblink.zbcommunity.utils.PrefUtils;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 
 /**
@@ -37,6 +36,7 @@ public class SplashActivity extends BaseActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         setContentView(R.layout.activity_splash);
+        startService(new Intent(SplashActivity.this, LocationService.class));
     }
 
     @Override
@@ -98,10 +98,4 @@ public class SplashActivity extends BaseActivity {
         return super.onKeyDown(keyCode, event);
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
-    }
 }

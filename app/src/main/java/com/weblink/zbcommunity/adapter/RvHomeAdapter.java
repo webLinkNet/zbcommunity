@@ -56,7 +56,7 @@ public class RvHomeAdapter extends RecyclerView.Adapter<RvHomeAdapter.RvHomeView
 
         holder.sdImage.setImageURI(Uri.parse(list.get(position).getImgUrl()));
         holder.tvName.setText(list.get(position).getName());
-        holder.tvSalesNum.setText(list.get(position).getSalesNum());
+        holder.tvSalesNum.setText(" | "+list.get(position).getSalesNum());
         holder.tvFullDetail.setText(list.get(position).getFullDetail());
         holder.tvCoupon.setText(list.get(position).getCoupon());
         holder.tvNoti.setText(list.get(position).getNotification());

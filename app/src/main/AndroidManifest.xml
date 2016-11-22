@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.weblink.zbcommunity">
 
     <!-- AndroidImageSlide权限-->
@@ -39,14 +40,22 @@
     <uses-permission android:name="android.hardware.autofocus"></uses-permission>
     <uses-permission android:name="android.permission.CALL_PHONE" />
 
-
+    <!--android:theme="@android:style/Theme.Holo.Light.NoActionBar"-->
     <application
         android:name=".ZBApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@android:style/Theme.Holo.Light.NoActionBar">
+        android:theme="@android:style/Theme.Holo.Light.NoActionBar"
+        tools:replace="android:icon, android:theme">
+
+        <service android:name=".utils.LocationService">
+            <intent-filter>
+                <action android:name="com.test.SERVICE_TEST" />
+                <category android:name="android.intent.category.default" />
+            </intent-filter>
+        </service>
 
 
         <activity android:name=".activity.SplashActivity">
