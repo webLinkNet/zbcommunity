@@ -267,11 +267,10 @@ public class HomeFragment extends BaseFragment {
             });
         }
 
-
         sliderShow.setPresetIndicator(SliderLayout.PresetIndicators.Center_Bottom);
         sliderShow.setPresetTransformer(SliderLayout.Transformer.RotateUp);
         sliderShow.setCustomAnimation(new DescriptionAnimation());
-//        sliderShow.setCustomIndicator(pagerIndicator);
+//      sliderShow.setCustomIndicator(pagerIndicator);
         sliderShow.setDuration(3000);
 
     }
@@ -345,8 +344,8 @@ public class HomeFragment extends BaseFragment {
 
                 ToastUtils.showToast(getActivity(), adapter.getItem(position).getName());
 
-                Intent it = new Intent(getActivity(),ChannelActivity.class);
-                it.putExtra("channelName",adapter.getItem(position).getName());
+                Intent it = new Intent(getActivity(), ChannelActivity.class);
+                it.putExtra("channelName", adapter.getItem(position).getName());
                 startActivity(it);
 
             }

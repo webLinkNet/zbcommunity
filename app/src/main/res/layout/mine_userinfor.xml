@@ -18,7 +18,7 @@
             <TextView
                 android:layout_marginLeft="15dp"
                 android:layout_centerVertical="true"
-                android:textColor="#000000"
+                android:textColor="@color/black2"
                 android:textSize="25sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -28,7 +28,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:contentDescription="@null"
-               android:src="@drawable/daojia"
+                android:src="@drawable/mmx"
                 android:layout_width="70dp"
                 android:layout_height="70dp" />
         </RelativeLayout>
@@ -40,28 +40,30 @@
             <TextView
                 android:layout_marginLeft="15dp"
                 android:layout_centerVertical="true"
-                android:textColor="#000000"
+                android:textColor="@color/black2"
                 android:textSize="25sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="昵称"/>
             <EditText
+                android:background="@drawable/selector_order"
                 android:textSize="20sp"
                 android:id="@+id/mine_userinfor_name"
-                android:text="请输入您的昵称"
+                android:hint="请输入您的昵称"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:layout_width="wrap_content"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content" />
         </RelativeLayout>
     </LinearLayout>
    <Button
-       android:background="@color/main_red"
+
+       android:background="@drawable/selector_order_red"
        android:id="@+id/mine_user_set"
        android:layout_centerHorizontal="true"
        android:layout_below="@id/mine_user_lin"
-       android:layout_width="100dp"
-       android:layout_height="30dp"
+       android:layout_width="200dp"
+       android:layout_height="40dp"
        android:text="保存修改"/>
 
 </RelativeLayout>

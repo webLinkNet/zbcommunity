@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="88dp">
+    <ImageView
+        android:id="@+id/mine_thing_img"
+        android:layout_marginTop="5dp"
+        android:layout_width="75dp"
+        android:layout_height="75dp" />
+    <TextView
+        android:id="@+id/mine_thing_shop"
+        android:layout_margin="3dp"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@+id/mine_thing_img"
+        android:text="布尼斯冰激凌"
+        android:textColor="@color/black"
+        android:textSize="@dimen/txt_18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/txt_24"
+        android:id="@+id/mine_thing_price"
+        android:layout_marginTop="5dp"
+        android:text="¥165.0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/mine_thing_num"
+        android:layout_marginRight="@dimen/txt_10"
+        android:layout_below="@id/mine_thing_price"
+        android:layout_alignParentRight="true"
+        android:text="×2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/mine_thing_zzz"
+            android:layout_marginBottom="5dp"
+            android:layout_toRightOf="@id/mine_thing_img"
+            android:layout_alignParentBottom="true"
+            android:text="合计：¥   "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="5dp"
+            android:text="200"
+            android:id="@+id/mine_thing_zong"
+            android:layout_toRightOf="@id/mine_thing_zzz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
+
+</RelativeLayout>

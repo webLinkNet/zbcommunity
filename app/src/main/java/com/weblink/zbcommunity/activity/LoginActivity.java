@@ -34,7 +34,7 @@ public class LoginActivity extends Activity implements OnClickListener {
         setContentView(R.layout.login);
 
 
-        left=(ImageButton)findViewById(R.id.iv_left);
+        left = (ImageButton) findViewById(R.id.iv_left);
         left.setVisibility(View.GONE);
         login_regNewId = (TextView) findViewById(R.id.login_regNewId);
         login_regNewId.setOnClickListener(this);
