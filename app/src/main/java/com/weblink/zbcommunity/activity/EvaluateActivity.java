@@ -23,6 +23,7 @@ public class EvaluateActivity extends BaseActivity {
     ListView lv;
     TextView top;
     ImageButton back;
+    TextView backk;
     EvaluateAdpter evad;
     //测试数据删除
     List<CommodgvBean> dadas = new ArrayList<>();
@@ -47,8 +48,12 @@ public class EvaluateActivity extends BaseActivity {
         setContentView(R.layout.evaluate);
         lv = (ListView) findViewById(R.id.evalua_lv);
         top = (TextView) findViewById(R.id.tv_title);
+        backk=(TextView)findViewById(R.id.tv_left);
+
+        backk.setVisibility(View.GONE);
         top.setText("评价");
         back = (ImageButton) findViewById(R.id.iv_left);
+        back.setVisibility(View.VISIBLE);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

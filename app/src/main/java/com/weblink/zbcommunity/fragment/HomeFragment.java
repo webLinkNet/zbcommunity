@@ -279,11 +279,10 @@ public class HomeFragment extends BaseFragment {
             });
         }
 
-
         sliderShow.setPresetIndicator(SliderLayout.PresetIndicators.Center_Bottom);
         sliderShow.setPresetTransformer(SliderLayout.Transformer.RotateUp);
         sliderShow.setCustomAnimation(new DescriptionAnimation());
-//        sliderShow.setCustomIndicator(pagerIndicator);
+//      sliderShow.setCustomIndicator(pagerIndicator);
         sliderShow.setDuration(3000);
 
     }

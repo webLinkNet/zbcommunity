@@ -10,12 +10,14 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.weblink.zbcommunity.MainActivity;
 import com.weblink.zbcommunity.R;
 import com.weblink.zbcommunity.activity.EvaluateActivity;
+import com.weblink.zbcommunity.activity.MineThingList;
 import com.weblink.zbcommunity.bean.MinedingdanBean;
 import com.weblink.zbcommunity.utils.CircleUtils;
 
@@ -68,6 +70,7 @@ public class MmyorlvAdpter extends BaseAdapter {
         TextView money = (TextView) convertView.findViewById(R.id.mine_list_qian);
         Button button3 = (Button) convertView.findViewById(R.id.mine_list_button3);
         Button button2 = (Button) convertView.findViewById(R.id.mine_list_button2);
+        RelativeLayout nn2=(RelativeLayout)convertView.findViewById(R.id.nn2);
 
         storename.setText(m.getStorename());
         Glide.with(context).load(m.getImgurlone()).into(imgone);
@@ -75,6 +78,15 @@ public class MmyorlvAdpter extends BaseAdapter {
         Glide.with(context).load(m.getImgurlthree()).into(imgthree);
         jianshu.setText(m.getThingnum());
         money.setText("¥" + m.getMoneynum());
+
+        //点击商品
+        nn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, MineThingList.class);
+                context.startActivity(intent);
+            }
+        });
 
 
         if(Integer.parseInt(m.getThingnum())<=3){

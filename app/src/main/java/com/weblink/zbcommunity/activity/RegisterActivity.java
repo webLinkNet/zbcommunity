@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,6 +17,7 @@ import com.weblink.zbcommunity.R;
 public class RegisterActivity extends Activity implements OnClickListener {
 
     TextView title;
+	ImageButton registe_backk;
 	TextView registe_back;
 	Button authcode;
 	EditText registe_authcode;
@@ -36,11 +38,13 @@ public class RegisterActivity extends Activity implements OnClickListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.setnewid);
 
+		registe_backk=(ImageButton)findViewById(R.id.iv_left);
+		registe_backk.setVisibility(View.VISIBLE);
 		title=(TextView)findViewById(R.id.tv_title);
 		title.setText("注册");
 		registe_back = (TextView) findViewById(R.id.tv_left);//返回
-		registe_back.setVisibility(View.VISIBLE);
-		registe_back.setOnClickListener(this);
+		registe_back.setVisibility(View.GONE);
+		registe_backk.setOnClickListener(this);
 		authcode = (Button) findViewById(R.id.authcode);//验证
 		authcode.setOnClickListener(this);
 		registe_phone = (EditText) findViewById(R.id.registe_phone);//手机号
@@ -57,7 +61,7 @@ public class RegisterActivity extends Activity implements OnClickListener {
 	public void onClick(View v) {
 
 		//返回登录界面
-		if (v == registe_back) {
+		if (v == registe_backk) {
 
 			Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
 			startActivity(intent);

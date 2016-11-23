@@ -1,124 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="#FFFFFF"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
 
- <include layout="@layout/top_bar"
-	 android:id="@+id/registee_top_layout"></include>
+    <include
+        android:id="@+id/registee_top_layout"
+        layout="@layout/top_bar"></include>
+
     <RelativeLayout
-        android:layout_below="@id/registee_top_layout" 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-       >
-      <ImageView
-        android:id="@+id/registe_logo"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/ic_launcher" />
-    ]<ImageView
-        android:id="@+id/registe_tupian"
-        android:layout_below="@id/registe_logo"
-        android:background="@drawable/daojia"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:textSize="30dp"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        />
-    <View
-        android:layout_below="@id/registe_tupian"
-        android:id="@+id/blank"
-         android:layout_width="match_parent"
-        android:layout_height="25dp"
-        android:background="#FFFFFF"/>
-      <RelativeLayout 
-            android:id="@+id/registe_Relay_Name" 
+        android:layout_below="@id/registee_top_layout">
+
+        <View
+            android:id="@+id/blank"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:background="#FFFFFF" />
+
+        <RelativeLayout
+            android:id="@+id/registe_Relay_Name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/blank"
-            >
-            	
-            	<EditText 
-            	    android:id="@+id/registe_phone" 
-            	    android:layout_width="wrap_content"
-            	    android:layout_height="wrap_content"
-            	    android:layout_alignParentLeft="true"
-            	    android:layout_alignParentTop="true"
-            	    android:background="@null"
-            	    android:cursorVisible="@null"
-            	    android:ems="10"
-            	    android:hint="请输入手机号"
-            	    android:paddingLeft="40sp"
-            	    android:textColor="@android:color/black"
-            	    android:textSize="16sp"
-            	    android:inputType="phone"
-            	    />
-            	<Button
-            	    android:id="@+id/authcode"
-            	    android:textSize="16sp"
-            	    android:layout_alignParentRight="true"
-            	    android:text="发送验证码" 
-            	    android:layout_width="wrap_content"
-            	    android:layout_height="wrap_content"
-            	    />
-        </RelativeLayout>
-        <EditText
-			        android:layout_marginTop="20sp"
-                    android:layout_below="@id/registe_Relay_Name"
-            	    android:id="@+id/registe_authcode" 
-            	    android:layout_width="wrap_content"
-            	    android:layout_height="wrap_content"
-            	    android:layout_alignParentLeft="true"
-            	    android:background="@null"
-            	    android:cursorVisible="@null"
-            	    android:ems="10"
-            	    android:hint="请输入验证码"
-            	    android:paddingLeft="40sp"
-            	    android:textColor="@android:color/black"
-            	    android:textSize="16sp"  
-            	    />
-         <EditText 
-                    android:layout_marginTop="20sp"
-                    android:layout_below="@id/registe_authcode"
-            	    android:id="@+id/registe_passw" 
-            	    android:layout_width="wrap_content"
-            	    android:layout_height="wrap_content"
-            	    android:layout_alignParentLeft="true"
-            	    android:background="@null"
-            	    android:cursorVisible="@null"
-            	    android:ems="10"
-            	    android:hint="请输入密码"
-            	    android:paddingLeft="40sp"
-            	    android:textColor="@android:color/black"
-            	    android:textSize="16sp"  
-            	    />
-           <EditText 
-                    android:layout_marginTop="20sp"
-                    android:layout_below="@id/registe_passw"
-            	    android:id="@+id/registe_passwagain" 
-            	    android:layout_width="wrap_content"
-            	    android:layout_height="wrap_content"
-            	    android:layout_alignParentLeft="true"
-            	    android:background="@null"
-            	    android:cursorVisible="@null"
-            	    android:ems="10"
-            	    android:hint="请再次输入密码"
-            	    android:paddingLeft="40sp"
-            	    android:textColor="@android:color/black"
-            	    android:textSize="16sp"  
-            	    />
-           <Button
-               android:id="@+id/setnew"
-               android:layout_marginTop="20sp"
-               android:layout_below="@id/registe_passwagain"
-               android:layout_width="match_parent"
-               android:layout_height="50dp"
-               android:text="注册"
+            android:layout_below="@+id/blank">
 
-			   />
-           </RelativeLayout>
+            <EditText
+                android:drawableLeft="@drawable/phone"
+                android:id="@+id/registe_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:hint="请输入你的手机号"
+                android:inputType="phone"
+                android:textColor="@android:color/black"
+                android:textSize="14sp" />
+
+
+        </RelativeLayout>
+
+<RelativeLayout
+    android:id="@+id/registe_authcodee"
+    android:layout_below="@id/registe_Relay_Name"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+        <EditText
+            android:drawableLeft="@drawable/yanzhengma"
+            android:id="@+id/registe_authcode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="20sp"
+            android:hint="请输入验证码"
+            android:textColor="@android:color/black"
+            android:textSize="14sp" />
+    <Button
+        android:layout_marginTop="30sp"
+        android:background="@drawable/selector_order"
+        android:id="@+id/authcode"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:layout_alignParentRight="true"
+        android:text="获取验证码"
+        android:textSize="14sp" />
+    </RelativeLayout>
+
+        <EditText
+            android:drawableLeft="@drawable/pwd"
+            android:id="@+id/registe_passw"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/registe_authcodee"
+            android:layout_marginTop="20sp"
+            android:hint="输入重设密码"
+            android:textColor="@android:color/black"
+            android:textSize="14sp" />
+
+        <EditText
+            android:drawableLeft="@drawable/pwdag"
+            android:id="@+id/registe_passwagain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/registe_passw"
+            android:layout_marginTop="20sp"
+            android:hint="确认输入密码"
+            android:textColor="@android:color/black"
+            android:textSize="14sp" />
+
+        <Button
+            android:background="@drawable/selector_order_red"
+            android:id="@+id/setnew"
+            android:textSize="18sp"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_below="@id/registe_passwagain"
+            android:layout_marginTop="20sp"
+            android:text="注     册"
+
+            />
+    </RelativeLayout>
 
 </RelativeLayout>

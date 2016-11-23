@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -16,6 +17,7 @@ import com.weblink.zbcommunity.R;
 public class ChangeActivity extends Activity implements OnClickListener {
     private TextView title;
     private TextView back;
+    private ImageButton backk;
     Button change_authcode;
     EditText change_authcodeedtext;
     EditText change_phone;
@@ -33,10 +35,12 @@ public class ChangeActivity extends Activity implements OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.change);
         title=(TextView)findViewById(R.id.tv_title);
-        title.setText("修改");
+        title.setText("忘记密码");
         back = (TextView) findViewById(R.id.tv_left);//返回
-        back.setVisibility(View.VISIBLE);
-        back.setOnClickListener(this);
+        backk=(ImageButton)findViewById(R.id.iv_left);
+        back.setVisibility(View.GONE);
+        backk.setVisibility(View.VISIBLE);
+        backk.setOnClickListener(this);
         change_authcode = (Button) findViewById(R.id.change_authcode);//验证
         change_authcode.setOnClickListener(this);
         change_phone = (EditText) findViewById(R.id.change_phone);//手机号
@@ -53,7 +57,7 @@ public class ChangeActivity extends Activity implements OnClickListener {
     public void onClick(View v) {
 
 //返回登录界面
-        if (v == back) {
+        if (v == backk) {
 
             Intent intent = new Intent(ChangeActivity.this, LoginActivity.class);
             startActivity(intent);
