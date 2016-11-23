@@ -135,14 +135,16 @@
     <TextView
         android:id="@+id/tv_noti"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="32dp"
         android:layout_below="@id/rl_contain"
         android:layout_marginTop="5dp"
         android:background="@color/gray_divide_view"
+        android:drawableLeft="@drawable/broadcast"
+        android:gravity="center_vertical"
         android:paddingBottom="5dp"
         android:paddingLeft="20dp"
         android:paddingTop="5dp"
-        android:text="品质鲜果，下单即达" />
+        android:text="  品质鲜果，下单即达" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycle_info"

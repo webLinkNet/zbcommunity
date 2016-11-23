@@ -106,6 +106,8 @@
             android:launchMode="singleTask" />
         <!-- 搜索结果-->
         <activity android:name=".activity.SearchResultActivity" />
+        <!-- 频道页面-->
+        <activity android:name=".activity.ChannelActivity" />
     </application>
 
 

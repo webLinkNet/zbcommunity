@@ -56,16 +56,17 @@ public class RvHomeAdapter extends RecyclerView.Adapter<RvHomeAdapter.RvHomeView
 
         holder.sdImage.setImageURI(Uri.parse(list.get(position).getImgUrl()));
         holder.tvName.setText(list.get(position).getName());
-        holder.tvSalesNum.setText(" | "+list.get(position).getSalesNum());
+        holder.tvSalesNum.setText(" | " + list.get(position).getSalesNum());
         holder.tvFullDetail.setText(list.get(position).getFullDetail());
         holder.tvCoupon.setText(list.get(position).getCoupon());
-        holder.tvNoti.setText(list.get(position).getNotification());
+        holder.tvNoti.setText("   "+list.get(position).getNotification());
 
 
         if (null != list.get(position).getDetailInfoBeanList() && list.get(position).getDetailInfoBeanList().size() > 0) {
 
             InfoAdapter infoAdapter = new InfoAdapter(context, list.get(position).getDetailInfoBeanList());
             holder.recycleInfo.setLayoutManager(new MyGridLayoutManager(context, 4));
+            holder.recycleInfo.setNestedScrollingEnabled(false);
             holder.recycleInfo.setAdapter(infoAdapter);
             holder.recycleInfo.setVisibility(View.VISIBLE);
 
@@ -107,7 +108,6 @@ public class RvHomeAdapter extends RecyclerView.Adapter<RvHomeAdapter.RvHomeView
             tvNoti = (TextView) itemView.findViewById(R.id.tv_noti);
 
             recycleInfo = (RecyclerView) itemView.findViewById(R.id.recycle_info);
-
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

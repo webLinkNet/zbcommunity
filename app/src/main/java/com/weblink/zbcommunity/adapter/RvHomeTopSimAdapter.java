@@ -2,7 +2,6 @@ package com.weblink.zbcommunity.adapter;
 
 import android.content.Context;
 import android.net.Uri;
-import android.view.View;
 
 import com.facebook.drawee.generic.GenericDraweeHierarchy;
 import com.facebook.drawee.generic.GenericDraweeHierarchyBuilder;
@@ -10,7 +9,6 @@ import com.facebook.drawee.generic.RoundingParams;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.weblink.zbcommunity.R;
 import com.weblink.zbcommunity.bean.HomeGVBean;
-import com.weblink.zbcommunity.utils.ToastUtils;
 
 import java.util.List;
 
@@ -35,12 +33,12 @@ public class RvHomeTopSimAdapter extends SimpleAdapter<HomeGVBean> {
         //附加功能，设置图形为圆形
         setCircleBitmap(viewHoder.getSimpleDraweeView(R.id.image));
 
-        viewHoder.getSimpleDraweeView(R.id.image).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ToastUtils.showToast(context, item.getName() + "图片");
-            }
-        });
+//        viewHoder.getSimpleDraweeView(R.id.image).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                ToastUtils.showToast(context, item.getName() + "图片");
+//            }
+//        });
     }
 
     private void setCircleBitmap(SimpleDraweeView image) {

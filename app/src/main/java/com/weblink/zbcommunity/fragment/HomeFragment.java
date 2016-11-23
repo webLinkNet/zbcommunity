@@ -15,8 +15,6 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.amap.api.location.AMapLocationClient;
-import com.amap.api.location.AMapLocationClientOption;
 import com.cjj.MaterialRefreshLayout;
 import com.cjj.MaterialRefreshListener;
 import com.daimajia.slider.library.Animations.DescriptionAnimation;
@@ -24,6 +22,7 @@ import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.BaseSliderView;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
 import com.weblink.zbcommunity.R;
+import com.weblink.zbcommunity.activity.ChannelActivity;
 import com.weblink.zbcommunity.activity.SearchActivity;
 import com.weblink.zbcommunity.activity.SelectLocActivity;
 import com.weblink.zbcommunity.adapter.BaseAdapter;
@@ -80,13 +79,6 @@ public class HomeFragment extends BaseFragment {
     private TextSliderView textSliderView;
     private List<CommunityBean.DetailInfoBean> deatilBeanList = new ArrayList<>();
 
-
-    //声明mLocationOption对象
-    public AMapLocationClientOption mLocationOption = null;
-    private AMapLocationClient mlocationClient;
-
-
-    private HomeFragment fragment;
 
     @Override
     public View createView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -352,6 +344,11 @@ public class HomeFragment extends BaseFragment {
             public void onItemClick(View view, int position) {
 
                 ToastUtils.showToast(getActivity(), adapter.getItem(position).getName());
+
+                Intent it = new Intent(getActivity(),ChannelActivity.class);
+                it.putExtra("channelName",adapter.getItem(position).getName());
+                startActivity(it);
+
             }
         });
         rvTop.setAdapter(adapter);

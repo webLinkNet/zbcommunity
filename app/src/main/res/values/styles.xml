@@ -65,9 +65,9 @@
         <item name="android:background">@drawable/shape_search</item>
         <item name="android:layout_marginLeft">10dp</item>
         <item name="android:layout_marginRight">10dp</item>
-        <item name="android:layout_marginTop">8dp</item>
-        <item name="android:layout_marginBottom">8dp</item>
-        <item name="android:drawableLeft">@drawable/loc_search_icon</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:drawableLeft">@drawable/icon_search_small</item>
         <item name="android:hint">搜索附近的商品或门店</item>
         <item name="android:layout_gravity">center_vertical</item>
         <item name="android:gravity">center_vertical</item>
@@ -83,11 +83,27 @@
 
     <style name="icon_back_normal">
 
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">20dp</item>
+        <item name="android:layout_height">20dp</item>
         <item name="android:layout_gravity">center</item>
         <item name="android:background">#00000000</item>
         <item name="android:padding">15dp</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_marginLeft">15dp</item>
+        <item name="android:src">@drawable/back_normal_white</item>
+
+    </style>
+
+
+    <style name="icon_back_normal_black">
+
+        <item name="android:layout_width">20dp</item>
+        <item name="android:layout_height">20dp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:background">#00000000</item>
+        <item name="android:padding">15dp</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_marginLeft">15dp</item>
         <item name="android:src">@drawable/back_normal</item>
 
     </style>

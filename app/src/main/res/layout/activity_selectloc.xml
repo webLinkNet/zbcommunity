@@ -92,7 +92,7 @@
             android:layout_margin="@dimen/space_margin"
             android:background="@drawable/loc_search_top"
             android:completionThreshold="1"
-            android:drawableLeft="@drawable/loc_search_icon"
+            android:drawableLeft="@drawable/icon_search"
             android:drawablePadding="5dp"
             android:dropDownVerticalOffset="1.0dip"
             android:hint=" 请输入城市、小区或写字楼"

@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="@dimen/top_height"
-    android:background="@color/main_red"
+    android:background="@color/gray_divide_view"
     android:orientation="vertical">
 
 
@@ -17,8 +17,8 @@
 
     <ImageButton
         android:id="@+id/iv_left"
-        android:visibility="gone"
-        style="@style/icon_back_normal" />
+        style="@style/icon_back_normal_black"
+        android:visibility="visible" />
 
     <TextView
         android:id="@+id/tv_left"
@@ -27,7 +27,7 @@
         android:layout_centerVertical="true"
         android:layout_marginLeft="15dp"
         android:text="返回"
-        android:textColor="@color/white"
+        android:textColor="@color/black2"
         android:textSize="16sp"
         android:visibility="gone" />
 
@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:text="首页"
-        android:textColor="@color/white"
+        android:textColor="@color/black2"
         android:textSize="20sp"
         android:visibility="visible" />
 
@@ -60,7 +60,7 @@
         android:layout_centerVertical="true"
         android:layout_marginRight="15dp"
         android:text="右边文字"
-        android:textColor="@color/white"
+        android:textColor="@color/black2"
         android:textSize="16sp"
         android:visibility="gone" />
 </RelativeLayout>
