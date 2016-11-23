@@ -112,7 +112,6 @@
     <color name="blueviolet">#8A2BE2</color><!--紫罗兰蓝色 -->
     <color name="lightskyblue">#87CEFA</color><!--亮天蓝色 -->
     <color name="skyblue">#87CEEB</color><!--天蓝色 -->
-    <color name="gray">#808080</color><!--灰色 -->
     <color name="olive">#808000</color><!--橄榄色 -->
     <color name="purple">#800080</color><!--紫色 -->
     <color name="maroon">#800000</color><!--粟色 -->
@@ -162,6 +161,14 @@
     <color name="grassgreen">#99cc33</color><!--草绿色 -->
     <color name="gray_cc">#cccccc</color><!--灰色cc -->
     <color name="gray_8f">#8f8f8f</color><!--灰色8f -->
+
+
+    <color name="line">#dddddd</color>
+    <color name="title_red">#fc404e</color>
+    <color name="bj">#efeff4</color>
+    <color name="gray">#888888</color>
+    <color name="gray1">#f8f8f8</color>
+    <color name="xian">#cccccc</color>
 
 
     <!-- 项目中用到的颜色 -->

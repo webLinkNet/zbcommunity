@@ -21,7 +21,6 @@ public class ZBApplication extends Application {
 
         Fresco.initialize(this);
 
-
     }
 
     public static Context getContext() {

@@ -65,8 +65,8 @@
         <item name="android:background">@drawable/shape_search</item>
         <item name="android:layout_marginLeft">10dp</item>
         <item name="android:layout_marginRight">10dp</item>
-        <item name="android:layout_marginTop">5dp</item>
-        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:layout_marginTop">6dp</item>
+        <item name="android:layout_marginBottom">6dp</item>
         <item name="android:drawableLeft">@drawable/icon_search_small</item>
         <item name="android:hint">搜索附近的商品或门店</item>
         <item name="android:layout_gravity">center_vertical</item>

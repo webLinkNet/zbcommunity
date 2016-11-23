@@ -1,6 +1,7 @@
 package com.weblink.zbcommunity.views;
 
 import android.content.Context;
+import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.ViewConfiguration;
@@ -49,5 +50,11 @@ public class MyScrollview extends ScrollView {
                 }
         }
         return super.onInterceptTouchEvent(e);
+    }
+
+    @Override
+    protected int computeScrollDeltaToGetChildRectOnScreen(Rect rect) {
+
+        return 0;
     }
 }

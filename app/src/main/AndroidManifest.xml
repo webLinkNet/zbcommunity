@@ -108,6 +108,8 @@
         <activity android:name=".activity.SearchResultActivity" />
         <!-- 频道页面-->
         <activity android:name=".activity.ChannelActivity" />
+        <!-- 商铺-->
+        <activity android:name=".activity.StoreDetailsActivity" />
     </application>
 
 

@@ -1,5 +1,6 @@
 package com.weblink.zbcommunity.activity;
 
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageButton;
@@ -28,7 +29,7 @@ import butterknife.BindView;
 /**
  * Created by swq on 2016/11/23.
  */
-public class ChannelActivity extends BaseActivity {
+public class ChannelActivity extends BaseActivity implements View.OnClickListener {
 
 
     @BindView(R.id.iv_left)
@@ -72,6 +73,8 @@ public class ChannelActivity extends BaseActivity {
         ivRight.setImageResource(R.drawable.icon_search);
         //scrollview滑动到顶部
         scrollView.smoothScrollTo(0, 0);
+        ivLeft.setOnClickListener(this);
+        ivRight.setOnClickListener(this);
 
         initSlideView();
 
@@ -209,11 +212,57 @@ public class ChannelActivity extends BaseActivity {
         bean2.setNotification("周年店庆，满100减99");
 
 
+        CommunityBean bean3 = new CommunityBean();
+
+        bean3.setImgUrl("http://pic.58pic.com/58pic/17/45/92/87Q58PICbPt_1024.jpg");
+        bean3.setName("水果兄弟");
+        bean3.setSalesNum("月售36笔");
+        bean3.setFullDetail("满30减25");
+        bean3.setCoupon("新店开张。消费满20送10元代金券");
+        bean3.setNotification("品牌鲜果，下单即达。");
+
+
+        CommunityBean.DetailInfoBean bean31 = new CommunityBean.DetailInfoBean();
+        CommunityBean.DetailInfoBean bean32 = new CommunityBean.DetailInfoBean();
+        CommunityBean.DetailInfoBean bean33 = new CommunityBean.DetailInfoBean();
+        CommunityBean.DetailInfoBean bean34 = new CommunityBean.DetailInfoBean();
+        bean31.setImgSingle("http://img.ivsky.com/img/tupian/t/201101/22/shuiguo_daquan.jpg");
+        bean31.setPrice("¥ 12.90");
+        bean32.setImgSingle("http://img.ivsky.com/img/tupian/t/201101/22/shuiguo_daquan-006.jpg");
+        bean32.setPrice("¥ 8.90");
+        bean33.setImgSingle("http://img.ivsky.com/img/tupian/t/201101/22/shuiguo_daquan-012.jpg");
+        bean33.setPrice("¥ 7.50");
+        bean34.setImgSingle("http://img.ivsky.com/img/tupian/t/201101/22/shuiguo_daquan-015.jpg");
+        bean34.setPrice("¥ 6.00");
+
+        deatilBeanList.clear();
+        deatilBeanList.add(bean31);
+        deatilBeanList.add(bean32);
+        deatilBeanList.add(bean33);
+        deatilBeanList.add(bean34);
+        bean3.setDetailInfoBeanList(deatilBeanList);
+
         bottomList.add(bean1);
         bottomList.add(bean2);
-
-
+        bottomList.add(bean3);
     }
 
 
+    @Override
+    public void onClick(View v) {
+
+        switch (v.getId()) {
+
+            case R.id.iv_left:
+                finish();
+                break;
+
+            case R.id.iv_right:
+                Intent it = new Intent(ChannelActivity.this, SearchActivity.class);
+                startActivity(it);
+
+
+        }
+
+    }
 }

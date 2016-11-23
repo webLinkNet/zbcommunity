@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.amap.api.location.AMapLocation;
 import com.cjj.MaterialRefreshLayout;
 import com.cjj.MaterialRefreshListener;
 import com.daimajia.slider.library.Animations.DescriptionAnimation;
@@ -25,12 +26,14 @@ import com.weblink.zbcommunity.R;
 import com.weblink.zbcommunity.activity.ChannelActivity;
 import com.weblink.zbcommunity.activity.SearchActivity;
 import com.weblink.zbcommunity.activity.SelectLocActivity;
+import com.weblink.zbcommunity.activity.StoreDetailsActivity;
 import com.weblink.zbcommunity.adapter.BaseAdapter;
 import com.weblink.zbcommunity.adapter.RvHomeAdapter;
 import com.weblink.zbcommunity.adapter.RvHomeTopSimAdapter;
 import com.weblink.zbcommunity.bean.BannerBean;
 import com.weblink.zbcommunity.bean.CommunityBean;
 import com.weblink.zbcommunity.bean.HomeGVBean;
+import com.weblink.zbcommunity.bean.LocationBean;
 import com.weblink.zbcommunity.utils.ToastUtils;
 import com.weblink.zbcommunity.views.MyGridLayoutManager;
 import com.weblink.zbcommunity.views.MyLinearLayoutManager;
@@ -140,6 +143,13 @@ public class HomeFragment extends BaseFragment {
 
         //eventBus用于接收定位回传值
         EventBus.getDefault().register(this);
+        AMapLocation aMapLocation = LocationBean.getInstance().getAmapLocation();
+        if (null != aMapLocation) {
+            tvLoc.setText(LocationBean.getInstance().getAmapLocation().getCity().replace("市", "")
+                    + "  " + LocationBean.getInstance().getAmapLocation().getPoiName());
+        } else
+            tvLoc.setText("定位中...");
+
 
     }
 
@@ -188,8 +198,10 @@ public class HomeFragment extends BaseFragment {
 
 
         if ("".equals(event.getCity()) || "".equals(event.getTitle())) {
+
             tvLoc.setText("定位失败");
         } else {
+
             String msg = event.getCity() + "  " + event.getTitle();
             tvLoc.setText(msg);
         }
@@ -345,8 +357,8 @@ public class HomeFragment extends BaseFragment {
 
                 ToastUtils.showToast(getActivity(), adapter.getItem(position).getName());
 
-                Intent it = new Intent(getActivity(),ChannelActivity.class);
-                it.putExtra("channelName",adapter.getItem(position).getName());
+                Intent it = new Intent(getActivity(), ChannelActivity.class);
+                it.putExtra("channelName", adapter.getItem(position).getName());
                 startActivity(it);
 
             }
@@ -367,6 +379,12 @@ public class HomeFragment extends BaseFragment {
             public void onClick(View v, CommunityBean bean) {
 
                 ToastUtils.showToast(getActivity(), bean.getName());
+
+                //进入店铺详情
+                Intent it = new Intent(getActivity(),StoreDetailsActivity.class);
+                startActivity(it);
+
+
             }
         });
 
