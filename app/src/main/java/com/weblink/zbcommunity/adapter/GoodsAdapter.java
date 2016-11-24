@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Paint;
 import android.net.Uri;
 import android.util.Log;
+import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,11 +34,13 @@ public class GoodsAdapter extends BaseAdapter {
     private List<GoodsBean> list;
     private Context context;
     private CatograyAdapter catograyAdapter;
+    private SparseArray<Boolean> mSelectState;
 
-    public GoodsAdapter(Context context, List<GoodsBean> list2, CatograyAdapter catograyAdapter) {
+    public GoodsAdapter(Context context, List<GoodsBean> list2, CatograyAdapter catograyAdapter,SparseArray<Boolean> mSelectState) {
         this.context = context;
         this.list = list2;
         this.catograyAdapter = catograyAdapter;
+        this.mSelectState = mSelectState;
     }
 
     @Override
@@ -129,6 +132,7 @@ public class GoodsAdapter extends BaseAdapter {
                 ball.setImageResource(R.drawable.number);
                 ((StoreDetailsActivity) context).setAnim(ball, startLocation);// 开始执行动画
 
+
             }
         });
 
@@ -159,6 +163,7 @@ public class GoodsAdapter extends BaseAdapter {
 //                }
             }
         });
+
         return convertView;
     }
 

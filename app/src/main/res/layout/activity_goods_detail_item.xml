@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:background="@color/white"
-    android:layout_height="match_parent">
-
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:background="@color/white">
 
 
     <RelativeLayout
@@ -13,31 +13,62 @@
         android:layout_height="60dp"
         android:orientation="horizontal"
         android:paddingLeft="15dp"
-        android:paddingRight="15dp"
-        >
+        android:paddingRight="15dp">
+
+        <CheckBox
+            android:id="@+id/check_box"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="4dp"
+            android:button="@drawable/check_box_bg"
+            android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+            android:clickable="true"
+            android:focusable="false"
+            android:focusableInTouchMode="true"
+            android:gravity="center"
+            android:minHeight="64dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:visibility="visible" />
 
 
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/sd_img"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@id/check_box"
+            app:placeholderImage="@drawable/ic_launcher"
+            app:placeholderImageScaleType="fitXY" />
 
-            <TextView
-                android:id="@+id/tv_name"
-                android:layout_alignParentLeft="true"
-                android:layout_width="wrap_content"
-                android:layout_height="fill_parent"
-                android:gravity="left|center"
-                android:text="商品名称" />
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/sd_img"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@id/sd_img"
+            android:text="商品名称"
+            android:textSize="14sp" />
 
 
         <TextView
             android:id="@+id/tv_price"
-            android:layout_alignParentRight="true"
             android:layout_width="wrap_content"
-            android:layout_height="fill_parent"
-            android:gravity="left|center"
-            android:text="商品名称" />
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/sd_img"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@id/sd_img"
+            android:text="商品价格"
+            android:textSize="12sp" />
 
 
-
-</RelativeLayout>
+    </RelativeLayout>
 
 </LinearLayout>
 

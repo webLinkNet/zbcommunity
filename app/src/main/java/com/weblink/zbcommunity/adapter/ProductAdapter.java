@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -25,10 +26,14 @@ public class ProductAdapter extends BaseAdapter {
     GoodsAdapter goodsAdapter;
     private StoreDetailsActivity activity;
     private SparseArray<GoodsBean> dataList;
-    public ProductAdapter(StoreDetailsActivity activity, GoodsAdapter goodsAdapter, SparseArray<GoodsBean> dataList) {
+    private SparseArray<Boolean> mSelectState;
+
+    public ProductAdapter(StoreDetailsActivity activity, GoodsAdapter goodsAdapter,
+                          SparseArray<GoodsBean> dataList,SparseArray<Boolean> mSelectState) {
         this.goodsAdapter =goodsAdapter;
         this.activity = activity;
         this.dataList = dataList;
+        this.mSelectState = mSelectState;
     }
 
     @Override
@@ -58,6 +63,7 @@ public class ProductAdapter extends BaseAdapter {
             viewholder.iv_add= (ImageView) view.findViewById(R.id.iv_add);
             viewholder.iv_remove= (ImageView) view.findViewById(R.id.iv_remove);
             viewholder.tv_count= (TextView) view.findViewById(R.id.tv_count);
+            viewholder.ckSelector= (CheckBox) view.findViewById(R.id.check_box);
 
             view.setTag(viewholder);
         } else {
@@ -85,14 +91,41 @@ public class ProductAdapter extends BaseAdapter {
                 }
             });
 
+
+        viewholder.ckSelector.setChecked(mSelectState.get(dataList.valueAt(position).getProduct_id(),false));
+
+
+        viewholder.ckSelector.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if(mSelectState.get(dataList.valueAt(position).getProduct_id(),false)){
+
+                    mSelectState.delete(dataList.valueAt(position).getProduct_id());
+                    viewholder.ckSelector.setChecked(false);
+                    activity.refershData(false);
+
+                }else{
+
+                    mSelectState.put(dataList.valueAt(position).getProduct_id(),true);
+                    viewholder.ckSelector.setChecked(true);
+                    activity.refershData(true);
+                }
+
+
+            }
+        });
+
+
         return view;
     }
 
-    class Viewholder {
+    public class Viewholder {
         TextView tv_price;
         TextView tv_name;
         ImageView iv_add,iv_remove;
         TextView tv_count;
+        public CheckBox ckSelector;
     }
 
 }
