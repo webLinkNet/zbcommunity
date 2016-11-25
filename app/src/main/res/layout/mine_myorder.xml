@@ -1,53 +1,63 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:background="#FFFFFF"
-    android:layout_height="fill_parent" >
+    android:layout_height="fill_parent"
+    android:background="#FFFFFF">
 
- <include layout="@layout/top_bar"
-     android:id="@+id/mine_myorder_top_layout"></include>
+    <include
+        android:id="@+id/mine_myorder_top_layout"
+        layout="@layout/top_bar"></include>
 
-   <LinearLayout
-       android:id="@+id/mine_myorder_linear"
-       android:layout_below="@id/mine_myorder_top_layout"
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       >
+    <LinearLayout
+        android:id="@+id/mine_myorder_linear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mine_myorder_top_layout">
+
         <Button
-            android:background="@drawable/shape_dingdan_si"
-            android:textColor="@color/main_red"
+            android:drawableTop="@drawable/daizhi"
             android:id="@+id/mine_daizhi"
-            android:text="待支付"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
             android:layout_weight="1"
+            android:background="@drawable/shape_dingdan_si"
+            android:text="待支付"></Button>
+
+
+        <Button
+            android:drawableTop="@drawable/daiping1"
+            android:id="@+id/mine_daiping"
             android:layout_width="wrap_content"
-            android:layout_height="44dp"/>
-         <Button
-             android:background="@drawable/shape_dingdan_si"
-             android:id="@+id/mine_daiping"
-             android:text="待评价"
-             android:layout_weight="1"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:background="@drawable/shape_dingdan_si"
+            android:text="待评价" />
+
+        <Button
+            android:drawableTop="@drawable/yiwan1"
+            android:id="@+id/mine_yiping"
             android:layout_width="wrap_content"
-            android:layout_height="44dp"/>
-          <Button
-              android:background="@drawable/shape_dingdan_si"
-              android:id="@+id/mine_yiping"
-              android:text="已完成"
-              android:layout_weight="1"
-            android:layout_width="wrap_content"
-            android:layout_height="44dp"/>
-           <Button
-               android:background="@drawable/shape_dingdan_si"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:background="@drawable/shape_dingdan_si"
+            android:text="已完成" />
+
+        <Button
+            android:drawableTop="@drawable/yiqu1"
             android:id="@+id/mine_yiqu"
-            android:text="已取消"
-            android:layout_weight="1"
             android:layout_width="wrap_content"
-            android:layout_height="44dp"/>
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:background="@drawable/shape_dingdan_si"
+            android:text="已取消" />
 
-   </LinearLayout>
 
-   <ListView
-       android:layout_below="@id/mine_myorder_linear"
-       android:id="@+id/mine_myroder_list"
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"></ListView>
+    </LinearLayout>
+
+    <ListView
+        android:layout_marginTop="10dp"
+        android:id="@+id/mine_myroder_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mine_myorder_linear"></ListView>
 
 </RelativeLayout>

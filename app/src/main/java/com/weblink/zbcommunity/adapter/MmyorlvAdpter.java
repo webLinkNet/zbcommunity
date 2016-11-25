@@ -18,6 +18,7 @@ import com.weblink.zbcommunity.MainActivity;
 import com.weblink.zbcommunity.R;
 import com.weblink.zbcommunity.activity.EvaluateActivity;
 import com.weblink.zbcommunity.activity.MineThingList;
+import com.weblink.zbcommunity.activity.OrderDetailActivity;
 import com.weblink.zbcommunity.bean.MinedingdanBean;
 import com.weblink.zbcommunity.utils.CircleUtils;
 
@@ -66,11 +67,12 @@ public class MmyorlvAdpter extends BaseAdapter {
         ImageView imgtwo = (ImageView) convertView.findViewById(R.id.mine_myorderlist_img2);
         ImageView imgthree = (ImageView) convertView.findViewById(R.id.mine_myorderlist_img3);
         TextView jianshu = (TextView) convertView.findViewById(R.id.mine_list_jianshu);
-        TextView sandian=(TextView)convertView.findViewById(R.id.mine_sandian);
+        TextView sandian = (TextView) convertView.findViewById(R.id.mine_sandian);
         TextView money = (TextView) convertView.findViewById(R.id.mine_list_qian);
         Button button3 = (Button) convertView.findViewById(R.id.mine_list_button3);
         Button button2 = (Button) convertView.findViewById(R.id.mine_list_button2);
-        RelativeLayout nn2=(RelativeLayout)convertView.findViewById(R.id.nn2);
+        Button button1 = (Button) convertView.findViewById(R.id.mine_list_button1);
+        RelativeLayout nn2 = (RelativeLayout) convertView.findViewById(R.id.nn2);
 
         storename.setText(m.getStorename());
         Glide.with(context).load(m.getImgurlone()).into(imgone);
@@ -89,13 +91,14 @@ public class MmyorlvAdpter extends BaseAdapter {
         });
 
 
-        if(Integer.parseInt(m.getThingnum())<=3){
+        if (Integer.parseInt(m.getThingnum()) <= 3) {
             sandian.setVisibility(View.GONE);
         }
 
         switch (m.getId()) {
 
             case 1:
+
                 button3.setVisibility(View.VISIBLE);
                 button3.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -138,6 +141,32 @@ public class MmyorlvAdpter extends BaseAdapter {
                 break;
         }
 
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, OrderDetailActivity.class);
+                switch (m.getId()) {
+
+                    case 1:
+                        intent.putExtra("id","1");
+                        context.startActivity(intent);
+                        break;
+                    case 2:
+                        intent.putExtra("id", "2");
+                        context.startActivity(intent);
+                        break;
+                    case 3:
+                        intent.putExtra("id", "3");
+                        context.startActivity(intent);
+                        break;
+                    case 4:
+                        intent.putExtra("id", "4");
+                        context.startActivity(intent);
+                        break;
+
+                }
+            }
+        });
 
         return convertView;
     }

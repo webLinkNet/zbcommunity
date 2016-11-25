@@ -74,7 +74,7 @@ public class MuserinforActivity extends Activity implements View.OnClickListener
         mine_user_back.setVisibility(View.VISIBLE);
         mine_user_back.setOnClickListener(this);
         tilte = (TextView) findViewById(R.id.tv_title);
-        tilte.setText("修改用户信息");
+        tilte.setText("个人信息修改");
         mine_userinfor_img = (CircleUtils) findViewById(R.id.mine_userinfor_img);
         view_pop = LayoutInflater.from(this).inflate(
                 R.layout.mine_change_head, null);
