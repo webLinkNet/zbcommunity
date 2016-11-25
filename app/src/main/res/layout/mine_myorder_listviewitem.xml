@@ -13,6 +13,8 @@
             >
 
             <TextView
+                android:gravity="center"
+                android:drawableLeft="@drawable/mine_shop"
                 android:id="@+id/mine_myorder_storename"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:id="@+id/nnn1"
+        android:layout_width="match_parent"
+        android:layout_height="45dp">
+
+        <TextView
+            android:gravity="center"
+            android:drawableLeft="@drawable/mine_shop"
+            android:id="@+id/mine_item_storename"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="25dp"
+            android:text="某某某某店"
+            android:textColor="#000000"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/mine_item_storename"
+            android:text="  >"
+            android:textSize="20sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/grey_color4" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/nnn2"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_below="@id/nnn1">
+
+        <ImageView
+            android:id="@+id/mine_item_img1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="25dp"
+            android:src="@drawable/ic_launcher" />
+
+        <ImageView
+            android:id="@+id/mine_item_img2"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@id/mine_item_img1" />
+
+        <ImageView
+            android:id="@+id/mine_item_img3"
+            android:layout_width="50dp"
+            android:layout_marginLeft="15dp"
+            android:layout_height="50dp"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/mine_item_img2" />
+
+        <TextView
+            android:id="@+id/minee_sandian"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/mine_item_img3"
+            android:text="..."
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/mine_gong"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/minee_sandian"
+            android:text="  共"
+            android:textColor="#000000"
+            android:textSize="@dimen/txt_14" />
+
+        <TextView
+            android:id="@+id/mineitem_jianshu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/mine_gong"
+            android:text="5"
+            android:textColor="#000000"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/mine_jiann"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/mineitem_jianshu"
+            android:text="件商品"
+            android:textColor="#000000"
+            android:textSize="@dimen/txt_14" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:text=">   "
+            android:textSize="20sp" />
+
+       <View style="@style/divide_line"
+           android:layout_alignParentBottom="true"></View>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/nnn3"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@id/nnn2">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="商品费"
+                    android:textSize="@dimen/txt_14" />
+
+                <TextView
+                    android:id="@+id/mine_item_price1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"
+                    android:text="¥120.25"
+                    android:textSize="@dimen/txt_14" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="包装费"
+                    android:textSize="@dimen/txt_14" />
+
+                <TextView
+                    android:id="@+id/mine_item_price2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"
+                    android:text="¥120.25"
+                    android:textSize="@dimen/txt_14" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="配送费"
+                    android:textSize="@dimen/txt_14" />
+
+                <TextView
+                    android:id="@+id/mine_item_price3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"
+                    android:text="¥120.25"
+                    android:textSize="@dimen/txt_14" />
+
+            </RelativeLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/nnn4"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@id/nnn3">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <TextView
+                    android:gravity="center"
+                    android:drawableLeft="@drawable/jian"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="优惠券减免"
+                    android:textSize="@dimen/txt_14" />
+
+                <TextView
+
+                    android:id="@+id/mine_item_price4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"
+                    android:text="¥120.25"
+                    android:textSize="@dimen/txt_14" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <TextView
+                    android:gravity="center"
+                    android:drawableLeft="@drawable/jian"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="活动减免"
+                    android:textSize="@dimen/txt_14" />
+
+                <TextView
+                    android:id="@+id/mine_item_price5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"
+                    android:text="¥120.25"
+                    android:textSize="@dimen/txt_14" />
+            </RelativeLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/nnn6"
+                android:layout_below="@id/nnn4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="计算公式"
+                    android:textSize="@dimen/txt_14" />
+
+                <TextView
+                    android:id="@+id/mine_item_price6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"
+                    android:text="¥120.25"
+                    android:textSize="@dimen/txt_14" />
+            </RelativeLayout>
+
+
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:id="@+id/mine_item_beizhu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nnn6"
+        android:layout_marginLeft="20dp"
+        android:text="备注:不要香菜"
+        android:textSize="@dimen/txt_14" />
+
+
+</RelativeLayout>

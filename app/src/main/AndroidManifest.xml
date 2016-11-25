@@ -102,6 +102,8 @@
         <activity android:name=".activity.MinehelpxxActivity" />
         <!-- 订单商品清单-->
         <activity android:name=".activity.MineThingList" />
+        <!-- 订单详情-->
+        <activity android:name=".activity.OrderDetailActivity" />
         <!-- 搜索商品-->
         <activity
             android:name=".activity.SearchActivity"

@@ -2,6 +2,7 @@ package com.weblink.zbcommunity.activity;
 
 import android.app.Activity;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -9,9 +10,11 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
+
 import com.weblink.zbcommunity.R;
 import com.weblink.zbcommunity.adapter.MmyorlvAdpter;
 import com.weblink.zbcommunity.bean.MinedingdanBean;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -180,12 +183,22 @@ public class MyorderActivity extends Activity implements OnClickListener {
 
     void colorz() {
 
+        topdra(btn_daizhi,R.drawable.daizhi1);
+        topdra(btn_daiping,R.drawable.daiping1);
+        topdra(btn_yiping,R.drawable.yiwan1);
+        topdra(btn_yiqu,R.drawable.yiqu1);
         btn_daizhi.setTextColor(Color.parseColor("#000000"));
         btn_daiping.setTextColor(Color.parseColor("#000000"));
         btn_yiping.setTextColor(Color.parseColor("#000000"));
         btn_yiqu.setTextColor(Color.parseColor("#000000"));
 
 
+    }
+
+    public void topdra(Button b ,int aa){
+        Drawable rightDrawable = getResources().getDrawable(aa);
+        rightDrawable.setBounds(0, 0, rightDrawable.getMinimumWidth(), rightDrawable.getMinimumHeight());
+        b.setCompoundDrawables(null, rightDrawable, null, null);
     }
 
     @Override
@@ -198,6 +211,7 @@ public class MyorderActivity extends Activity implements OnClickListener {
         if (v == btn_daizhi) {
             colorz();
             btn_daizhi.setTextColor(Color.parseColor("#FF0066"));
+            topdra(btn_daizhi,R.drawable.daizhi);
             add(data);
 
         }
@@ -205,18 +219,21 @@ public class MyorderActivity extends Activity implements OnClickListener {
         if (v == btn_daiping) {
             colorz();
             btn_daiping.setTextColor(Color.parseColor("#FF0066"));
+            topdra(btn_daiping,R.drawable.daiping);
             add(dataa);
         }
         //已完成
         if (v == btn_yiping) {
             colorz();
             btn_yiping.setTextColor(Color.parseColor("#FF0066"));
+            topdra(btn_yiping,R.drawable.yiwan);
             add(dataaa);
         }
         //已取消
         if (v == btn_yiqu) {
             colorz();
             btn_yiqu.setTextColor(Color.parseColor("#FF0066"));
+            topdra(btn_yiqu,R.drawable.yiqu);
             add(dataaaa);
         }
     }
