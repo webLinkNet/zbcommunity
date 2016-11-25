@@ -131,6 +131,7 @@ public class GoodsAdapter extends BaseAdapter {
                 ImageView ball = new ImageView(context);
                 ball.setImageResource(R.drawable.number);
                 ((StoreDetailsActivity) context).setAnim(ball, startLocation);// 开始执行动画
+//                ((StoreDetailsActivity) context).setAddAnim(v, position);// 开始执行饿了么动画
 
 
             }

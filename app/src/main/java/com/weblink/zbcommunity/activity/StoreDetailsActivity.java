@@ -1,5 +1,9 @@
 package com.weblink.zbcommunity.activity;
 
+import android.animation.Animator;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
+import android.graphics.PointF;
 import android.os.Handler;
 import android.util.Log;
 import android.util.SparseArray;
@@ -30,6 +34,8 @@ import com.weblink.zbcommunity.bean.CatograyBean;
 import com.weblink.zbcommunity.bean.GoodsBean;
 import com.weblink.zbcommunity.bean.ItemBean;
 import com.weblink.zbcommunity.views.MyListView;
+import com.weblink.zbcommunity.widget.FakeAddImageView;
+import com.weblink.zbcommunity.widget.PointFTypeEvaluator;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -48,7 +54,7 @@ public class StoreDetailsActivity extends BaseActivity {
     private TextView tv_count, tv_totle_money;
     Double totleMoney = 0.00;
     private TextView bv_unm;
-    private RelativeLayout rl_bottom;
+    private RelativeLayout rl_bottom,mainLayout;
     //分类和商品
     private List<CatograyBean> list = new ArrayList<CatograyBean>();
     private List<GoodsBean> list2 = new ArrayList<GoodsBean>();
@@ -63,6 +69,7 @@ public class StoreDetailsActivity extends BaseActivity {
     private BottomSheetLayout bottomSheetLayout;
     private View bottomSheet;
     private SparseArray<GoodsBean> selectedList;//商品list
+    private SparseArray<GoodsBean> selectedTrueList;//选中状态下的 商品list
 
     private SparseArray<Boolean> mSelectState = new SparseArray<Boolean>(); //批量模式下，用来记录当前选中状态
     //套餐
@@ -90,6 +97,7 @@ public class StoreDetailsActivity extends BaseActivity {
 
         lv_catogary = (ListView) findViewById(R.id.lv_catogary);
         lv_good = (ListView) findViewById(R.id.lv_good);
+        mainLayout = (RelativeLayout) findViewById(R.id.rl_main);
         tv_car = (TextView) findViewById(R.id.tv_car);
         //底部控件
         rl_bottom = (RelativeLayout) findViewById(R.id.rl_bottom);
@@ -98,17 +106,13 @@ public class StoreDetailsActivity extends BaseActivity {
         tv_totle_money = (TextView) findViewById(R.id.tv_totle_money);
         ll_shopcar = (LinearLayout) findViewById(R.id.ll_shopcar);
         selectedList = new SparseArray<>();
+        selectedTrueList = new SparseArray<>();
         df = new DecimalFormat("0.00");
 
 
         initData();
         addListener();
-        ll_shopcar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showBottomSheet();
-            }
-        });
+
     }
 
     @Override
@@ -193,6 +197,8 @@ public class StoreDetailsActivity extends BaseActivity {
 
     //添加监听
     private void addListener() {
+
+        //左边选择分类的listview
         lv_catogary.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -206,25 +212,14 @@ public class StoreDetailsActivity extends BaseActivity {
 
             }
         });
-    }
 
-
-    //查看套餐详情
-    private View createMealDetailView(List<ItemBean> listItem, String mealName) {
-        View view = LayoutInflater.from(this).inflate(R.layout.activity_goods_detail, (ViewGroup) getWindow().getDecorView(), false);
-        ListView lv_product = (MyListView) view.findViewById(R.id.lv_product);
-        TextView tv_meal = (TextView) view.findViewById(R.id.tv_meal);
-        TextView tv_num = (TextView) view.findViewById(R.id.tv_num);
-        int count = 0;
-        for (int i = 0; i < listItem.size(); i++) {
-            count = count + Integer.parseInt(listItem.get(i).getNote2());
-        }
-        tv_meal.setText(mealName);
-        tv_num.setText("(共" + count + "件)");
-        goodsDetailAdapter = new GoodsDetailAdapter(StoreDetailsActivity.this, listItem);
-        lv_product.setAdapter(goodsDetailAdapter);
-        goodsDetailAdapter.notifyDataSetChanged();
-        return view;
+        //弹出底部购物车view
+        ll_shopcar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showBottomSheet();
+            }
+        });
     }
 
 
@@ -248,6 +243,13 @@ public class StoreDetailsActivity extends BaseActivity {
         ckAll = (CheckBox) view.findViewById(R.id.ck_all);
         TextView clear = (TextView) view.findViewById(R.id.clear);
 
+        if (mSelectState.size() == selectedList.size()) {
+            ckAll.setChecked(true);
+        } else {
+            ckAll.setChecked(false);
+        }
+
+
         productAdapter = new ProductAdapter(StoreDetailsActivity.this, goodsAdapter, selectedList, mSelectState);
         lv_product.setAdapter(productAdapter);
 
@@ -255,11 +257,7 @@ public class StoreDetailsActivity extends BaseActivity {
         lv_product.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-
                 Log.i("info", "点击到一个item");
-
-
             }
         });
 
@@ -273,19 +271,36 @@ public class StoreDetailsActivity extends BaseActivity {
         ckAll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                for (int i = 0; i < selectedList.size(); i++) {
-
-                    mSelectState.put(selectedList.valueAt(i).getProduct_id(), ckAll.isChecked() ? true : false);
-                    productAdapter.notifyDataSetChanged();
-                }
-
+                allInOrOut();//全选按钮状态切换
             }
         });
 
         return view;
     }
 
+
+    /**
+     * 全选按钮状态切换：根据全选按钮的状态，设置每一件商品的选中状态
+     */
+    private void allInOrOut() {
+
+        if (ckAll.isChecked()) {//全选
+
+            update(true);
+        } else {//全不选
+
+            totleMoney = 0.00;
+            tv_totle_money.setText("￥" + String.valueOf(df.format(totleMoney)));
+            bv_unm.setVisibility(View.GONE);
+
+        }
+        for (int i = 0; i < selectedList.size(); i++) {
+
+            mSelectState.put(selectedList.valueAt(i).getProduct_id(), ckAll.isChecked() ? true : false);
+        }
+        productAdapter.notifyDataSetChanged();
+
+    }
 
     //清空购物车
     public void clearCart() {
@@ -318,11 +333,22 @@ public class StoreDetailsActivity extends BaseActivity {
     }
 
 
+    /**
+     * 购物车弹窗里面的加减按钮事件
+     *
+     * @param type
+     * @param goodsBean
+     * @param refreshGoodList
+     */
     public void handlerCarNum(int type, GoodsBean goodsBean, boolean refreshGoodList) {
-        if (type == 0) {
-            GoodsBean temp = selectedList.get(goodsBean.getProduct_id());
-            mSelectState.remove(goodsBean.getProduct_id());
+
+        GoodsBean temp = selectedList.get(goodsBean.getProduct_id());
+
+        if (type == 0) {//弹窗购物车里面的 减
             if (temp != null) {
+
+                updateMinus(goodsBean);
+
                 if (temp.getNum() < 2) {
                     goodsBean.setNum(0);
                     selectedList.remove(goodsBean.getProduct_id());
@@ -331,11 +357,11 @@ public class StoreDetailsActivity extends BaseActivity {
                     int i = goodsBean.getNum();
                     goodsBean.setNum(--i);
                 }
+
             }
 
 
-        } else if (type == 1) {
-            GoodsBean temp = selectedList.get(goodsBean.getProduct_id());
+        } else if (type == 1) {//弹窗购物车里面的 加
 
             if (temp == null) {
                 goodsBean.setNum(1);
@@ -345,12 +371,37 @@ public class StoreDetailsActivity extends BaseActivity {
                 int i = goodsBean.getNum();
                 goodsBean.setNum(++i);
             }
-        }
 
-        update(refreshGoodList);
+            updateAdd(goodsBean.getProduct_id());
+        }
 
     }
 
+
+    /**
+     * 刷新全选checkbox的状态:根据每一件商品是否选中的状态，去设置全选按钮的状态
+     *
+     * @param isChecked
+     */
+
+    public void refershData(boolean isChecked, GoodsBean item) {
+
+
+        updateCheckedStatus(isChecked, item);
+
+        if (isChecked) {
+
+            if (mSelectState.size() == selectedList.size()) {
+                ckAll.setChecked(true);
+            } else {
+                ckAll.setChecked(false);
+            }
+
+        } else {
+            ckAll.setChecked(false);
+        }
+
+    }
 
     //刷新布局 总价、购买数量等
     private void update(boolean refreshGoodList) {
@@ -361,6 +412,8 @@ public class StoreDetailsActivity extends BaseActivity {
             count += item.getNum();
             totleMoney += item.getNum() * Double.parseDouble(item.getPrice());
         }
+
+
         tv_totle_money.setText("￥" + String.valueOf(df.format(totleMoney)));
         totleMoney = 0.00;
         if (count < 1) {
@@ -370,6 +423,125 @@ public class StoreDetailsActivity extends BaseActivity {
         }
 
         bv_unm.setText(String.valueOf(count));
+
+
+        totalAdapterUpdata();
+    }
+
+
+    //购物车中的减按钮
+    private void updateMinus(GoodsBean goodsBean) {
+
+        int count = Integer.parseInt(bv_unm.getText().toString());
+        totleMoney = Double.parseDouble(tv_totle_money.getText().toString().substring(1,
+                tv_totle_money.getText().toString().length()));
+        if (mSelectState.get(goodsBean.getProduct_id(), false)) {
+            count--;
+            totleMoney -= Double.parseDouble(goodsBean.getPrice());
+            tv_totle_money.setText("￥" + String.valueOf(df.format(totleMoney)));
+
+        }
+
+        totleMoney = 0.00;
+        if (count < 1) {
+
+            bv_unm.setVisibility(View.GONE);
+        } else {
+
+            for (int i = 0; i < mSelectState.size(); i++) {
+
+                boolean isChecked = mSelectState.valueAt(i);
+
+                if (isChecked) {
+                    bv_unm.setVisibility(View.VISIBLE);
+                    break;
+                }
+            }
+
+        }
+
+        if (mSelectState.get(goodsBean.getProduct_id(), false))//如果是选中状态，才去做下面购物车数量和总价的改变
+            bv_unm.setText(String.valueOf(count));
+
+        totalAdapterUpdata();
+    }
+
+    //刷新布局 总价、购买数量等
+    private void updateAdd(int productId) {
+
+        int size = selectedList.size();
+        int count = 0;
+        for (int i = 0; i < size; i++) {
+            GoodsBean item = selectedList.valueAt(i);
+            if (mSelectState.get(item.getProduct_id(), false)) {
+                count += item.getNum();
+                totleMoney += item.getNum() * Double.parseDouble(item.getPrice());
+            }
+        }
+        if (mSelectState.get(productId, false))//如果是选中状态，才去做下面购物车数量和总价的改变
+            tv_totle_money.setText("￥" + String.valueOf(df.format(totleMoney)));
+        totleMoney = 0.00;
+        if (count < 1) {
+
+            bv_unm.setVisibility(View.GONE);
+        } else {
+
+            for (int i = 0; i < mSelectState.size(); i++) {
+
+                boolean isChecked = mSelectState.valueAt(i);
+
+                if (isChecked) {
+                    bv_unm.setVisibility(View.VISIBLE);
+                    break;
+                }
+            }
+
+        }
+
+        if (mSelectState.get(productId, false))//如果是选中状态，才去做下面购物车数量和总价的改变
+            bv_unm.setText(String.valueOf(count));
+
+
+        totalAdapterUpdata();
+    }
+
+
+    //刷新选中或者未选中状态的 布局 总价、购买数量等
+    private void updateCheckedStatus(boolean isChecked, GoodsBean item) {
+
+        int count = Integer.parseInt(bv_unm.getText().toString());
+        double totleMoney = Double.parseDouble(tv_totle_money.getText().toString().substring(1,
+                tv_totle_money.getText().toString().length()));
+
+
+        if (isChecked) {
+            count += item.getNum();
+            totleMoney += item.getNum() * Double.parseDouble(item.getPrice());
+
+
+        } else {
+            count -= item.getNum();
+            totleMoney -= item.getNum() * Double.parseDouble(item.getPrice());
+
+        }
+
+        tv_totle_money.setText("￥" + String.valueOf(df.format(totleMoney)));
+        if (count < 1) {
+            bv_unm.setVisibility(View.GONE);
+        } else {
+            bv_unm.setVisibility(View.VISIBLE);
+        }
+
+        bv_unm.setText(String.valueOf(count));
+
+
+        totalAdapterUpdata();
+    }
+
+    /**
+     * 更新三个adapter及购物车view
+     */
+    private void totalAdapterUpdata() {
 
         if (productAdapter != null) {
             productAdapter.notifyDataSetChanged();
@@ -386,6 +558,7 @@ public class StoreDetailsActivity extends BaseActivity {
         if (bottomSheetLayout.isSheetShowing() && selectedList.size() < 1) {
             bottomSheetLayout.dismissSheet();
         }
+
     }
 
 
@@ -471,22 +644,94 @@ public class StoreDetailsActivity extends BaseActivity {
     }
 
 
-    public void refershData(boolean isAllChecked) {
+    public void setAddAnim(View view,int position){
 
 
-        if (isAllChecked) {
+        int[] addLocation = new int[2];
+        int[] cartLocation = new int[2];
+        int[] recycleLocation = new int[2];
+        view.getLocationInWindow(addLocation);
 
-            if (mSelectState.size() == selectedList.size()) {
-                ckAll.setChecked(true);
-            } else {
-                ckAll.setChecked(false);
+
+//        shoppingCartView.getLocationInWindow(cartLocation);
+//        rightMenu.getLocationInWindow(recycleLocation);
+
+        tv_car.getLocationInWindow(cartLocation);
+        lv_good.getLocationInWindow(recycleLocation);
+
+
+        PointF startP = new PointF();
+        PointF endP = new PointF();
+        PointF controlP = new PointF();
+
+        startP.x = addLocation[0];
+        startP.y = addLocation[1]-recycleLocation[1];
+        endP.x = cartLocation[0];
+        endP.y = cartLocation[1]-recycleLocation[1];
+        controlP.x = endP.x;
+        controlP.y = startP.y;
+
+        final FakeAddImageView fakeAddImageView = new FakeAddImageView(this);
+        mainLayout.addView(fakeAddImageView);
+        fakeAddImageView.setImageResource(R.drawable.ic_add_circle_blue_700_36dp);
+        fakeAddImageView.getLayoutParams().width = getResources().getDimensionPixelSize(R.dimen.item_dish_circle_size);
+        fakeAddImageView.getLayoutParams().height = getResources().getDimensionPixelSize(R.dimen.item_dish_circle_size);
+        fakeAddImageView.setVisibility(View.VISIBLE);
+        ObjectAnimator addAnimator = ObjectAnimator.ofObject(fakeAddImageView, "mPointF",
+                new PointFTypeEvaluator(controlP), startP, endP);
+        addAnimator.setInterpolator(new AccelerateInterpolator());
+        addAnimator.addListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animator) {
+                fakeAddImageView.setVisibility(View.VISIBLE);
             }
 
-        } else {
-            ckAll.setChecked(false);
+            @Override
+            public void onAnimationEnd(Animator animator) {
+                fakeAddImageView.setVisibility(View.GONE);
+                mainLayout.removeView(fakeAddImageView);
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animator) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animator) {
+
+            }
+        });
+        ObjectAnimator scaleAnimatorX = new ObjectAnimator().ofFloat(tv_car,"scaleX", 0.6f, 1.0f);
+        ObjectAnimator scaleAnimatorY = new ObjectAnimator().ofFloat(tv_car,"scaleY", 0.6f, 1.0f);
+        scaleAnimatorX.setInterpolator(new AccelerateInterpolator());
+        scaleAnimatorY.setInterpolator(new AccelerateInterpolator());
+        AnimatorSet animatorSet = new AnimatorSet();
+        animatorSet.play(scaleAnimatorX).with(scaleAnimatorY).after(addAnimator);
+        animatorSet.setDuration(1500);
+        animatorSet.start();
+
+//        showTotalPrice();
+
+
+    }
+
+    //查看套餐详情
+    private View createMealDetailView(List<ItemBean> listItem, String mealName) {
+        View view = LayoutInflater.from(this).inflate(R.layout.activity_goods_detail, (ViewGroup) getWindow().getDecorView(), false);
+        ListView lv_product = (MyListView) view.findViewById(R.id.lv_product);
+        TextView tv_meal = (TextView) view.findViewById(R.id.tv_meal);
+        TextView tv_num = (TextView) view.findViewById(R.id.tv_num);
+        int count = 0;
+        for (int i = 0; i < listItem.size(); i++) {
+            count = count + Integer.parseInt(listItem.get(i).getNote2());
         }
-
-
+        tv_meal.setText(mealName);
+        tv_num.setText("(共" + count + "件)");
+        goodsDetailAdapter = new GoodsDetailAdapter(StoreDetailsActivity.this, listItem);
+        lv_product.setAdapter(goodsDetailAdapter);
+        goodsDetailAdapter.notifyDataSetChanged();
+        return view;
     }
 
 }

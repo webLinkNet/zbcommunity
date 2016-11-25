@@ -101,15 +101,15 @@ public class ProductAdapter extends BaseAdapter {
 
                 if(mSelectState.get(dataList.valueAt(position).getProduct_id(),false)){
 
-                    mSelectState.delete(dataList.valueAt(position).getProduct_id());
+                    mSelectState.remove(dataList.valueAt(position).getProduct_id());
                     viewholder.ckSelector.setChecked(false);
-                    activity.refershData(false);
+                    activity.refershData(false,dataList.valueAt(position));
 
                 }else{
 
                     mSelectState.put(dataList.valueAt(position).getProduct_id(),true);
                     viewholder.ckSelector.setChecked(true);
-                    activity.refershData(true);
+                    activity.refershData(true,dataList.valueAt(position));
                 }
 
 
