@@ -104,6 +104,10 @@
         <activity android:name=".activity.MineThingList" />
         <!-- 订单详情-->
         <activity android:name=".activity.OrderDetailActivity" />
+        <!-- 选择收货地址-->
+        <activity android:name=".activity.ChooseAdressActivity" />
+        <!-- 新增编辑收货地址-->
+        <activity android:name=".activity.EditAdressActivity" />
         <!-- 搜索商品-->
         <activity
             android:name=".activity.SearchActivity"

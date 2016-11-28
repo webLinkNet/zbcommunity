@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/vv1"
+        android:layout_width="wrap_content"
+        android:layout_height="88dp">
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <TextView
+            android:textSize="14sp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="15dp"
+            android:layout_weight="1"
+            android:id="@+id/andress_name"
+            android:text="姓名"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:textSize="14sp"
+            android:layout_marginTop="15dp"
+            android:layout_weight="1"
+            android:id="@+id/andress_tel"
+            android:text="电话"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        </LinearLayout>
+        <TextView
+            android:textSize="14sp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="15dp"
+            android:layout_weight="1"
+            android:id="@+id/andress_adresss"
+            android:text="地址"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+        <ImageView
+            android:id="@+id/adress_edit"
+            android:layout_marginRight="@dimen/txt_20"
+            android:layout_centerVertical="true"
+            android:background="@drawable/adress_edit"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <CheckBox
+            android:id="@+id/adress_moren"
+            android:layout_marginLeft="@dimen/txt_20"
+            android:layout_centerVertical="true"
+            android:button="@drawable/select_adress_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+    <View
+        android:layout_below="@id/vv1"
+        style="@style/divide_view"></View>
+
+
+</RelativeLayout>

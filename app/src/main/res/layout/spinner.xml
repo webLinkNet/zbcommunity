@@ -1,0 +1,12 @@
+<?xml version = "1.0" encoding = "utf-8" ?>
+
+<TextView
+    android:background="@color/white"
+    xmlns:android = "http://schemas.android.com/apk/res/android"
+    android:layout_width = "fill_parent"
+    android:layout_height = "60dp"
+    android:textSize = "16sp"
+    android:textColor = "#2e8b00"
+    android:drawableLeft="@drawable/mine_shop"
+    android:gravity="center_vertical"
+    />

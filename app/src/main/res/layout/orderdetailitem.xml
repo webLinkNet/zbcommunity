@@ -10,13 +10,13 @@
         android:layout_height="45dp">
 
         <TextView
-            android:gravity="center"
-            android:drawableLeft="@drawable/mine_shop"
             android:id="@+id/mine_item_storename"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="25dp"
+            android:drawableLeft="@drawable/mine_shop"
+            android:gravity="center_vertical"
             android:text="某某某某店"
             android:textColor="#000000"
             android:textSize="14sp" />
@@ -62,9 +62,9 @@
         <ImageView
             android:id="@+id/mine_item_img3"
             android:layout_width="50dp"
-            android:layout_marginLeft="15dp"
             android:layout_height="50dp"
             android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
             android:layout_toRightOf="@id/mine_item_img2" />
 
         <TextView
@@ -114,11 +114,13 @@
             android:text=">   "
             android:textSize="20sp" />
 
-       <View style="@style/divide_line"
-           android:layout_alignParentBottom="true"></View>
+        <View
+            style="@style/divide_line"
+            android:layout_alignParentBottom="true"></View>
     </RelativeLayout>
 
     <RelativeLayout
+        android:layout_marginTop="10dp"
         android:id="@+id/nnn3"
         android:layout_width="match_parent"
         android:layout_height="60dp"
@@ -216,11 +218,11 @@
                 android:layout_weight="1">
 
                 <TextView
-                    android:gravity="center"
-                    android:drawableLeft="@drawable/jian"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
+                    android:drawableLeft="@drawable/jian"
+                    android:gravity="center"
                     android:text="优惠券减免"
                     android:textSize="@dimen/txt_14" />
 
@@ -242,11 +244,11 @@
                 android:layout_weight="1">
 
                 <TextView
-                    android:gravity="center"
-                    android:drawableLeft="@drawable/jian"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
+                    android:drawableLeft="@drawable/jian"
+                    android:gravity="center"
                     android:text="活动减免"
                     android:textSize="@dimen/txt_14" />
 
@@ -262,41 +264,45 @@
         </LinearLayout>
     </RelativeLayout>
 
-            <RelativeLayout
-                android:id="@+id/nnn6"
-                android:layout_below="@id/nnn4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
+    <RelativeLayout
+        android:id="@+id/nnn6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nnn4"
+        android:layout_weight="1">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:text="计算公式"
-                    android:textSize="@dimen/txt_14" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="计算公式"
+            android:textSize="@dimen/txt_14" />
 
-                <TextView
-                    android:id="@+id/mine_item_price6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="20dp"
-                    android:text="¥120.25"
-                    android:textSize="@dimen/txt_14" />
-            </RelativeLayout>
-
+        <TextView
+            android:id="@+id/mine_item_price6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:text="¥120.25"
+            android:textSize="@dimen/txt_14" />
+    </RelativeLayout>
 
 
     <TextView
-        android:layout_marginTop="10dp"
         android:id="@+id/mine_item_beizhu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/nnn6"
         android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
         android:text="备注:不要香菜"
         android:textSize="@dimen/txt_14" />
+    <View
+        android:layout_below="@id/mine_item_beizhu"
+        android:background="@color/white"
+        style="@style/divide_view"
+        ></View>
 
 
 </RelativeLayout>
