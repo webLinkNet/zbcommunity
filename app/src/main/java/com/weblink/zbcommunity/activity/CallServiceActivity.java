@@ -13,10 +13,14 @@ import com.daimajia.slider.library.SliderTypes.BaseSliderView;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
 import com.weblink.zbcommunity.BaseActivity;
 import com.weblink.zbcommunity.R;
+import com.weblink.zbcommunity.adapter.BaseAdapter;
 import com.weblink.zbcommunity.adapter.RvHomeAdapter;
+import com.weblink.zbcommunity.adapter.ServiceAdapter;
 import com.weblink.zbcommunity.bean.BannerBean;
+import com.weblink.zbcommunity.bean.BasicBean;
 import com.weblink.zbcommunity.bean.CommunityBean;
 import com.weblink.zbcommunity.utils.ToastUtils;
+import com.weblink.zbcommunity.views.MyGridLayoutManager;
 import com.weblink.zbcommunity.views.MyLinearLayoutManager;
 import com.weblink.zbcommunity.views.MyScrollview;
 import com.weblink.zbcommunity.widget.DividerItemDecoration;
@@ -29,7 +33,7 @@ import butterknife.BindView;
 /**
  * Created by swq on 2016/11/23.
  */
-public class ChannelActivity extends BaseActivity implements View.OnClickListener {
+public class CallServiceActivity extends BaseActivity implements View.OnClickListener {
 
 
     @BindView(R.id.iv_left)
@@ -68,10 +72,10 @@ public class ChannelActivity extends BaseActivity implements View.OnClickListene
     @Override
     public void initView() {
 
-        String channelName = getIntent().getStringExtra("channelName");
+//        String channelName = getIntent().getStringExtra("channelName");
 
         ivLeft.setVisibility(View.VISIBLE);
-        tvTitle.setText(channelName + "频道");
+        tvTitle.setText("上门频道");
         ivRight.setVisibility(View.VISIBLE);
         ivRight.setImageResource(R.drawable.icon_search);
         //scrollview滑动到顶部
@@ -82,7 +86,41 @@ public class ChannelActivity extends BaseActivity implements View.OnClickListene
         initSlideView();
 
 
+        serviceRecycleViewInit();
         bottomRecycleViewInit();
+
+    }
+
+
+    private void serviceRecycleViewInit() {
+
+        rvCallService.setVisibility(View.VISIBLE);
+        rvCallService.setLayoutManager(new MyGridLayoutManager(this, 2));
+        rvCallService.setNestedScrollingEnabled(false);
+
+
+        List<BasicBean> list = new ArrayList<>();
+        for (int i = 0; i < 8; i++) {
+
+            list.add(new BasicBean("http://i3.s1.dpfile.com/pc/72e62fe94c3114358d67ad48c0497a19%28700x700%29/thumb.jpg", "电脑维修" + i));
+        }
+
+        final ServiceAdapter adapter = new ServiceAdapter(this, R.layout.service_item, list);
+        rvCallService.setAdapter(adapter);
+
+        adapter.setOnItemClickListener(new BaseAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+
+                ToastUtils.showToast(CallServiceActivity.this, adapter.getItem(position).getName());
+
+
+                Intent it = new Intent(CallServiceActivity.this, ChannelActivity.class);
+
+                it.putExtra("channelName", adapter.getItem(position).getName());
+                startActivity(it);
+            }
+        });
 
     }
 
@@ -126,7 +164,7 @@ public class ChannelActivity extends BaseActivity implements View.OnClickListene
                 public void onSliderClick(BaseSliderView slider) {
 
 
-                    ToastUtils.showToast(ChannelActivity.this, slider.getDescription());
+                    ToastUtils.showToast(CallServiceActivity.this, slider.getDescription());
                 }
             });
         }
@@ -147,25 +185,25 @@ public class ChannelActivity extends BaseActivity implements View.OnClickListene
         bottomDatasInit();
 
 
-        RvHomeAdapter rvAdapter = new RvHomeAdapter(bottomList, ChannelActivity.this);
+        RvHomeAdapter rvAdapter = new RvHomeAdapter(bottomList, CallServiceActivity.this);
 
         rvAdapter.setOnItemClickListenter(new RvHomeAdapter.onItemClickListener() {
             @Override
             public void onClick(View v, CommunityBean bean) {
 
-                ToastUtils.showToast(ChannelActivity.this, bean.getName());
+                ToastUtils.showToast(CallServiceActivity.this, bean.getName());
             }
         });
 
 
         recyclerView.setAdapter(rvAdapter);
 
-        MyLinearLayoutManager linearLayoutManager = new MyLinearLayoutManager(ChannelActivity.this);
+        MyLinearLayoutManager linearLayoutManager = new MyLinearLayoutManager(CallServiceActivity.this);
         linearLayoutManager.setScrollEnabled(false);
 
         recyclerView.setLayoutManager(linearLayoutManager);
 
-        recyclerView.addItemDecoration(new DividerItemDecoration(ChannelActivity.this,
+        recyclerView.addItemDecoration(new DividerItemDecoration(CallServiceActivity.this,
                 DividerItemDecoration.VERTICAL_LIST));
 
     }
@@ -262,7 +300,7 @@ public class ChannelActivity extends BaseActivity implements View.OnClickListene
                 break;
 
             case R.id.iv_right:
-                Intent it = new Intent(ChannelActivity.this, SearchActivity.class);
+                Intent it = new Intent(CallServiceActivity.this, SearchActivity.class);
                 startActivity(it);
 
 

@@ -23,6 +23,7 @@ import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.BaseSliderView;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
 import com.weblink.zbcommunity.R;
+import com.weblink.zbcommunity.activity.CallServiceActivity;
 import com.weblink.zbcommunity.activity.ChannelActivity;
 import com.weblink.zbcommunity.activity.SearchActivity;
 import com.weblink.zbcommunity.activity.SelectLocActivity;
@@ -321,7 +322,7 @@ public class HomeFragment extends BaseFragment {
         bean4.setImgUrl("http://pic2.ooopic.com/10/34/82/00bOOOPIC2b.jpg");
 
         HomeGVBean bean5 = new HomeGVBean();
-        bean5.setName("鲜花");
+        bean5.setName("上门");
         bean5.setImgUrl("http://img.daimg.com/uploads/allimg/150413/3-150413221523.jpg");
 
 
@@ -356,9 +357,19 @@ public class HomeFragment extends BaseFragment {
 
                 ToastUtils.showToast(getActivity(), adapter.getItem(position).getName());
 
-                Intent it = new Intent(getActivity(), ChannelActivity.class);
-                it.putExtra("channelName", adapter.getItem(position).getName());
-                startActivity(it);
+                String name = adapter.getItem(position).getName();
+                if ("上门".equals(name)) {
+
+                    Intent it = new Intent(getActivity(), CallServiceActivity.class);
+//                    it.putExtra("channelName", adapter.getItem(position).getName());
+                    startActivity(it);
+
+                } else {
+
+                    Intent it = new Intent(getActivity(), ChannelActivity.class);
+                    it.putExtra("channelName", adapter.getItem(position).getName());
+                    startActivity(it);
+                }
 
             }
         });
@@ -380,7 +391,7 @@ public class HomeFragment extends BaseFragment {
                 ToastUtils.showToast(getActivity(), bean.getName());
 
                 //进入店铺详情
-                Intent it = new Intent(getActivity(),StoreDetailsActivity.class);
+                Intent it = new Intent(getActivity(), StoreDetailsActivity.class);
                 startActivity(it);
 
 

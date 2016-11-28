@@ -114,6 +114,8 @@
         <activity android:name=".activity.ChannelActivity" />
         <!-- 商铺-->
         <activity android:name=".activity.StoreDetailsActivity" />
+        <!-- 上门服务-->
+        <activity android:name=".activity.CallServiceActivity" />
     </application>
 
 
