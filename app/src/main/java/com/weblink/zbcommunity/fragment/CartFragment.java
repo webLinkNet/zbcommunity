@@ -1,6 +1,9 @@
 package com.weblink.zbcommunity.fragment;
 
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -19,6 +22,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.weblink.zbcommunity.R;
+import com.weblink.zbcommunity.activity.ChooseAdressActivity;
 import com.weblink.zbcommunity.bean.CartBean;
 
 import java.text.DecimalFormat;
@@ -32,7 +36,7 @@ import java.util.List;
 public class CartFragment extends Fragment implements View.OnClickListener
 
 {
-    DecimalFormat df=new DecimalFormat(".##");
+    DecimalFormat df = new DecimalFormat(".##");
 
     private static final int INITIALIZE = 0;
 
@@ -444,11 +448,24 @@ public class CartFragment extends Fragment implements View.OnClickListener
             case R.id.tv_cart_buy_or_del:
 
                 if (isBatchModel) {
-                    List<Integer> ids = getSelectedIds();
-                    doDelete(ids);
+                  final   List<Integer> ids = getSelectedIds();
+                    new AlertDialog.Builder(getContext())
+                            .setTitle("删除物品")
+                            .setMessage("确定将此物品移除购物车么？")
+                            .setPositiveButton("是", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+
+                                    //传输后台设为默认地址
+                                    doDelete(ids);
+                                }
+                            })
+                            .setNegativeButton("否", null)
+                            .show();
                 } else {
                     //跳转到订单界面
-                    Toast.makeText(getActivity(), "跳转结算结算", Toast.LENGTH_SHORT).show();
+                    Intent intentadress = new Intent(getContext(), ChooseAdressActivity.class);
+                    getContext().startActivity(intentadress);
                 }
 
                 break;
