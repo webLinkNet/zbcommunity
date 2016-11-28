@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.graphics.PointF;
+import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.util.SparseArray;
@@ -17,6 +18,7 @@ import android.view.animation.LinearInterpolator;
 import android.view.animation.TranslateAnimation;
 import android.widget.AdapterView;
 import android.widget.CheckBox;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -33,6 +35,7 @@ import com.weblink.zbcommunity.adapter.ProductAdapter;
 import com.weblink.zbcommunity.bean.CatograyBean;
 import com.weblink.zbcommunity.bean.GoodsBean;
 import com.weblink.zbcommunity.bean.ItemBean;
+import com.weblink.zbcommunity.utils.ToastUtils;
 import com.weblink.zbcommunity.views.MyListView;
 import com.weblink.zbcommunity.widget.FakeAddImageView;
 import com.weblink.zbcommunity.widget.PointFTypeEvaluator;
@@ -41,10 +44,26 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 /**
  * Created by swq on 2016/11/23.
  */
 public class StoreDetailsActivity extends BaseActivity {
+
+
+    @BindView(R.id.iv_left)
+    ImageButton ivLeft;
+    @BindView(R.id.tv_title)
+    TextView tvTitle;
+    @BindView(R.id.iv_right)
+    ImageView ivRight;
+    @BindView(R.id.ll_event)
+    LinearLayout llEvent;
+    @BindView(R.id.tv_broad)
+    TextView tvBroad;
+
 
 
     //控件
@@ -54,7 +73,7 @@ public class StoreDetailsActivity extends BaseActivity {
     private TextView tv_count, tv_totle_money;
     Double totleMoney = 0.00;
     private TextView bv_unm;
-    private RelativeLayout rl_bottom,mainLayout;
+    private RelativeLayout rl_bottom, mainLayout;
     //分类和商品
     private List<CatograyBean> list = new ArrayList<CatograyBean>();
     private List<GoodsBean> list2 = new ArrayList<GoodsBean>();
@@ -108,6 +127,14 @@ public class StoreDetailsActivity extends BaseActivity {
         selectedList = new SparseArray<>();
         selectedTrueList = new SparseArray<>();
         df = new DecimalFormat("0.00");
+
+
+
+        ivLeft.setVisibility(View.VISIBLE);
+        tvTitle.setText("布尼斯蛋糕屋");
+        ivRight.setVisibility(View.VISIBLE);
+        ivRight.setImageResource(R.drawable.ic_launcher);
+
 
 
         initData();
@@ -218,6 +245,21 @@ public class StoreDetailsActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
                 showBottomSheet();
+            }
+        });
+
+        ivLeft.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+        ivRight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                ToastUtils.showToast(StoreDetailsActivity.this,"分享");
             }
         });
     }
@@ -644,7 +686,7 @@ public class StoreDetailsActivity extends BaseActivity {
     }
 
 
-    public void setAddAnim(View view,int position){
+    public void setAddAnim(View view, int position) {
 
 
         int[] addLocation = new int[2];
@@ -665,9 +707,9 @@ public class StoreDetailsActivity extends BaseActivity {
         PointF controlP = new PointF();
 
         startP.x = addLocation[0];
-        startP.y = addLocation[1]-recycleLocation[1];
+        startP.y = addLocation[1] - recycleLocation[1];
         endP.x = cartLocation[0];
-        endP.y = cartLocation[1]-recycleLocation[1];
+        endP.y = cartLocation[1] - recycleLocation[1];
         controlP.x = endP.x;
         controlP.y = startP.y;
 
@@ -702,8 +744,8 @@ public class StoreDetailsActivity extends BaseActivity {
 
             }
         });
-        ObjectAnimator scaleAnimatorX = new ObjectAnimator().ofFloat(tv_car,"scaleX", 0.6f, 1.0f);
-        ObjectAnimator scaleAnimatorY = new ObjectAnimator().ofFloat(tv_car,"scaleY", 0.6f, 1.0f);
+        ObjectAnimator scaleAnimatorX = new ObjectAnimator().ofFloat(tv_car, "scaleX", 0.6f, 1.0f);
+        ObjectAnimator scaleAnimatorY = new ObjectAnimator().ofFloat(tv_car, "scaleY", 0.6f, 1.0f);
         scaleAnimatorX.setInterpolator(new AccelerateInterpolator());
         scaleAnimatorY.setInterpolator(new AccelerateInterpolator());
         AnimatorSet animatorSet = new AnimatorSet();
@@ -734,4 +776,10 @@ public class StoreDetailsActivity extends BaseActivity {
         return view;
     }
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // TODO: add setContentView(...) invocation
+        ButterKnife.bind(this);
+    }
 }
