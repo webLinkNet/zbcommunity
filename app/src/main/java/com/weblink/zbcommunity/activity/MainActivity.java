@@ -1,4 +1,4 @@
-package com.weblink.zbcommunity;
+package com.weblink.zbcommunity.activity;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
@@ -12,7 +12,7 @@ import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.TextView;
 
-
+import com.weblink.zbcommunity.R;
 import com.weblink.zbcommunity.bean.Tab;
 import com.weblink.zbcommunity.fragment.CartFragment;
 import com.weblink.zbcommunity.fragment.CommodtityFragment;

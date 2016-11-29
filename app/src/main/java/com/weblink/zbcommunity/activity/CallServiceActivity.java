@@ -11,7 +11,6 @@ import com.daimajia.slider.library.Animations.DescriptionAnimation;
 import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.BaseSliderView;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
-import com.weblink.zbcommunity.BaseActivity;
 import com.weblink.zbcommunity.R;
 import com.weblink.zbcommunity.adapter.BaseAdapter;
 import com.weblink.zbcommunity.adapter.RvHomeAdapter;

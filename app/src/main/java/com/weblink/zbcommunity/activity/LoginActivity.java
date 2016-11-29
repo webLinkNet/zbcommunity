@@ -11,9 +11,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.weblink.zbcommunity.MainActivity;
 import com.weblink.zbcommunity.R;
-import com.weblink.zbcommunity.utils.ToastUtils;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

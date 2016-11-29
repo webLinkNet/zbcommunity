@@ -7,7 +7,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
-import com.weblink.zbcommunity.BaseActivity;
 import com.weblink.zbcommunity.R;
 import com.weblink.zbcommunity.adapter.BaseAdapter;
 import com.weblink.zbcommunity.adapter.SearchHistoryAdapter;

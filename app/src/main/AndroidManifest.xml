@@ -129,7 +129,7 @@
 
 
         <!-- 主界面-->
-        <activity android:name=".MainActivity" />
+        <activity android:name=".activity.MainActivity" />
         <!-- 登录-->
         <activity android:name=".activity.LoginActivity" />
         <!-- 修改密码-->

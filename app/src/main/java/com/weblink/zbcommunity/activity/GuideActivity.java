@@ -4,7 +4,6 @@ package com.weblink.zbcommunity.activity;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import com.weblink.zbcommunity.BaseActivity;
 import com.weblink.zbcommunity.R;
 
 import butterknife.BindView;

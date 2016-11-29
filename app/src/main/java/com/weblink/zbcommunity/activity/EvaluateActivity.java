@@ -3,15 +3,14 @@ package com.weblink.zbcommunity.activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.weblink.zbcommunity.BaseActivity;
 import com.weblink.zbcommunity.R;
 import com.weblink.zbcommunity.adapter.EvaluateAdpter;
 import com.weblink.zbcommunity.bean.CommodgvBean;
+
 import java.util.ArrayList;
 import java.util.List;
 

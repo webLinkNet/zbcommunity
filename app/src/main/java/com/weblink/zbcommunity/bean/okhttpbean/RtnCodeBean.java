@@ -4,7 +4,7 @@
 package com.weblink.zbcommunity.bean.okhttpbean;
 
 
-import com.weblink.zbcommunity.Constants;
+import com.weblink.zbcommunity.widget.Constants;
 
 import java.io.Serializable;
 

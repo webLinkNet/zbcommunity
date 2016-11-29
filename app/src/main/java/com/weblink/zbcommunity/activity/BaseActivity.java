@@ -1,4 +1,4 @@
-package com.weblink.zbcommunity;
+package com.weblink.zbcommunity.activity;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

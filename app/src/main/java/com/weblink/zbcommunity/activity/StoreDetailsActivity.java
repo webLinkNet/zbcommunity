@@ -25,7 +25,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.flipboard.bottomsheet.BottomSheetLayout;
-import com.weblink.zbcommunity.BaseActivity;
 import com.weblink.zbcommunity.R;
 import com.weblink.zbcommunity.adapter.CatograyAdapter;
 import com.weblink.zbcommunity.adapter.GoodsAdapter;

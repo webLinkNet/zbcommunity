@@ -5,7 +5,6 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.weblink.zbcommunity.BaseActivity;
 import com.weblink.zbcommunity.R;
 import com.weblink.zbcommunity.adapter.BaseAdapter;
 import com.weblink.zbcommunity.adapter.SearchResultAdapter;

@@ -1,4 +1,4 @@
-package com.weblink.zbcommunity;
+package com.weblink.zbcommunity.widget;
 
 /**
  * Created by swq on 2016/11/3.

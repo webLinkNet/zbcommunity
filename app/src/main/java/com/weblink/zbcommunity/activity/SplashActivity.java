@@ -7,9 +7,7 @@ import android.view.WindowManager;
 import android.view.animation.AlphaAnimation;
 import android.widget.LinearLayout;
 
-import com.weblink.zbcommunity.BaseActivity;
-import com.weblink.zbcommunity.Constants;
-import com.weblink.zbcommunity.MainActivity;
+import com.weblink.zbcommunity.widget.Constants;
 import com.weblink.zbcommunity.R;
 import com.weblink.zbcommunity.utils.LocationService;
 import com.weblink.zbcommunity.utils.PrefUtils;

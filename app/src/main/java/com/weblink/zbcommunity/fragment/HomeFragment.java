@@ -35,9 +35,6 @@ import com.weblink.zbcommunity.bean.BannerBean;
 import com.weblink.zbcommunity.bean.CommunityBean;
 import com.weblink.zbcommunity.bean.HomeGVBean;
 import com.weblink.zbcommunity.bean.LocationBean;
-import com.weblink.zbcommunity.bean.okhttpbean.ResultBean;
-import com.weblink.zbcommunity.bean.requestbean.LoanInitBean;
-import com.weblink.zbcommunity.net.RestClient;
 import com.weblink.zbcommunity.utils.ToastUtils;
 import com.weblink.zbcommunity.views.MyGridLayoutManager;
 import com.weblink.zbcommunity.views.MyLinearLayoutManager;
@@ -48,16 +45,10 @@ import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import retrofit.Call;
-import retrofit.Callback;
-import retrofit.Response;
-import retrofit.Retrofit;
 
 
 /**
@@ -222,30 +213,30 @@ public class HomeFragment extends BaseFragment {
     @Override
     public void initNet() {
 
-        Map<String, Object> params = new HashMap<>();
-        params.put("tag", "yhoQ9arXKRk3AqpwPGwklOAb/ghFcjxlx0uZNXuiOhXg6sItA%2BuIMWLFLQzyVfRCP1db%2B11CZSVvwzQvNR8xKgpkH2h9VTHRsN%2BYmHqkIAyzz7k43NkbGG2outTo4jPx0rDNeDIv91zUyzcydmIpte201BBf%2BT9BPLyNvyF4J7OVxLARErSu64ttbf3HSJ5uPnMk%2B8ku6zn61Fg413ySmjaV61gBdMqBvXls83JOo9Oxc1WSrCpmdFaHuE6PhTV%2BI/2hz8iZWVjwemEepUKcF2vZdcpJEm6KCnHbU2n3MHvMNmQUgJtD9FZrnrMwhUNkX/3PRe3YuM3G8wiaJjubDLdg6gIx3JXwa8vcogM5DZ76PlkGK8qN0PJc0FGStks8LV7cDsi6CCKUkA%2BHun9p39G4JVSmmQS89tKiGKCE3rldZ5oFtqJyYG4FSx0B%2B999y%2BZHvM13mjm0L2iud/ufS1lWvO4FmkfwK1B9LE9BJdJtfw7bQeRI1gVd2JyxbXND479CHBEG7JCbBGCsqvQYq81JM4uuNSVPfEVGKG0IWge0f2226revj9Tw/W27J12uaAR%2BNnG508TCFMtR%2BvnFa16oCm7p8Nv0u7FeRHFlllDWcDrWDu78en5I8npEoCy55FyJpJgK2qnAdj504/abnne5JWs0vNwtWKzrFFwQ12H88gcF5ik9ILFhRiIMGXXi0Et/nQpnwp%2Bn4%2BRgMEEwPj8qL8Lx0E0iSE/aU4Q6NDBe%2BpRf1BWKrgeIANpb0NoCsbaSQRS7JhS4Nn8GUlUWagIQ6%2BOcLmV8ofmERnpOU4xitaUu5UlyP7z42m9W%2BzEzSK4tr1GhxgdyzZ56NkXcSeYtnhUNAwAdJn4tT4K8Yl1ZrsAguYwjREFolE60eeAJHkIhN/NFs6j8gcqCJ8CJmPb/QbRlyyhj8sejOg6Dkoe4zH9THyh9iqhB2y4NODmBNDRZnrg5UqR5m%2BzsbB6pdL5dchCa%2BT7OnD2aCj591YgRbDQPMnKKZ/O3tkbJHvjveOBx/Gd6QpQ9RI9budRT7c%2BQWpvYFyDOFi6%2BVY4C5zkBAWD6ZRvMoCRJ6tgXrLCLjrhGHoVw4iG5sTwiqTxVeeZqYUi1%2B8voGcCTmjU2HqlNEVP55pRP6C1daSMYfhRml8ZE%2Bja%2Bkz4Ict2KzGciSoB9fhXCf7EIPIy45BZKFKei3%2BA%2B4cKoWw%3D%3D");
-
-        Call rcall = RestClient.getClient().checkStatus(params);
-        rcall.enqueue(new Callback<ResultBean<LoanInitBean>>() {//这里不用解析json，所以随便传一个bean进去就可以
-            @Override
-            public void onResponse(Response<ResultBean<LoanInitBean>> response, Retrofit retrofit) {
-
-                ToastUtils.showToast(getActivity(), response.body().getApiResult().getMessage());
-                if (response.isSuccess()) {
-
-
-                }
-
-
-            }
-            @Override
-            public void onFailure(Throwable t) {
-
-                ToastUtils.showToast(getActivity(), t.toString());
-//                showNetErr();
-
-            }
-        });
+//        Map<String, Object> params = new HashMap<>();
+//        params.put("tag", "yhoQ9arXKRk3AqpwPGwklOAb/ghFcjxlx0uZNXuiOhXg6sItA%2BuIMWLFLQzyVfRCP1db%2B11CZSVvwzQvNR8xKgpkH2h9VTHRsN%2BYmHqkIAyzz7k43NkbGG2outTo4jPx0rDNeDIv91zUyzcydmIpte201BBf%2BT9BPLyNvyF4J7OVxLARErSu64ttbf3HSJ5uPnMk%2B8ku6zn61Fg413ySmjaV61gBdMqBvXls83JOo9Oxc1WSrCpmdFaHuE6PhTV%2BI/2hz8iZWVjwemEepUKcF2vZdcpJEm6KCnHbU2n3MHvMNmQUgJtD9FZrnrMwhUNkX/3PRe3YuM3G8wiaJjubDLdg6gIx3JXwa8vcogM5DZ76PlkGK8qN0PJc0FGStks8LV7cDsi6CCKUkA%2BHun9p39G4JVSmmQS89tKiGKCE3rldZ5oFtqJyYG4FSx0B%2B999y%2BZHvM13mjm0L2iud/ufS1lWvO4FmkfwK1B9LE9BJdJtfw7bQeRI1gVd2JyxbXND479CHBEG7JCbBGCsqvQYq81JM4uuNSVPfEVGKG0IWge0f2226revj9Tw/W27J12uaAR%2BNnG508TCFMtR%2BvnFa16oCm7p8Nv0u7FeRHFlllDWcDrWDu78en5I8npEoCy55FyJpJgK2qnAdj504/abnne5JWs0vNwtWKzrFFwQ12H88gcF5ik9ILFhRiIMGXXi0Et/nQpnwp%2Bn4%2BRgMEEwPj8qL8Lx0E0iSE/aU4Q6NDBe%2BpRf1BWKrgeIANpb0NoCsbaSQRS7JhS4Nn8GUlUWagIQ6%2BOcLmV8ofmERnpOU4xitaUu5UlyP7z42m9W%2BzEzSK4tr1GhxgdyzZ56NkXcSeYtnhUNAwAdJn4tT4K8Yl1ZrsAguYwjREFolE60eeAJHkIhN/NFs6j8gcqCJ8CJmPb/QbRlyyhj8sejOg6Dkoe4zH9THyh9iqhB2y4NODmBNDRZnrg5UqR5m%2BzsbB6pdL5dchCa%2BT7OnD2aCj591YgRbDQPMnKKZ/O3tkbJHvjveOBx/Gd6QpQ9RI9budRT7c%2BQWpvYFyDOFi6%2BVY4C5zkBAWD6ZRvMoCRJ6tgXrLCLjrhGHoVw4iG5sTwiqTxVeeZqYUi1%2B8voGcCTmjU2HqlNEVP55pRP6C1daSMYfhRml8ZE%2Bja%2Bkz4Ict2KzGciSoB9fhXCf7EIPIy45BZKFKei3%2BA%2B4cKoWw%3D%3D");
+//
+//        Call rcall = RestClient.getClient().checkStatus(params);
+//        rcall.enqueue(new Callback<ResultBean<LoanInitBean>>() {//这里不用解析json，所以随便传一个bean进去就可以
+//            @Override
+//            public void onResponse(Response<ResultBean<LoanInitBean>> response, Retrofit retrofit) {
+//
+//                ToastUtils.showToast(getActivity(), response.body().getApiResult().getMessage());
+//                if (response.isSuccess()) {
+//
+//
+//                }
+//
+//
+//            }
+//            @Override
+//            public void onFailure(Throwable t) {
+//
+//                ToastUtils.showToast(getActivity(), t.toString());
+////                showNetErr();
+//
+//            }
+//        });
     }
 
 

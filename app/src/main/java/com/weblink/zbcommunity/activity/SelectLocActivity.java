@@ -13,7 +13,6 @@ import com.amap.api.location.AMapLocation;
 import com.amap.api.services.core.PoiItem;
 import com.amap.api.services.poisearch.PoiResult;
 import com.amap.api.services.poisearch.PoiSearch;
-import com.weblink.zbcommunity.BaseActivity;
 import com.weblink.zbcommunity.R;
 import com.weblink.zbcommunity.adapter.BaseAdapter;
 import com.weblink.zbcommunity.adapter.PoiItemAdapter;
