@@ -14,15 +14,15 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.weblink.zbcommunity.MainActivity;
 import com.weblink.zbcommunity.R;
 import com.weblink.zbcommunity.activity.EvaluateActivity;
 import com.weblink.zbcommunity.activity.MineThingList;
 import com.weblink.zbcommunity.activity.OrderDetailActivity;
 import com.weblink.zbcommunity.bean.MinedingdanBean;
-import com.weblink.zbcommunity.utils.CircleUtils;
 
 import java.util.List;
+
+import cn.pedant.SweetAlert.SweetAlertDialog;
 
 
 public class MmyorlvAdpter extends BaseAdapter {
@@ -61,7 +61,6 @@ public class MmyorlvAdpter extends BaseAdapter {
         final MinedingdanBean m = datas.get(position);
 
         convertView = LayoutInflater.from(context).inflate(R.layout.mine_myorder_listviewitem, null);
-
         TextView storename = (TextView) convertView.findViewById(R.id.mine_myorder_storename);
         ImageView imgone = (ImageView) convertView.findViewById(R.id.mine_myorderlist_img1);
         ImageView imgtwo = (ImageView) convertView.findViewById(R.id.mine_myorderlist_img2);
@@ -72,8 +71,7 @@ public class MmyorlvAdpter extends BaseAdapter {
         Button button3 = (Button) convertView.findViewById(R.id.mine_list_button3);
         Button button2 = (Button) convertView.findViewById(R.id.mine_list_button2);
         Button button1 = (Button) convertView.findViewById(R.id.mine_list_button1);
-        RelativeLayout nn2 = (RelativeLayout) convertView.findViewById(R.id.nn2);
-
+        final RelativeLayout nn2 = (RelativeLayout) convertView.findViewById(R.id.nn2);
         storename.setText(m.getStorename());
         Glide.with(context).load(m.getImgurlone()).into(imgone);
         Glide.with(context).load(m.getImgurltwo()).into(imgtwo);
@@ -103,18 +101,24 @@ public class MmyorlvAdpter extends BaseAdapter {
                 button3.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        new AlertDialog.Builder(context)
-                                .setTitle("取消订单")
-                                .setMessage("确认取消本订单？")
-                                .setPositiveButton("是", new DialogInterface.OnClickListener() {
+
+                        new SweetAlertDialog(context, SweetAlertDialog.WARNING_TYPE)
+                                .setTitleText("取消订单")
+                                .setContentText("确定取消这个订单么?")
+                                .setCancelText("返回")
+                                .setConfirmText("确定")
+                                .showCancelButton(true)
+                                .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
                                     @Override
-                                    public void onClick(DialogInterface dialog, int which) {
+                                    public void onClick(SweetAlertDialog sDialog) {
+                                        sDialog.dismissWithAnimation();
                                         datas.remove(position);
                                         notifyDataSetChanged();
                                     }
                                 })
-                                .setNegativeButton("否", null)
+
                                 .show();
+
 
                     }
                 });
@@ -148,7 +152,7 @@ public class MmyorlvAdpter extends BaseAdapter {
                 switch (m.getId()) {
 
                     case 1:
-                        intent.putExtra("id","1");
+                        intent.putExtra("id", "1");
                         context.startActivity(intent);
                         break;
                     case 2:
