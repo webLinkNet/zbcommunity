@@ -28,6 +28,9 @@ import butterknife.BindView;
 
 /**
  * Created by swq on 2016/11/23.
+ *
+ *
+ * XX频道
  */
 public class ChannelActivity extends BaseActivity implements View.OnClickListener {
 
