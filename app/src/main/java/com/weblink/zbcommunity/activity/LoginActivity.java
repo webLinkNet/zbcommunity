@@ -13,6 +13,10 @@ import android.widget.Toast;
 
 import com.weblink.zbcommunity.MainActivity;
 import com.weblink.zbcommunity.R;
+import com.weblink.zbcommunity.utils.ToastUtils;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class LoginActivity extends Activity implements OnClickListener {
     TextView title;
@@ -93,8 +97,14 @@ public class LoginActivity extends Activity implements OnClickListener {
                 return;
             }
 
+
+            //获取系统当前的时间
+            SimpleDateFormat formatter    =   new    SimpleDateFormat    ("yyyy年MM月dd日 HH:mm:ss     ");
+            Date curDate    =   new    Date(System.currentTimeMillis());
+            String    str    =    formatter.format(curDate);
+
             Intent intentmine = new Intent(LoginActivity.this, MainActivity.class);
-            startActivity(intentmine);
+           startActivity(intentmine);
 
 
         }

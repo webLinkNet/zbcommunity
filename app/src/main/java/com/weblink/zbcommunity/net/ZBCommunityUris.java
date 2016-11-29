@@ -16,7 +16,6 @@ public class ZBCommunityUris {
     public static final String TEST = "course_api/banner/query";
     public static final String TESTJUHE = "idcard/index";
     public static final String LOGIN = "fangmaster/v3/tenant/user/login";//登录接口
-
-    public static final String LOAN_INIT = "fangmaster/fdv1/loan/init"; //检查贷款状态（贷款查看） get
+    public static final String LOAN_INIT = "fangmaster/fdv1/loan/init"; //检查贷款状态（贷款查看）
 
 }

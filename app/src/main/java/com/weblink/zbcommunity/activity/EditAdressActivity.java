@@ -14,7 +14,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
-
 import com.weblink.zbcommunity.R;
 import com.weblink.zbcommunity.utils.ToastUtils;
 
@@ -22,6 +21,7 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import cn.pedant.SweetAlert.SweetAlertDialog;
 
 /**
  * Created by Administrator on 2016/11/25.
@@ -127,19 +127,20 @@ public class EditAdressActivity extends Activity implements View.OnClickListener
         }
         if(v==editDelelt){
             //后台交互删除收货地址
-            new AlertDialog.Builder(this)
-                    .setTitle("删除收货地址")
-                    .setMessage("确定删除此收货地址么？")
-                    .setPositiveButton("是", new DialogInterface.OnClickListener() {
+            new SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE)
+                    .setTitleText("删除地址")
+                    .setContentText("确定删除这个地址么?")
+                    .setCancelText("返回")
+                    .setConfirmText("确定")
+                    .showCancelButton(true)
+                    .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
                         @Override
-                        public void onClick(DialogInterface dialog, int which) {
-
-                            //传输后台设为默认地址
+                        public void onClick(SweetAlertDialog sDialog) {
+                            sDialog.dismissWithAnimation();
                             finish();
-
                         }
                     })
-                    .setNegativeButton("否", null)
+
                     .show();
 
 

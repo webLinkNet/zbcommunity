@@ -1,8 +1,5 @@
 package com.weblink.zbcommunity.fragment;
 
-
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -28,6 +25,8 @@ import com.weblink.zbcommunity.bean.CartBean;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
+
+import cn.pedant.SweetAlert.SweetAlertDialog;
 
 /**
  * Created by Administrator on 2016/11/18.
@@ -71,8 +70,7 @@ public class CartFragment extends Fragment implements View.OnClickListener
     private SparseArray<Boolean> mSelectState = new SparseArray<Boolean>();
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View contentView = inflater.inflate(R.layout.cart, container, false);
         mBottonLayout = (RelativeLayout) contentView.findViewById(R.id.cart_rl_allprie_total);
         mCheckAll = (CheckBox) contentView.findViewById(R.id.check_box);
@@ -127,7 +125,6 @@ public class CartFragment extends Fragment implements View.OnClickListener
         mEdit.setOnClickListener(this);
         mDelete.setOnClickListener(this);
         mCheckAll.setOnClickListener(this);
-
     }
 
     private void loadData() {
@@ -139,7 +136,6 @@ public class CartFragment extends Fragment implements View.OnClickListener
             mListAdapter = new ListAdapter();
             mListView.setAdapter(mListAdapter);
             mListView.setOnItemClickListener(mListAdapter);
-
         } else {
             mListAdapter.notifyDataSetChanged();
 
@@ -284,10 +280,10 @@ public class CartFragment extends Fragment implements View.OnClickListener
 
                     if (selected) {
                         totalPrice += mListData.get(position).getPrice();
+
                         mPriceAll.setText("￥" + df.format(totalPrice) + "");
 
                     }
-
                 }
             });
 
@@ -448,19 +444,21 @@ public class CartFragment extends Fragment implements View.OnClickListener
             case R.id.tv_cart_buy_or_del:
 
                 if (isBatchModel) {
-                  final   List<Integer> ids = getSelectedIds();
-                    new AlertDialog.Builder(getContext())
-                            .setTitle("删除物品")
-                            .setMessage("确定将此物品移除购物车么？")
-                            .setPositiveButton("是", new DialogInterface.OnClickListener() {
+                    final List<Integer> ids = getSelectedIds();
+                    new SweetAlertDialog(getActivity(), SweetAlertDialog.WARNING_TYPE)
+                            .setTitleText("删除物品")
+                            .setContentText("确定删除这个物品么?")
+                            .setCancelText("返回")
+                            .setConfirmText("确定")
+                            .showCancelButton(true)
+                            .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
                                 @Override
-                                public void onClick(DialogInterface dialog, int which) {
-
-                                    //传输后台设为默认地址
+                                public void onClick(SweetAlertDialog sDialog) {
+                                    sDialog.dismissWithAnimation();
                                     doDelete(ids);
                                 }
                             })
-                            .setNegativeButton("否", null)
+
                             .show();
                 } else {
                     //跳转到订单界面
