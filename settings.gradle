@@ -1,1 +1,1 @@
-include ':app', ':sharesdk'
+include ':app', ':sharesdk', ':lib:pingpp', ':lib:pingpp_one', ':bdwallet_pay_sdk', ':pingpp'

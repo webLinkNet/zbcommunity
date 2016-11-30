@@ -3,6 +3,7 @@ package com.weblink.zbcommunity.activity;
 import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.content.Intent;
 import android.graphics.PointF;
 import android.os.Handler;
 import android.util.Log;
@@ -25,6 +26,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.flipboard.bottomsheet.BottomSheetLayout;
+import com.pingplusplus.android.PingppLog;
+import com.pingplusplus.libone.PaymentHandler;
+import com.pingplusplus.libone.PingppOne;
 import com.weblink.zbcommunity.R;
 import com.weblink.zbcommunity.adapter.CatograyAdapter;
 import com.weblink.zbcommunity.adapter.GoodsAdapter;
@@ -38,8 +42,13 @@ import com.weblink.zbcommunity.views.MyListView;
 import com.weblink.zbcommunity.widget.FakeAddImageView;
 import com.weblink.zbcommunity.widget.PointFTypeEvaluator;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import butterknife.BindView;
@@ -48,10 +57,10 @@ import cn.sharesdk.onekeyshare.OnekeyShare;
 
 /**
  * Created by swq on 2016/11/23.
- *
+ * <p>
  * 店铺详情
  */
-public class StoreDetailsActivity extends BaseActivity {
+public class StoreDetailsActivity extends BaseActivity implements PaymentHandler {
 
 
     @BindView(R.id.iv_left)
@@ -64,7 +73,6 @@ public class StoreDetailsActivity extends BaseActivity {
     LinearLayout llEvent;
     @BindView(R.id.tv_broad)
     TextView tvBroad;
-
 
 
     //控件
@@ -103,6 +111,9 @@ public class StoreDetailsActivity extends BaseActivity {
     private double totalPrice = 0; // 商品总价
     private CheckBox ckAll;
 
+
+    private static final String URL = "http://218.244.151.190/demo/charge";
+
     @Override
     public void setContent() {
 
@@ -130,16 +141,131 @@ public class StoreDetailsActivity extends BaseActivity {
         df = new DecimalFormat("0.00");
 
 
-
         ivLeft.setVisibility(View.VISIBLE);
         tvTitle.setText("布尼斯蛋糕屋");
         ivRight.setVisibility(View.VISIBLE);
         ivRight.setImageResource(R.drawable.ic_launcher);
 
 
-
         initData();
         addListener();
+
+    }
+
+
+    //添加监听
+    private void addListener() {
+
+
+        //左边选择分类的listview
+        lv_catogary.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Log.i("fyg", "list.get(position).getList():" + list.get(position).getList());
+                list2.clear();
+                list2.addAll(list.get(position).getList());
+                catograyAdapter.setSelection(position);
+                catograyAdapter.notifyDataSetChanged();
+                goodsAdapter.notifyDataSetChanged();
+
+
+            }
+        });
+
+        //弹出底部购物车view
+        ll_shopcar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showBottomSheet();
+            }
+        });
+
+        ivLeft.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+        ivRight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                ToastUtils.showToast(StoreDetailsActivity.this, "分享");
+
+                showShare();
+            }
+        });
+
+
+        tv_count.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //去支付
+                toPay();
+            }
+
+
+        });
+    }
+
+
+    private void toPay() {
+
+
+        //设置需要使用的支付方式
+        //        PingppOne.enableChannels(new String[]{"wx", "alipay", "upacp", "bfb", "jdpay_wap"});
+        PingppOne.enableChannels(new String[]{"wx", "alipay"});
+
+        // 提交数据的格式，默认格式为json
+        // PingppOne.CONTENT_TYPE = "application/x-www-form-urlencoded";
+        PingppOne.CONTENT_TYPE = "application/json";
+
+        PingppLog.DEBUG = true;
+
+
+        // 产生个订单号
+        String orderNo = new SimpleDateFormat("yyyyMMddhhmmss")
+                .format(new Date());
+
+        // 计算总金额（以分为单位）
+        int amount = 0;
+//        JSONArray billList = new JSONArray();
+//        for (Good good : mList) {
+//            amount += good.getPrice() * good.getCount() * 100;
+//            billList.put(good.getName() + " x " + good.getCount());
+//        }
+//        amount = (int) (totleMoney * 100);
+
+
+        double temp = Double.parseDouble(tv_totle_money.getText().toString().substring(1,
+                tv_totle_money.getText().toString().length()));
+        amount = (int) (temp*100);
+
+
+        // 构建账单json对象
+        JSONObject bill = new JSONObject();
+
+        // 自定义的额外信息 选填
+        JSONObject extras = new JSONObject();
+        try {
+            extras.put("extra1", "extra1");
+            extras.put("extra2", "extra2");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            bill.put("order_no", orderNo);
+            bill.put("amount", amount);
+            bill.put("extras", extras);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        //壹收款: 创建支付通道的对话框
+        PingppOne.showPaymentChannels(getSupportFragmentManager(), bill.toString(), URL, this);
 
     }
 
@@ -220,51 +346,6 @@ public class StoreDetailsActivity extends BaseActivity {
         lv_good.setAdapter(goodsAdapter);
         goodsAdapter.notifyDataSetChanged();
 
-    }
-
-
-    //添加监听
-    private void addListener() {
-
-        //左边选择分类的listview
-        lv_catogary.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Log.i("fyg", "list.get(position).getList():" + list.get(position).getList());
-                list2.clear();
-                list2.addAll(list.get(position).getList());
-                catograyAdapter.setSelection(position);
-                catograyAdapter.notifyDataSetChanged();
-                goodsAdapter.notifyDataSetChanged();
-
-
-            }
-        });
-
-        //弹出底部购物车view
-        ll_shopcar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showBottomSheet();
-            }
-        });
-
-        ivLeft.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
-
-        ivRight.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                ToastUtils.showToast(StoreDetailsActivity.this,"分享");
-
-                showShare();
-            }
-        });
     }
 
 
@@ -811,5 +892,19 @@ public class StoreDetailsActivity extends BaseActivity {
 
         // 启动分享GUI
         oks.show(this);
+    }
+
+    @Override
+    public void handlePaymentResult(Intent data) {
+
+
+        if (data != null) {
+            /**
+             * code：支付结果码  -2:服务端错误、 -1：失败、 0：取消、1：成功
+             * error_msg：支付结果信息
+             */
+            int code = data.getExtras().getInt("code");
+            String errorMsg = data.getExtras().getString("error_msg");
+        }
     }
 }

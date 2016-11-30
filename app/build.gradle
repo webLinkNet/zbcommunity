@@ -4,6 +4,9 @@ apply plugin: 'com.neenbedankt.android-apt'
 dependencies {
     compile fileTree(include: '*.jar', dir: 'libs')
     compile project(':sharesdk')
+    compile project(':bdwallet_pay_sdk')
+    compile project(':lib:pingpp_one')
+    compile project(':lib:pingpp')
 }
 
 
