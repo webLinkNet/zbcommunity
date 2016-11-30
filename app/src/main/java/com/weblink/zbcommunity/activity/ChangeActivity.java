@@ -1,5 +1,4 @@
 package com.weblink.zbcommunity.activity;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,13 +7,12 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.weblink.zbcommunity.R;
 
-public class ChangeActivity extends Activity implements OnClickListener {
+public class ChangeActivity extends Activity implements OnClickListener{
+
     private TextView title;
     private TextView back;
     private ImageButton backk;
@@ -49,8 +47,6 @@ public class ChangeActivity extends Activity implements OnClickListener {
         change_authcodeedtext = (EditText) findViewById(R.id.change_authcodeedtext);//验证码
         change_passw = (EditText) findViewById(R.id.change_passw);//密码
         change_passwagain = (EditText) findViewById(R.id.change_passwagain);//两次密码
-
-
     }
 
     @Override
@@ -85,6 +81,10 @@ public class ChangeActivity extends Activity implements OnClickListener {
                 return;
             }
             if (phone.length() != 11) {
+                Toast.makeText(ChangeActivity.this, "手机号格式不正确", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            if(LoginActivity.isMobileNO(phone)==false){
                 Toast.makeText(ChangeActivity.this, "手机号格式不正确", Toast.LENGTH_SHORT).show();
                 return;
             }

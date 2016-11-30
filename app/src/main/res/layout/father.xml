@@ -10,7 +10,7 @@
         android:layout_height="80dp">
         <ImageView
             android:id="@+id/father_img"
-            android:layout_marginLeft="50dp"
+            android:layout_marginLeft="20dp"
             android:layout_centerVertical="true"
             android:layout_width="50dp"
             android:layout_height="50dp" />
@@ -20,7 +20,7 @@
             android:textColor="@color/black"
             android:textSize="@dimen/txt_18"
             android:text="友好农夫"
-            android:layout_marginLeft="40dp"
+            android:layout_marginLeft="50dp"
             android:layout_toRightOf="@id/father_img"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
