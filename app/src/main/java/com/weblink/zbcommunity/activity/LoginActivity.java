@@ -15,6 +15,8 @@ import com.weblink.zbcommunity.R;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class LoginActivity extends Activity implements OnClickListener {
     TextView title;
@@ -90,6 +92,10 @@ public class LoginActivity extends Activity implements OnClickListener {
                 Toast.makeText(LoginActivity.this, "手机号格式不正确", Toast.LENGTH_SHORT).show();
                 return;
             }
+            if(isMobileNO(phone)==false){
+                Toast.makeText(LoginActivity.this, "手机号格式不正确", Toast.LENGTH_SHORT).show();
+                return;
+            }
             if (pass == null || "".equals(pass.trim())) {
                 Toast.makeText(LoginActivity.this, "密码不能为空", Toast.LENGTH_SHORT).show();
                 return;
@@ -97,7 +103,7 @@ public class LoginActivity extends Activity implements OnClickListener {
 
 
             //获取系统当前的时间
-            SimpleDateFormat formatter    =   new    SimpleDateFormat    ("yyyy年MM月dd日 HH:mm:ss     ");
+            SimpleDateFormat formatter   =   new    SimpleDateFormat    ("yyyy-MM-dd HH:mm:ss     ");
             Date curDate    =   new    Date(System.currentTimeMillis());
             String    str    =    formatter.format(curDate);
 
@@ -108,6 +114,15 @@ public class LoginActivity extends Activity implements OnClickListener {
         }
 
     }
+    public static boolean isMobileNO(String mobiles){
 
+        String regExp = "^[1][0-9]{10}$";
+
+       Pattern p = Pattern.compile(regExp);
+
+        Matcher m = p.matcher(mobiles);
+
+        return m.matches();
+    }
 }
 

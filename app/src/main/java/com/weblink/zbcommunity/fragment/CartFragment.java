@@ -51,7 +51,6 @@ public class CartFragment extends Fragment implements View.OnClickListener
 
     private CheckBox mCheckAll; // 全选 全不选
 
-
     private TextView mEdit; // 切换到删除模式
 
     private TextView mPriceAll; // 商品总价
@@ -85,7 +84,6 @@ public class CartFragment extends Fragment implements View.OnClickListener
         loadData();
         return contentView;
     }
-
 
     private void doDelete(List<Integer> ids) {
         for (int i = 0; i < mListData.size(); i++) {

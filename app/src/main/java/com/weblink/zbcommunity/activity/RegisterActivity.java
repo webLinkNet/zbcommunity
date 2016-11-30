@@ -92,6 +92,10 @@ public class RegisterActivity extends Activity implements OnClickListener {
 				Toast.makeText(RegisterActivity.this, "手机号格式不正确", Toast.LENGTH_SHORT).show();
 				return;
 			}
+			if(LoginActivity.isMobileNO(phone)==false){
+				Toast.makeText(RegisterActivity.this, "手机号格式不正确", Toast.LENGTH_SHORT).show();
+				return;
+			}
 			if (yanzheng == null || "".equals(yanzheng.trim())) {
 
 				Toast.makeText(RegisterActivity.this, "验证码不能为空", Toast.LENGTH_SHORT).show();
