@@ -1,16 +1,17 @@
 package com.weblink.zbcommunity.activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Handler;
 import android.view.KeyEvent;
 import android.view.WindowManager;
 import android.view.animation.AlphaAnimation;
 import android.widget.LinearLayout;
 
-import com.weblink.zbcommunity.widget.Constants;
 import com.weblink.zbcommunity.R;
 import com.weblink.zbcommunity.utils.LocationService;
 import com.weblink.zbcommunity.utils.PrefUtils;
+import com.weblink.zbcommunity.widget.Constants;
 
 import butterknife.BindView;
 
@@ -35,6 +36,13 @@ public class SplashActivity extends BaseActivity {
 
         setContentView(R.layout.activity_splash);
         startService(new Intent(SplashActivity.this, LocationService.class));
+
+        //是否登录
+        SharedPreferences settings = getSharedPreferences("checklogin",0);
+        SharedPreferences.Editor editor = settings.edit();
+        editor.putString("checklogin","0");
+        editor.commit();
+
     }
 
     @Override

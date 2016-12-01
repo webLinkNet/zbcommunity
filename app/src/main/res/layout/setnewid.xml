@@ -26,6 +26,7 @@
             android:layout_below="@+id/blank">
 
             <EditText
+                android:layout_marginRight="15dp"
                 android:drawableLeft="@drawable/phone"
                 android:id="@+id/registe_phone"
                 android:layout_width="match_parent"
@@ -46,6 +47,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
         <EditText
+            android:layout_marginRight="15dp"
             android:drawableLeft="@drawable/yanzhengma"
             android:id="@+id/registe_authcode"
             android:layout_width="match_parent"
@@ -56,6 +58,7 @@
             android:textColor="@android:color/black"
             android:textSize="14sp" />
     <Button
+        android:layout_marginRight="20dp"
         android:layout_marginTop="30sp"
         android:background="@drawable/selector_order"
         android:id="@+id/authcode"
@@ -67,6 +70,7 @@
     </RelativeLayout>
 
         <EditText
+            android:layout_marginRight="15dp"
             android:drawableLeft="@drawable/pwd"
             android:id="@+id/registe_passw"
             android:layout_width="match_parent"
@@ -79,6 +83,7 @@
             android:textSize="14sp" />
 
         <EditText
+            android:layout_marginRight="15dp"
             android:drawableLeft="@drawable/pwdag"
             android:id="@+id/registe_passwagain"
             android:layout_width="match_parent"
@@ -91,6 +96,8 @@
             android:textSize="14sp" />
 
         <Button
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
             android:background="@drawable/selector_order_red"
             android:id="@+id/setnew"
             android:textSize="18sp"
