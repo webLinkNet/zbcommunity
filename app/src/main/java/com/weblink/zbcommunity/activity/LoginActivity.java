@@ -2,6 +2,7 @@ package com.weblink.zbcommunity.activity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -108,7 +109,11 @@ public class LoginActivity extends Activity implements OnClickListener {
             String    str    =    formatter.format(curDate);
 
             Intent intentmine = new Intent(LoginActivity.this, MainActivity.class);
-           startActivity(intentmine);
+            SharedPreferences settings = getSharedPreferences("checklogin",0);
+            SharedPreferences.Editor editor = settings.edit();
+            editor.putString("checklogin","1");
+            editor.commit();
+            startActivity(intentmine);
 
 
         }

@@ -2,14 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.weblink.zbcommunity">
-
     <!-- AndroidImageSlide权限-->
     <!-- if you want to load images from the internet -->
     <uses-permission android:name="android.permission.INTERNET" />
-
     <!-- if you want to load images from a file OR from the internet -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
     <!-- 高德地图 -->
 
     <!--用于进行网络定位-->
@@ -31,13 +28,10 @@
     <!--用于申请调用A-GPS模块-->
     <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"></uses-permission>
     <!-- SD卡读取权限，用户写入离线定位数据-->
-
     <!--相机权限 -->
     <uses-permission android:name="android.hardware.camera"></uses-permission>
     <uses-permission android:name="android.hardware.autofocus"></uses-permission>
     <uses-permission android:name="android.permission.CALL_PHONE" />
-
-
     <!--  sharesdk 分享-->
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
@@ -52,11 +46,6 @@
     <!-- 百度支付额外需要的权限 -->
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.READ_SMS" />
-
-
-
-
-
     <!--android:theme="@android:style/Theme.Holo.Light.NoActionBar"-->
     <application
         android:name=".ZBApplication"
@@ -66,7 +55,6 @@
         android:supportsRtl="true"
         android:theme="@android:style/Theme.Holo.Light.NoActionBar"
         tools:replace="android:icon, android:theme">
-
         <service android:name=".utils.LocationService">
             <intent-filter>
                 <action android:name="com.test.SERVICE_TEST" />

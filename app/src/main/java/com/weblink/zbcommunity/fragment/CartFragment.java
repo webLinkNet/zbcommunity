@@ -19,7 +19,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.weblink.zbcommunity.R;
-import com.weblink.zbcommunity.activity.ChooseAdressActivity;
+import com.weblink.zbcommunity.adapter.ChooseadressAdpter;
 import com.weblink.zbcommunity.bean.CartBean;
 
 import java.text.DecimalFormat;
@@ -460,7 +460,8 @@ public class CartFragment extends Fragment implements View.OnClickListener
                             .show();
                 } else {
                     //跳转到订单界面
-                    Intent intentadress = new Intent(getContext(), ChooseAdressActivity.class);
+                    Intent intentadress = new Intent(getContext(), ChooseadressAdpter.class);
+                    intentadress.putExtra("orderkind","1");
                     getContext().startActivity(intentadress);
                 }
 

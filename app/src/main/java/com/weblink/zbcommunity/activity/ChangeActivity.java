@@ -69,6 +69,10 @@ public class ChangeActivity extends Activity implements OnClickListener{
                 Toast.makeText(ChangeActivity.this, "手机号格式不正确", Toast.LENGTH_SHORT).show();
                 return;
             }
+            if(LoginActivity.isMobileNO(phone)==false){
+                Toast.makeText(ChangeActivity.this, "手机号格式不正确", Toast.LENGTH_SHORT).show();
+                return;
+            }
         }
         //注册
         if (v == change) {
