@@ -180,6 +180,8 @@
     <color name="gray_divide_view">#f3f3f3</color><!--间隔背景色 -->
     <color name="gray_divide_line">#cccccc</color><!--间隔线颜色 -->
 
+    <color name="service_background">#D2D2D2</color><!--间隔背景颜色 -->
+
 
 
 </resources>

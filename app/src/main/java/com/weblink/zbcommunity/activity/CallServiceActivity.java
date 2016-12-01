@@ -116,7 +116,8 @@ public class CallServiceActivity extends BaseActivity implements View.OnClickLis
                 ToastUtils.showToast(CallServiceActivity.this, adapter.getItem(position).getName());
 
 
-                Intent it = new Intent(CallServiceActivity.this, ChannelActivity.class);
+//                Intent it = new Intent(CallServiceActivity.this, ChannelActivity.class);
+                Intent it = new Intent(CallServiceActivity.this, RepairServiceActivity.class);
 
                 it.putExtra("channelName", adapter.getItem(position).getName());
                 startActivity(it);

@@ -47,14 +47,11 @@
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
 
     <!-- 通用权限 -->
-    <uses-permission android:name="android.permission.NFC"/>
+    <uses-permission android:name="android.permission.NFC" />
 
     <!-- 百度支付额外需要的权限 -->
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.READ_SMS" />
-
-
-
 
 
     <!--android:theme="@android:style/Theme.Holo.Light.NoActionBar"-->
@@ -67,6 +64,8 @@
         android:theme="@android:style/Theme.Holo.Light.NoActionBar"
         tools:replace="android:icon, android:theme">
 
+
+        <!-- 定位 -->
         <service android:name=".utils.LocationService">
             <intent-filter>
                 <action android:name="com.test.SERVICE_TEST" />
@@ -74,128 +73,12 @@
             </intent-filter>
         </service>
 
-
+        <!-- 高德地图 -->
         <meta-data
             android:name="com.amap.api.v2.apikey"
             android:value="70562b5a2e655e067557ee407038a700" />
 
         <service android:name="com.amap.api.location.APSService"></service>
-
-
-
-        <!--  分享 -->
-        <activity
-            android:name="com.mob.tools.MobUIShell"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustResize" >
-
-            <intent-filter>
-                <data android:scheme="tencent100371282" />
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.BROWSABLE" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-
-            <!-- 调用新浪原生SDK，需要注册的回调activity -->
-            <intent-filter>
-                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-
-        <!--微信分享回调 -->
-        <activity
-            android:name=".wxapi.WXEntryActivity"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:exported="true"
-            android:screenOrientation="portrait" />
-
-
-        <!-- 支付宝分享回调 -->
-        <activity
-            android:name=".apshare.ShareEntryActivity"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:exported="true"/>
-
-
-
-
-
-        <activity android:name=".activity.SplashActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
-
-
-        <!-- 主界面-->
-        <activity android:name=".activity.MainActivity" />
-        <!-- 登录-->
-        <activity android:name=".activity.LoginActivity" />
-        <!-- 修改密码-->
-        <activity android:name=".activity.ChangeActivity" />
-        <!-- 用户信息-->
-        <activity android:name=".activity.MuserinforActivity" />
-        <!-- 我的优惠券-->
-        <activity android:name=".activity.MinecoActivity" />
-        <!-- 帮助与反馈-->
-        <activity android:name=".activity.MinehelpActivity" />
-        <!-- 订单-->
-        <activity android:name=".activity.MyorderActivity" />
-        <!-- 评价-->
-        <activity android:name=".activity.EvaluateActivity" />
-        <!-- 注册-->
-        <activity android:name=".activity.RegisterActivity" />
-        <!-- 引导页-->
-        <activity android:name=".activity.GuideActivity" />
-        <!-- 选择位置-->
-        <activity android:name=".activity.SelectLocActivity" />
-        <!-- 商品超市-->
-        <activity android:name=".activity.CommkindActivity" />
-        <!-- 常见问题-->
-        <activity android:name=".activity.MinehelpxxActivity" />
-        <!-- 订单商品清单-->
-        <activity android:name=".activity.MineThingList" />
-        <!-- 订单详情-->
-        <activity android:name=".activity.OrderDetailActivity" />
-        <!-- 选择收货地址-->
-        <activity android:name=".activity.ChooseAdressActivity" />
-        <!-- 新增编辑收货地址-->
-        <activity android:name=".activity.EditAdressActivity" />
-        <!-- 搜索商品-->
-        <activity
-            android:name=".activity.SearchActivity"
-            android:launchMode="singleTask" />
-        <!-- 搜索结果-->
-        <activity android:name=".activity.SearchResultActivity" />
-        <!-- 频道页面-->
-        <activity android:name=".activity.ChannelActivity" />
-        <!-- 商铺-->
-        <activity android:name=".activity.StoreDetailsActivity" />
-        <!-- 上门服务-->
-        <activity android:name=".activity.CallServiceActivity" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
         <!-- Ping++ SDK -->
@@ -216,14 +99,12 @@
             android:name="com.alipay.sdk.app.H5PayActivity"
             android:configChanges="orientation|keyboardHidden|navigation|screenSize"
             android:exported="false"
-            android:screenOrientation="behind" >
-        </activity>
+            android:screenOrientation="behind"></activity>
         <activity
             android:name="com.alipay.sdk.auth.AuthActivity"
             android:configChanges="orientation|keyboardHidden|navigation|screenSize"
             android:exported="false"
-            android:screenOrientation="behind" >
-        </activity>
+            android:screenOrientation="behind"></activity>
 
         <!-- 银联支付 sdk -->
         <activity
@@ -372,18 +253,115 @@
             android:windowSoftInputMode="stateHidden" />
 
 
-
         <!-- 壹收款 -->
         <activity
             android:name="com.pingplusplus.libone.PayActivity"
             android:configChanges="orientation|screenSize"
-            android:theme="@android:style/Theme.Translucent"
-            android:label="@string/pingpp_title_activity_pay"/>
+            android:label="@string/pingpp_title_activity_pay"
+            android:theme="@android:style/Theme.Translucent" />
         <activity
             android:name="com.pingplusplus.libone.PaySuccessActivity"
             android:configChanges="orientation|screenSize"
-            android:label="@string/pingpp_title_activity_pay_sucessed"/>
+            android:label="@string/pingpp_title_activity_pay_sucessed" />
 
+
+        <!--  分享 -->
+        <activity
+            android:name="com.mob.tools.MobUIShell"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+
+            <intent-filter>
+                <data android:scheme="tencent100371282" />
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+            <!-- 调用新浪原生SDK，需要注册的回调activity -->
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!--微信分享回调 -->
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+
+        <!-- 支付宝分享回调 -->
+        <activity
+            android:name=".apshare.ShareEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+
+        <activity android:name=".activity.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+
+        <!-- 主界面-->
+        <activity android:name=".activity.MainActivity" />
+        <!-- 登录-->
+        <activity android:name=".activity.LoginActivity" />
+        <!-- 修改密码-->
+        <activity android:name=".activity.ChangeActivity" />
+        <!-- 用户信息-->
+        <activity android:name=".activity.MuserinforActivity" />
+        <!-- 我的优惠券-->
+        <activity android:name=".activity.MinecoActivity" />
+        <!-- 帮助与反馈-->
+        <activity android:name=".activity.MinehelpActivity" />
+        <!-- 订单-->
+        <activity android:name=".activity.MyorderActivity" />
+        <!-- 评价-->
+        <activity android:name=".activity.EvaluateActivity" />
+        <!-- 注册-->
+        <activity android:name=".activity.RegisterActivity" />
+        <!-- 引导页-->
+        <activity android:name=".activity.GuideActivity" />
+        <!-- 选择位置-->
+        <activity android:name=".activity.SelectLocActivity" />
+        <!-- 商品超市-->
+        <activity android:name=".activity.CommkindActivity" />
+        <!-- 常见问题-->
+        <activity android:name=".activity.MinehelpxxActivity" />
+        <!-- 订单商品清单-->
+        <activity android:name=".activity.MineThingList" />
+        <!-- 订单详情-->
+        <activity android:name=".activity.OrderDetailActivity" />
+        <!-- 选择收货地址-->
+        <activity android:name=".activity.ChooseAdressActivity" />
+        <!-- 新增编辑收货地址-->
+        <activity android:name=".activity.EditAdressActivity" />
+        <!-- 搜索商品-->
+        <activity
+            android:name=".activity.SearchActivity"
+            android:launchMode="singleTask" />
+        <!-- 搜索结果-->
+        <activity android:name=".activity.SearchResultActivity" />
+        <!-- 频道页面-->
+        <activity android:name=".activity.ChannelActivity" />
+        <!-- 商铺-->
+        <activity android:name=".activity.StoreDetailsActivity" />
+        <!-- 上门服务-->
+        <activity android:name=".activity.CallServiceActivity" />
+        <!-- 维修服务-->
+        <activity android:name=".activity.RepairServiceActivity" />
 
 
     </application>
